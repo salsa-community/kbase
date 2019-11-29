@@ -1,27 +1,38 @@
 
 entity Error {
-	clave String,
-    desc String,
-    links String
+    clave String required,
+    desc String required
 }
 
-entity Instrucciones {
-    desc String,
-    pasos String
+entity Instruccion {
+    desc String
+}
+
+entity Link {
+    url String required
+}
+
+entity Paso {
+    paso Integer,
+    desc String
+}
+
+entity Usuario {
+    nombre String,
+    primerApellido String,
+    segundoApellido String,
+    rfc String
 }
 
 relationship OneToOne {
-	Error{instrucciones} to Instrucciones
+    Error{instruccion} to Instruccion
 }
 
-// Set pagination options
-paginate Instrucciones, Error with pagination
+relationship OneToMany{
+    Error{links} to Link , 
+    Instruccion{pasos} to Paso
+}
 
-// Use Data Transfert Objects (DTO)
+paginate all with pagination
 dto * with mapstruct
-
-// Set service options to all except few
 service all with serviceImpl
-
-// Set an angular suffix
-// angularSuffix * with mySuffix
