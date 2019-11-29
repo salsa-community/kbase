@@ -11,5 +11,4 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {InstruccionMapper.class})
 public interface MensajeErrorMapper extends EntityMapper<MensajeErrorDTO, MensajeError> {
 
-
 }

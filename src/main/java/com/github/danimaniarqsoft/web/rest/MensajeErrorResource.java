@@ -1,5 +1,6 @@
 package com.github.danimaniarqsoft.web.rest;
 
+import com.github.danimaniarqsoft.domain.MensajeError;
 import com.github.danimaniarqsoft.service.MensajeErrorService;
 import com.github.danimaniarqsoft.web.rest.errors.BadRequestAlertException;
 import com.github.danimaniarqsoft.service.dto.MensajeErrorDTO;
@@ -13,7 +14,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -94,9 +94,9 @@ public class MensajeErrorResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of mensajeErrors in body.
      */
     @GetMapping("/mensaje-errors")
-    public ResponseEntity<List<MensajeErrorDTO>> getAllMensajeErrors(Pageable pageable) {
+    public ResponseEntity<List<MensajeError>> getAllMensajeErrors(Pageable pageable) {
         log.debug("REST request to get a page of MensajeErrors");
-        Page<MensajeErrorDTO> page = mensajeErrorService.findAll(pageable);
+        Page<MensajeError> page = mensajeErrorService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

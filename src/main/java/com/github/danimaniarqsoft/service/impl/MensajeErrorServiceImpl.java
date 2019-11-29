@@ -52,10 +52,9 @@ public class MensajeErrorServiceImpl implements MensajeErrorService {
      * @return the list of entities.
      */
     @Override
-    public Page<MensajeErrorDTO> findAll(Pageable pageable) {
+    public Page<MensajeError> findAll(Pageable pageable) {
         log.debug("Request to get all MensajeErrors");
-        return mensajeErrorRepository.findAll(pageable)
-            .map(mensajeErrorMapper::toDto);
+        return mensajeErrorRepository.findAll(pageable);
     }
 
 

@@ -1,5 +1,6 @@
 package com.github.danimaniarqsoft.service;
 
+import com.github.danimaniarqsoft.domain.MensajeError;
 import com.github.danimaniarqsoft.service.dto.MensajeErrorDTO;
 
 import org.springframework.data.domain.Page;
@@ -26,7 +27,7 @@ public interface MensajeErrorService {
      * @param pageable the pagination information.
      * @return the list of entities.
      */
-    Page<MensajeErrorDTO> findAll(Pageable pageable);
+    Page<MensajeError> findAll(Pageable pageable);
 
 
     /**
