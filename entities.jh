@@ -1,5 +1,5 @@
 
-entity Error {
+entity MensajeError {
     clave String required,
     desc String required
 }
@@ -25,11 +25,11 @@ entity Usuario {
 }
 
 relationship OneToOne {
-    Error{instruccion} to Instruccion
+    MensajeError{instruccion} to Instruccion
 }
 
 relationship OneToMany{
-    Error{links} to Link , 
+    MensajeError{links} to Link , 
     Instruccion{pasos} to Paso
 }
 
