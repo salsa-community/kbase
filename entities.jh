@@ -1,0 +1,27 @@
+
+entity Error {
+	clave String,
+    desc String,
+    links String
+}
+
+entity Instrucciones {
+    desc String,
+    pasos String
+}
+
+relationship OneToOne {
+	Error{instrucciones} to Instrucciones
+}
+
+// Set pagination options
+paginate Instrucciones, Error with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
