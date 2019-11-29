@@ -27,7 +27,7 @@ public class MensajeError implements Serializable {
     @Field("desc")
     private String desc;
 
-    @Field("instruccion")
+    @Field("instrucciones")
     private Instruccion instruccion;
 
     @Field("links")
