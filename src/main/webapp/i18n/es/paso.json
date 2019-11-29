@@ -1,0 +1,24 @@
+{
+  "kbaseApp": {
+    "paso": {
+      "home": {
+        "title": "Pasos",
+        "createLabel": "Crear nuevo Paso",
+        "createOrEditLabel": "Crear o editar Paso",
+        "notFound": "Ningún Pasos encontrado"
+      },
+      "created": "Un nuevo Paso ha sido creado con el identificador {{ param }}",
+      "updated": "Un Paso ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Paso ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Paso {{ id }}?"
+      },
+      "detail": {
+        "title": "Paso"
+      },
+      "paso": "Paso",
+      "desc": "Desc",
+      "instruccion": "Instruccion"
+    }
+  }
+}

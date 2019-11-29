@@ -1,0 +1,25 @@
+{
+  "kbaseApp": {
+    "mensajeError": {
+      "home": {
+        "title": "Mensaje Errors",
+        "createLabel": "Crear nuevo Mensaje Error",
+        "createOrEditLabel": "Crear o editar Mensaje Error",
+        "notFound": "Ningún Mensaje Errors encontrado"
+      },
+      "created": "Un nuevo Mensaje Error ha sido creado con el identificador {{ param }}",
+      "updated": "Un Mensaje Error ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Mensaje Error ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Mensaje Error {{ id }}?"
+      },
+      "detail": {
+        "title": "Mensaje Error"
+      },
+      "clave": "Clave",
+      "desc": "Desc",
+      "instruccion": "Instruccion",
+      "links": "Links"
+    }
+  }
+}

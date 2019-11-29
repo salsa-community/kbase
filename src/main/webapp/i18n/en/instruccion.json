@@ -1,0 +1,23 @@
+{
+  "kbaseApp": {
+    "instruccion": {
+      "home": {
+        "title": "Instruccions",
+        "createLabel": "Create a new Instruccion",
+        "createOrEditLabel": "Create or edit a Instruccion",
+        "notFound": "No Instruccions found"
+      },
+      "created": "A new Instruccion is created with identifier {{ param }}",
+      "updated": "A Instruccion is updated with identifier {{ param }}",
+      "deleted": "A Instruccion is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Instruccion {{ id }}?"
+      },
+      "detail": {
+        "title": "Instruccion"
+      },
+      "desc": "Desc",
+      "pasos": "Pasos"
+    }
+  }
+}

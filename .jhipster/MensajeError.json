@@ -1,0 +1,45 @@
+{
+    "name": "MensajeError",
+    "fields": [
+        {
+            "fieldName": "clave",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "desc",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "instruccion",
+            "otherEntityRelationshipName": "mensajeError",
+            "relationshipName": "instruccion",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "link",
+            "otherEntityRelationshipName": "mensajeError",
+            "relationshipName": "links"
+        }
+    ],
+    "changelogDate": "20191129061733",
+    "entityTableName": "mensaje_error",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

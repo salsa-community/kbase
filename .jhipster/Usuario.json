@@ -1,0 +1,32 @@
+{
+    "name": "Usuario",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "primerApellido",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "segundoApellido",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rfc",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191129061737",
+    "entityTableName": "usuario",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

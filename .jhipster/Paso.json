@@ -1,0 +1,32 @@
+{
+    "name": "Paso",
+    "fields": [
+        {
+            "fieldName": "paso",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "desc",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "instruccion",
+            "otherEntityRelationshipName": "pasos",
+            "relationshipName": "instruccion",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191129061736",
+    "entityTableName": "paso",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
