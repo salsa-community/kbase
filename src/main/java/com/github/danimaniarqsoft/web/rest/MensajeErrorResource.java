@@ -108,9 +108,9 @@ public class MensajeErrorResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the mensajeErrorDTO, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/mensaje-errors/{id}")
-    public ResponseEntity<MensajeErrorDTO> getMensajeError(@PathVariable String id) {
+    public ResponseEntity<MensajeError> getMensajeError(@PathVariable String id) {
         log.debug("REST request to get MensajeError : {}", id);
-        Optional<MensajeErrorDTO> mensajeErrorDTO = mensajeErrorService.findOne(id);
+        Optional<MensajeError> mensajeErrorDTO = mensajeErrorService.findOne(id);
         return ResponseUtil.wrapOrNotFound(mensajeErrorDTO);
     }
 

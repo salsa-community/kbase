@@ -36,7 +36,7 @@ public interface MensajeErrorService {
      * @param id the id of the entity.
      * @return the entity.
      */
-    Optional<MensajeErrorDTO> findOne(String id);
+    Optional<MensajeError> findOne(String id);
 
     /**
      * Delete the "id" mensajeError.

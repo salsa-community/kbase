@@ -36,6 +36,14 @@
                             <option v-bind:value="instruccionOption.id" v-for="instruccionOption in instruccions" :key="instruccionOption.id">{{instruccionOption.id}}</option>
                         </select>
                     </div>
+
+                    <draggable v-model="mensajeError.instruccion.pasos">
+                        <transition-group>
+                        <div v-for="step in mensajeError.instruccion.pasos" :key="step.paso">
+                            {{step.desc}}
+                        </div>
+                        </transition-group>
+                </draggable>
                 </div>
                 <div>
                     <button type="button" id="cancel-save" class="btn btn-secondary" v-on:click="previousState()">

@@ -65,10 +65,9 @@ public class MensajeErrorServiceImpl implements MensajeErrorService {
      * @return the entity.
      */
     @Override
-    public Optional<MensajeErrorDTO> findOne(String id) {
+    public Optional<MensajeError> findOne(String id) {
         log.debug("Request to get MensajeError : {}", id);
-        return mensajeErrorRepository.findById(id)
-            .map(mensajeErrorMapper::toDto);
+        return mensajeErrorRepository.findById(id);
     }
 
     /**
