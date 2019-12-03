@@ -19,7 +19,8 @@
       "clave": "Clave",
       "desc": "Desc",
       "instruccion": "Instruccion",
-      "links": "Links"
+      "links": "Links",
+      "pasos": "Pasos"
     }
   }
 }

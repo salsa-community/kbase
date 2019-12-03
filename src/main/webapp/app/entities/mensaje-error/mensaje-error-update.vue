@@ -4,15 +4,13 @@
             <form name="editForm" role="form" novalidate v-on:submit.prevent="save()" >
                 <h2 id="kbaseApp.mensajeError.home.createOrEditLabel" v-text="$t('kbaseApp.mensajeError.home.createOrEditLabel')">Create or edit a MensajeError</h2>
                 <div>
-                    <div class="form-group" v-if="mensajeError.id">
-                        <label for="id" v-text="$t('global.field.id')">ID</label>
-                        <input type="text" class="form-control" id="id" name="id"
-                               v-model="mensajeError.id" readonly />
-                    </div>
                     <div class="form-group">
                         <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.clave')" for="mensaje-error-clave">Clave</label>
-                        <input type="text" class="form-control" name="clave" id="mensaje-error-clave"
-                            :class="{'valid': !$v.mensajeError.clave.$invalid, 'invalid': $v.mensajeError.clave.$invalid }" v-model="$v.mensajeError.clave.$model"  required/>
+                        <b-form-input 
+                            name="clave" 
+                            id="mensaje-error-clave" 
+                            :state="!$v.mensajeError.clave.$invalid" 
+                            placeholder="Valid input" v-model="$v.mensajeError.clave.$model"></b-form-input>
                         <div v-if="$v.mensajeError.clave.$anyDirty && $v.mensajeError.clave.$invalid">
                             <small class="form-text text-danger" v-if="!$v.mensajeError.clave.required" v-text="$t('entity.validation.required')">
                                 This field is required.
@@ -21,29 +19,28 @@
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.desc')" for="mensaje-error-desc">Desc</label>
-                        <input type="text" class="form-control" name="desc" id="mensaje-error-desc"
-                            :class="{'valid': !$v.mensajeError.desc.$invalid, 'invalid': $v.mensajeError.desc.$invalid }" v-model="$v.mensajeError.desc.$model"  required/>
+                        <b-form-textarea 
+                            :state="!$v.mensajeError.desc.$invalid"
+                            name="desc" 
+                            class="form-control" 
+                            id="mensaje-error-desc" 
+                            v-model="$v.mensajeError.desc.$model">
+                        </b-form-textarea>
                         <div v-if="$v.mensajeError.desc.$anyDirty && $v.mensajeError.desc.$invalid">
                             <small class="form-text text-danger" v-if="!$v.mensajeError.desc.required" v-text="$t('entity.validation.required')">
                                 This field is required.
                             </small>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.instruccion')" for="mensaje-error-instruccion">Instruccion</label>
-                        <select class="form-control" id="mensaje-error-instruccion" name="instruccion" v-model="mensajeError.instruccionId">
-                            <option v-bind:value="null"></option>
-                            <option v-bind:value="instruccionOption.id" v-for="instruccionOption in instruccions" :key="instruccionOption.id">{{instruccionOption.id}}</option>
-                        </select>
-                    </div>
 
-                    <draggable v-model="mensajeError.instruccion.pasos">
-                        <transition-group>
-                        <div v-for="step in mensajeError.instruccion.pasos" :key="step.paso">
-                            {{step.desc}}
-                        </div>
-                        </transition-group>
-                </draggable>
+                    <div class="form-group">
+                        <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.pasos')" for="mensaje-error-pasos">Pasos</label>
+                        <draggable v-if="mensajeError.instruccion" v-model="mensajeError.instruccion.pasos" group="people" @start="drag=true" @end="drag=false">
+                            <div class="list-group-item list-group-item-info" v-for="step in mensajeError.instruccion.pasos" :key="step.paso">
+                                {{step.desc}}
+                            </div>  
+                        </draggable>
+                    </div>
                 </div>
                 <div>
                     <button type="button" id="cancel-save" class="btn btn-secondary" v-on:click="previousState()">

@@ -20,6 +20,7 @@ import { BLink } from 'bootstrap-vue';
 import { BAlert } from 'bootstrap-vue';
 import { BModal } from 'bootstrap-vue';
 import { VBModal } from 'bootstrap-vue';
+import { BFormTextarea } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
   vue.component('b-badge', BBadge);
@@ -43,5 +44,6 @@ export function initBootstrapVue(vue) {
   vue.component('b-collapse', BCollapse);
   vue.component('b-nav-item', BNavItem);
   vue.component('b-nav-item-dropdown', BNavItemDropdown);
+  vue.component('b-form-textarea', BFormTextarea);
   vue.directive('b-modal', VBModal);
 }
