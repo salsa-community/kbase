@@ -32,14 +32,37 @@
                             </small>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.pasos')" for="mensaje-error-pasos">Pasos</label>
-                        <draggable v-if="mensajeError.instruccion" v-model="mensajeError.instruccion.pasos" group="people" @start="drag=true" @end="drag=false">
-                            <div class="list-group-item list-group-item-info" v-for="step in mensajeError.instruccion.pasos" :key="step.paso">
-                                {{step.desc}}
-                            </div>  
-                        </draggable>
+                        <div class="table-responsive">
+                            <router-link slot="header" :to="{name: 'MensajeErrorCreate'}" tag="button" id="jh-create-entity" class="btn btn-primary float-left jh-create-entity create-mensaje-error">
+                                <font-awesome-icon icon="plus"></font-awesome-icon>
+                                <span >
+                                    Crear nuevo Paso
+                                </span>
+                            </router-link>
+                            <table class="table">
+                                <draggable v-if="mensajeError.instruccion" v-model="mensajeError.instruccion.pasos" group="people" @start="drag=true" @end="drag=false">
+                                    <tr v-for="step in mensajeError.instruccion.pasos" :key="step.paso">
+                                        <td>{{step.paso}}</td>
+                                        <td>{{step.desc}}</td>
+                                        <td class="text-right">
+                                            <div class="btn-group">
+                                                <router-link :to="{name: 'MensajeErrorEdit', params: {mensajeErrorId: mensajeError.id}}"  tag="button" class="btn btn-primary btn-sm edit">
+                                                    <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
+                                                </router-link>
+                                                <b-button v-on:click="prepareRemove(mensajeError)"
+                                                    variant="danger"
+                                                    class="btn btn-sm"
+                                                    v-b-modal.removeEntity>
+                                                    <font-awesome-icon icon="times"></font-awesome-icon>
+                                                </b-button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </draggable>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <div>
