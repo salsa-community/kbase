@@ -7,6 +7,7 @@ import { IInstruccion } from '@/shared/model/instruccion.model';
 
 import LinkService from '../link/link.service';
 import { ILink } from '@/shared/model/link.model';
+import { IPaso, Paso } from '@/shared/model/paso.model';
 
 import AlertService from '@/shared/alert/alert.service';
 import { IMensajeError, MensajeError } from '@/shared/model/mensaje-error.model';
@@ -29,7 +30,7 @@ const validations: any = {
 export default class MensajeErrorUpdate extends Vue {
   @Inject('alertService') private alertService: () => AlertService;
   @Inject('mensajeErrorService') private mensajeErrorService: () => MensajeErrorService;
-  public mensajeError: IMensajeError = new MensajeError();
+  public mensajeError: any = new MensajeError();
 
   @Inject('instruccionService') private instruccionService: () => InstruccionService;
 
@@ -39,6 +40,8 @@ export default class MensajeErrorUpdate extends Vue {
 
   public links: ILink[] = [];
   public isSaving = false;
+  public stepId = null;
+  public newStep = null;
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -84,16 +87,31 @@ export default class MensajeErrorUpdate extends Vue {
     this.$router.go(-1);
   }
 
-  public initRelationships(): void {
-    this.instruccionService()
-      .retrieve()
-      .then(res => {
-        this.instruccions = res.data;
-      });
-    this.linkService()
-      .retrieve()
-      .then(res => {
-        this.links = res.data;
-      });
+  public initRelationships(): void {}
+
+  public prepareRemove(step: IPaso): void {
+    this.stepId = step;
+  }
+
+  public prepareToSave(step: any): void {
+    this.newStep = step;
+  }
+
+  public removeStep(): void {
+    this.mensajeError.instruccion.pasos.splice(this.mensajeError.instruccion.pasos.indexOf(this.stepId), 1);
+    this.closeDialog();
+  }
+
+  public closeDialog(): void {
+    (<any>this.$refs.removeEntity).hide();
+  }
+
+  public saveStep(): void {
+    this.mensajeError.instruccion.pasos.splice(this.mensajeError.instruccion.pasos.indexOf(this.stepId), 1, this.newStep);
+    this.closeEditStepDialog();
+  }
+
+  public closeEditStepDialog(): void {
+    (<any>this.$refs.editStep).hide();
   }
 }
