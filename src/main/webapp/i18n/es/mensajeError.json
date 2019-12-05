@@ -17,7 +17,7 @@
         "title": "Mensaje Error"
       },
       "clave": "Clave",
-      "desc": "Desc",
+      "desc": "Descripción",
       "instruccion": "Instruccion",
       "links": "Links",
       "pasos": "Pasos"

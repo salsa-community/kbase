@@ -21,6 +21,11 @@ const validations: any = {
     desc: {
       required
     }
+  },
+  newStep: {
+    desc: {
+      required
+    }
   }
 };
 
@@ -41,7 +46,7 @@ export default class MensajeErrorUpdate extends Vue {
   public links: ILink[] = [];
   public isSaving = false;
   public stepId = null;
-  public newStep = null;
+  public newStep = new Paso();
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -94,7 +99,10 @@ export default class MensajeErrorUpdate extends Vue {
   }
 
   public prepareToSave(step: any): void {
-    this.newStep = step;
+    this.stepId = step;
+    this.newStep.paso = step.paso;
+    this.newStep.desc = step.desc;
+    (<any>this.$refs.editStep).show();
   }
 
   public removeStep(): void {
@@ -107,7 +115,10 @@ export default class MensajeErrorUpdate extends Vue {
   }
 
   public saveStep(): void {
-    this.mensajeError.instruccion.pasos.splice(this.mensajeError.instruccion.pasos.indexOf(this.stepId), 1, this.newStep);
+    var step = new Paso();
+    step.paso = this.newStep.paso;
+    step.desc = this.newStep.desc;
+    this.mensajeError.instruccion.pasos.splice(this.mensajeError.instruccion.pasos.indexOf(this.stepId), 1, step);
     this.closeEditStepDialog();
   }
 

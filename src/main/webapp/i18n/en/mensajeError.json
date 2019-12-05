@@ -16,9 +16,9 @@
       "detail": {
         "title": "Mensaje Error"
       },
-      "clave": "Clave",
-      "desc": "Desc",
-      "instruccion": "Instruccion",
+      "clave": "Key",
+      "desc": "Description",
+      "instruccion": "Instructions",
       "links": "Links",
       "pasos": "Steps"
     }

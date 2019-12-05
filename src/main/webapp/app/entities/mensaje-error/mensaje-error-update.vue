@@ -49,8 +49,7 @@
                                         <td class="text-right">
                                             <div class="btn-group">
                                                 <b-button v-on:click="prepareToSave(step)"
-                                                    variant="outline-primary"
-                                                    v-b-modal.editStep> 
+                                                    variant="outline-primary"> 
                                                     Editar
                                                 </b-button>
                                                 <b-button v-on:click="prepareRemove(step)"
@@ -87,29 +86,26 @@
                 <b-button variant="outline-danger" v-text="$t('entity.action.delete')" v-on:click="removeStep()">Danger</b-button>
             </div>
         </b-modal>
-        <b-modal v-if="newStep" ref="editStep" id="editStep" >
-            <span slot="modal-title"><span id="kbaseApp.mensajeError.delete.question" v-text="$t('entity.delete.title')">Confirm delete operation</span></span>
-            <div class="modal-body">
-                <p id="jhi-delete-mensajeError-heading" v-bind:title="$t('kbaseApp.mensajeError.delete.question')">Are you sure you want to delete this Mensaje Error?</p>
-            </div>
+        <b-modal ref="editStep" id="editStep" >
+            <span slot="modal-title"><span id="kbaseApp.mensajeError.delete.question">Editar Paso {{newStep.paso}}</span></span>
             <div class="form-group">
-                <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.desc')" for="mensaje-error-desc">Desc</label>
                 <b-form-textarea 
-                    :state="!$v.mensajeError.desc.$invalid"
+                    :state="!$v.newStep.desc.$invalid"
                     name="desc" 
+                    rows="8"
                     class="form-control" 
                     id="mensaje-error-desc" 
                     v-model="newStep.desc">
                 </b-form-textarea>
-                <div v-if="$v.mensajeError.desc.$anyDirty && $v.mensajeError.desc.$invalid">
-                    <small class="form-text text-danger" v-if="!$v.mensajeError.desc.required" v-text="$t('entity.validation.required')">
+                <div v-if="$v.newStep.desc.$anyDirty && $v.newStep.desc.$invalid">
+                    <small class="form-text text-danger" v-if="!$v.newStep.desc.required" v-text="$t('entity.validation.required')">
                         This field is required.
                     </small>
                 </div>
             </div>
             <div slot="modal-footer">
-                <b-button variant="outline-dark" v-text="$t('entity.action.cancel')" v-on:click="closeEditStepDialog()">Danger</b-button>
-                <b-button variant="outline-danger" v-text="$t('entity.action.delete')" v-on:click="saveStep()">Danger</b-button>
+                <b-button variant="outline-dark" v-text="$t('entity.action.cancel')" v-on:click="closeEditStepDialog()"></b-button>
+                <b-button :disabled="$v.newStep.desc.$invalid" variant="outline-primary" v-text="$t('entity.action.save')" v-on:click="saveStep()"></b-button>
             </div>
         </b-modal>
     </div>
