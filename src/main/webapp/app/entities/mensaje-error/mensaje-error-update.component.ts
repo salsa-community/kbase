@@ -107,6 +107,7 @@ export default class MensajeErrorUpdate extends Vue {
 
   public removeStep(): void {
     this.mensajeError.instruccion.pasos.splice(this.mensajeError.instruccion.pasos.indexOf(this.stepId), 1);
+    this.orderSteps();
     this.closeDialog();
   }
 
@@ -124,5 +125,16 @@ export default class MensajeErrorUpdate extends Vue {
 
   public closeEditStepDialog(): void {
     (<any>this.$refs.editStep).hide();
+  }
+
+  public closeAddStepDialog(): void {
+    (<any>this.$refs.addStep).hide();
+  }
+
+  public orderSteps(): void {
+    var count = 1;
+    this.mensajeError.instruccion.pasos.forEach(paso => {
+      paso.paso = count++;
+    });
   }
 }
