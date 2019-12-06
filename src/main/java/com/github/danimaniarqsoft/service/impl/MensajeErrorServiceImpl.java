@@ -38,11 +38,10 @@ public class MensajeErrorServiceImpl implements MensajeErrorService {
      * @return the persisted entity.
      */
     @Override
-    public MensajeErrorDTO save(MensajeErrorDTO mensajeErrorDTO) {
+    public MensajeErrorDTO save(MensajeError mensajeErrorDTO) {
         log.debug("Request to save MensajeError : {}", mensajeErrorDTO);
-        MensajeError mensajeError = mensajeErrorMapper.toEntity(mensajeErrorDTO);
-        mensajeError = mensajeErrorRepository.save(mensajeError);
-        return mensajeErrorMapper.toDto(mensajeError);
+        mensajeErrorDTO = mensajeErrorRepository.save(mensajeErrorDTO);
+        return mensajeErrorMapper.toDto(mensajeErrorDTO);
     }
 
     /**

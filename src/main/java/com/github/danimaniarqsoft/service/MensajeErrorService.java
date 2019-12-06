@@ -19,7 +19,7 @@ public interface MensajeErrorService {
      * @param mensajeErrorDTO the entity to save.
      * @return the persisted entity.
      */
-    MensajeErrorDTO save(MensajeErrorDTO mensajeErrorDTO);
+    MensajeErrorDTO save(MensajeError mensajeErrorDTO);
 
     /**
      * Get all the mensajeErrors.

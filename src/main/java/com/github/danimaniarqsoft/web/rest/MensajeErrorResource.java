@@ -53,7 +53,7 @@ public class MensajeErrorResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/mensaje-errors")
-    public ResponseEntity<MensajeErrorDTO> createMensajeError(@Valid @RequestBody MensajeErrorDTO mensajeErrorDTO) throws URISyntaxException {
+    public ResponseEntity<MensajeErrorDTO> createMensajeError(@Valid @RequestBody MensajeError mensajeErrorDTO) throws URISyntaxException {
         log.debug("REST request to save MensajeError : {}", mensajeErrorDTO);
         if (mensajeErrorDTO.getId() != null) {
             throw new BadRequestAlertException("A new mensajeError cannot already have an ID", ENTITY_NAME, "idexists");
@@ -74,7 +74,7 @@ public class MensajeErrorResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/mensaje-errors")
-    public ResponseEntity<MensajeErrorDTO> updateMensajeError(@Valid @RequestBody MensajeErrorDTO mensajeErrorDTO) throws URISyntaxException {
+    public ResponseEntity<MensajeErrorDTO> updateMensajeError(@Valid @RequestBody MensajeError mensajeErrorDTO) throws URISyntaxException {
         log.debug("REST request to update MensajeError : {}", mensajeErrorDTO);
         if (mensajeErrorDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

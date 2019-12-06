@@ -3,7 +3,7 @@ import { Component, Vue, Inject } from 'vue-property-decorator';
 import { numeric, required, minLength, maxLength } from 'vuelidate/lib/validators';
 
 import InstruccionService from '../instruccion/instruccion.service';
-import { IInstruccion } from '@/shared/model/instruccion.model';
+import { IInstruccion, Instruccion } from '@/shared/model/instruccion.model';
 
 import LinkService from '../link/link.service';
 import { ILink } from '@/shared/model/link.model';
@@ -80,12 +80,26 @@ export default class MensajeErrorUpdate extends Vue {
     }
   }
 
+  public initMensajeError() {
+    this.mensajeError.instruccion = new Instruccion();
+    this.mensajeError.instruccion.pasos = [];
+  }
+
   public retrieveMensajeError(mensajeErrorId): void {
     this.mensajeErrorService()
       .find(mensajeErrorId)
       .then(res => {
         this.mensajeError = res;
+        if (!this.mensajeError.instruccion) {
+          this.initMensajeError();
+        }
       });
+  }
+
+  public mounted(): void {
+    if (!this.mensajeError.instruccion) {
+      this.initMensajeError();
+    }
   }
 
   public previousState(): void {
@@ -105,6 +119,12 @@ export default class MensajeErrorUpdate extends Vue {
     (<any>this.$refs.editStep).show();
   }
 
+  public prepareToAddStep() {
+    this.newStep.paso = -1;
+    this.newStep.desc = '';
+    (<any>this.$refs.addStep).show();
+  }
+
   public removeStep(): void {
     this.mensajeError.instruccion.pasos.splice(this.mensajeError.instruccion.pasos.indexOf(this.stepId), 1);
     this.orderSteps();
@@ -121,6 +141,16 @@ export default class MensajeErrorUpdate extends Vue {
     step.desc = this.newStep.desc;
     this.mensajeError.instruccion.pasos.splice(this.mensajeError.instruccion.pasos.indexOf(this.stepId), 1, step);
     this.closeEditStepDialog();
+  }
+
+  public addStep(): void {
+    var step = new Paso();
+    step.paso = Infinity;
+    step.desc = this.newStep.desc;
+    this.mensajeError.instruccion.pasos.push(step);
+    this.orderSteps();
+    this.closeEditStepDialog();
+    this.closeAddStepDialog();
   }
 
   public closeEditStepDialog(): void {
