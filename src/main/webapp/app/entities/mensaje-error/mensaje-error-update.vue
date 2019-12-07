@@ -10,10 +10,19 @@
                             name="clave" 
                             id="mensaje-error-clave" 
                             :state="!$v.mensajeError.clave.$invalid" 
-                            placeholder="Valid input" v-model="$v.mensajeError.clave.$model"></b-form-input>
-                        <div v-if="$v.mensajeError.clave.$anyDirty && $v.mensajeError.clave.$invalid">
+                            :placeholder="$t('kbaseApp.mensajeError.detail.codigoPlaceHolder')" v-model.trim="$v.mensajeError.clave.$model"></b-form-input>
+                        <div v-if="$v.mensajeError.clave.$invalid">
                             <small class="form-text text-danger" v-if="!$v.mensajeError.clave.required" v-text="$t('entity.validation.required')">
                                 This field is required.
+                            </small>
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.clave.minLength">
+                                {{$t('entity.validation.minlength', { min: '4' })}}
+                            </small>
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.clave.maxLength">
+                                {{$t('entity.validation.maxlength', { max: '50' })}}
+                            </small>
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.clave.isUnique">
+                                el usuario ya existe
                             </small>
                         </div>
                     </div>
@@ -21,14 +30,22 @@
                         <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.desc')" for="mensaje-error-desc">Desc</label>
                         <b-form-textarea 
                             :state="!$v.mensajeError.desc.$invalid"
-                            name="desc" 
+                            name="desc"
+                            rows="5"
                             class="form-control" 
                             id="mensaje-error-desc" 
-                            v-model="$v.mensajeError.desc.$model">
+                            :placeholder="$t('kbaseApp.mensajeError.detail.descripcionPlaceHolder')"
+                            v-model.trim="$v.mensajeError.desc.$model">
                         </b-form-textarea>
-                        <div v-if="$v.mensajeError.desc.$anyDirty && $v.mensajeError.desc.$invalid">
+                        <div v-if="$v.mensajeError.desc.$invalid">
                             <small class="form-text text-danger" v-if="!$v.mensajeError.desc.required" v-text="$t('entity.validation.required')">
                                 This field is required.
+                            </small>
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.desc.minLength">
+                                {{$t('entity.validation.minlength', { min: '4' })}}
+                            </small>
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.desc.maxLength">
+                                {{$t('entity.validation.maxlength', { max: '250' })}}
                             </small>
                         </div>
                     </div>
@@ -39,29 +56,31 @@
                                     class="btn btn-sm"
                                     variant="primary">Agregar Paso</b-button>
                             <table class="table">
-                                <draggable v-if="mensajeError.instruccion" v-model="mensajeError.instruccion.pasos" 
-                                @change="orderSteps"
-                                @start="drag=true"
-                                @end="drag=false">
-                                    <tr v-for="step in mensajeError.instruccion.pasos" :key="step.paso">
-                                        <td><b>{{step.paso}}</b></td>
-                                        <td>{{step.desc}}</td>
-                                        <td class="text-right">
-                                            <div class="btn-group">
-                                                <b-button v-on:click="prepareToSave(step)"
-                                                    variant="outline-primary"> 
-                                                    Editar
-                                                </b-button>
-                                                <b-button v-on:click="prepareRemove(step)"
-                                                    variant="outline-danger"
-                                                    class="btn btn-sm"
-                                                    v-b-modal.removeEntity>
-                                                    Eliminar
-                                                </b-button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </draggable>
+                                <tbody>
+                                    <draggable v-if="mensajeError.instruccion" v-model.trim="mensajeError.instruccion.pasos" 
+                                    @change="orderSteps"
+                                    @start="drag=true"
+                                    @end="drag=false">
+                                        <tr v-for="step in mensajeError.instruccion.pasos" :key="step.paso">
+                                            <td><b>{{step.paso}}</b></td>
+                                            <td>{{step.desc}}</td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <b-button v-on:click="prepareToSave(step)"
+                                                        variant="outline-primary"> 
+                                                        Editar
+                                                    </b-button>
+                                                    <b-button v-on:click="prepareRemove(step)"
+                                                        variant="outline-danger"
+                                                        class="btn btn-sm"
+                                                        v-b-modal.removeEntity>
+                                                        Eliminar
+                                                    </b-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </draggable>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -82,14 +101,20 @@
                 <b-form-textarea 
                     :state="!$v.newStep.desc.$invalid"
                     name="desc" 
-                    rows="8"
-                    class="form-control" 
-                    id="mensaje-error-desc" 
-                    v-model="newStep.desc">
+                    rows="5"
+                    class="form-control"
+                    id="mensaje-error-desc"
+                    v-model.trim="newStep.desc">
                 </b-form-textarea>
-                <div v-if="$v.newStep.desc.$anyDirty && $v.newStep.desc.$invalid">
+                <div v-if="$v.newStep.desc.$invalid">
                     <small class="form-text text-danger" v-if="!$v.newStep.desc.required" v-text="$t('entity.validation.required')">
                         This field is required.
+                    </small>
+                    <small class="form-text text-danger" v-if="!$v.newStep.desc.minLength">
+                        {{$t('entity.validation.minlength', { min: '4' })}}
+                    </small>
+                    <small class="form-text text-danger" v-if="!$v.newStep.desc.maxLength">
+                        {{$t('entity.validation.maxlength', { max: '250' })}}
                     </small>
                 </div>
             </div>
@@ -104,14 +129,20 @@
                 <b-form-textarea 
                     :state="!$v.newStep.desc.$invalid"
                     name="desc" 
-                    rows="8"
+                    rows="5"
                     class="form-control" 
-                    id="mensaje-error-desc" 
-                    v-model="newStep.desc">
+                    id="mensaje-error-desc"
+                    v-model.trim="newStep.desc">
                 </b-form-textarea>
-                <div v-if="$v.newStep.desc.$anyDirty && $v.newStep.desc.$invalid">
+                <div v-if="$v.newStep.desc.$invalid">
                     <small class="form-text text-danger" v-if="!$v.newStep.desc.required" v-text="$t('entity.validation.required')">
                         This field is required.
+                    </small>
+                    <small class="form-text text-danger" v-if="!$v.newStep.desc.minLength">
+                        {{$t('entity.validation.minlength', { min: '4' })}}
+                    </small>
+                    <small class="form-text text-danger" v-if="!$v.newStep.desc.maxLength">
+                        {{$t('entity.validation.maxlength', { max: '250' })}}
                     </small>
                 </div>
             </div>

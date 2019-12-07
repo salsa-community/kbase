@@ -1,6 +1,7 @@
 import { Component, Vue, Inject } from 'vue-property-decorator';
 
-import { numeric, required, minLength, maxLength } from 'vuelidate/lib/validators';
+import { required, minLength, maxLength } from 'vuelidate/lib/validators';
+import { isUnique } from '@/validators/isUniqueCode';
 
 import InstruccionService from '../instruccion/instruccion.service';
 import { IInstruccion, Instruccion } from '@/shared/model/instruccion.model';
@@ -16,15 +17,22 @@ import MensajeErrorService from './mensaje-error.service';
 const validations: any = {
   mensajeError: {
     clave: {
-      required
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(50),
+      isUnique
     },
     desc: {
-      required
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(250)
     }
   },
   newStep: {
     desc: {
-      required
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(250)
     }
   }
 };
@@ -35,7 +43,7 @@ const validations: any = {
 export default class MensajeErrorUpdate extends Vue {
   @Inject('alertService') private alertService: () => AlertService;
   @Inject('mensajeErrorService') private mensajeErrorService: () => MensajeErrorService;
-  public mensajeError: any = new MensajeError();
+  public mensajeError: IMensajeError = new MensajeError();
 
   @Inject('instruccionService') private instruccionService: () => InstruccionService;
 
@@ -90,9 +98,6 @@ export default class MensajeErrorUpdate extends Vue {
       .find(mensajeErrorId)
       .then(res => {
         this.mensajeError = res;
-        if (!this.mensajeError.instruccion) {
-          this.initMensajeError();
-        }
       });
   }
 

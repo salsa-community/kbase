@@ -14,7 +14,9 @@
         "question": "Are you sure you want to delete Mensaje Error {{ id }}?"
       },
       "detail": {
-        "title": "Mensaje Error"
+        "title": "Mensaje Error",
+        "codigoPlaceHolder": "Código de Error",
+        "descripcionPlaceHolder": "Descripción"
       },
       "clave": "Key",
       "desc": "Description",
