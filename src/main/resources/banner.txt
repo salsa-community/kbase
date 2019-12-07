@@ -1,10 +1,9 @@
-
- ${AnsiColor.GREEN}      ██╗${AnsiColor.BLUE} ██╗   ██╗ ████████╗ ███████╗   ██████╗ ████████╗ ████████╗ ████${AnsiColor.GREEN}███╗
- ${AnsiColor.GREEN}      ██║ ██║ ${AnsiColor.BLUE}  ██║ ╚══██╔══╝ ██╔═══██╗ ██╔════╝ ╚══██╔══╝ ██╔══${AnsiColor.GREEN}═══╝ ██╔═══██╗
- ${AnsiColor.GREEN}      ██║ ████████║${AnsiColor.BLUE}    ██║    ███████╔╝ ╚█████╗     ██║   ${AnsiColor.GREEN} ██████╗   ███████╔╝
- ${AnsiColor.GREEN}██╗   ██║ ██╔═══██║    ██║   ${AnsiColor.BLUE} ██╔════╝   ╚═══██╗    ${AnsiColor.GREEN}██║    ██╔═══╝   ██╔══██║
- ${AnsiColor.GREEN}╚██████╔╝ ██║   ██║ ████████╗ ██║ ${AnsiColor.BLUE}      ██████${AnsiColor.GREEN}╔╝    ██║    ████████╗ ██║  ╚██╗
- ${AnsiColor.GREEN} ╚═════╝  ╚═╝   ╚═╝ ╚═══════╝ ╚═╝      ${AnsiColor.BLUE} ╚═${AnsiColor.GREEN}════╝     ╚═╝    ╚═══════╝ ╚═╝   ╚═╝
-
-${AnsiColor.BRIGHT_BLUE}:: JHipster 🤓  :: Running Spring Boot ${spring-boot.version} ::
-:: https://www.jhipster.tech ::${AnsiColor.DEFAULT}
+${AnsiColor.GREEN} _  __ ${AnsiColor.BLUE}____                    
+${AnsiColor.GREEN}| |/ /${AnsiColor.BLUE}|  _ \                   
+${AnsiColor.GREEN}| ' / ${AnsiColor.BLUE}| |_) |  __ _  ___   ___ 
+${AnsiColor.GREEN}|  <  ${AnsiColor.BLUE}|  _ <  / _` |/ __| / _ \
+${AnsiColor.GREEN}| . \ ${AnsiColor.BLUE}| |_) || (_| |\__ \|  __/
+${AnsiColor.GREEN}|_|\_\${AnsiColor.BLUE}|____/  \__,_||___/ \___|
+                                
+${AnsiColor.BRIGHT_BLUE}:: Kbase  :: Running Spring Boot ${spring-boot.version} ::
+:: https://github.com/danimaniarqsoft ::${AnsiColor.DEFAULT}
