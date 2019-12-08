@@ -1,9 +1,6 @@
 <template>
     <div class="home row">
-        <div class="col-md-3">
-            <span class="img-fluid rounded"></span>
-        </div>
-        <div class="col-md-9">
+        <div class="col">
             <h1 class="display-4" v-text="$t('home.title')">Welcome, Java Hipster!</h1>
             <p class="lead" v-text="$t('home.subtitle')">This is your homepage</p>
 
