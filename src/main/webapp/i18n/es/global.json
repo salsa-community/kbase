@@ -6,8 +6,8 @@
       "home": "Inicio",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
-        "main": "Entidades",
-        "mensajeError": "Mensaje Error",
+        "main": "Opciones",
+        "mensajeError": "Códigos de Error",
         "instruccion": "Instruccion",
         "link": "Link",
         "paso": "Paso",

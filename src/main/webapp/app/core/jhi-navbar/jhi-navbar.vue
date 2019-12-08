@@ -24,25 +24,25 @@
                     active-class="active" class="pointer">
                     <span slot="button-content" class="navbar-dropdown-menu">
                         <font-awesome-icon icon="th-list" />
-                        <span v-text="$t('global.menu.entities.main')">Entities</span>
+                        <span v-text="$t('global.menu.entities.main')">Opciones</span>
                     </span>
                     <b-dropdown-item to="/entity/mensaje-error">
-                        <font-awesome-icon icon="asterisk" />
+                        <font-awesome-icon icon="comments" />
                         <span v-text="$t('global.menu.entities.mensajeError')">MensajeError</span>
                     </b-dropdown-item>
-                    <b-dropdown-item to="/entity/instruccion">
+                    <b-dropdown-item v-if="false" to="/entity/instruccion">
                         <font-awesome-icon icon="asterisk" />
                         <span v-text="$t('global.menu.entities.instruccion')">Instruccion</span>
                     </b-dropdown-item>
-                    <b-dropdown-item to="/entity/link">
+                    <b-dropdown-item v-if="false" to="/entity/link">
                         <font-awesome-icon icon="asterisk" />
                         <span v-text="$t('global.menu.entities.link')">Link</span>
                     </b-dropdown-item>
-                    <b-dropdown-item to="/entity/paso">
+                    <b-dropdown-item v-if="false" to="/entity/paso">
                         <font-awesome-icon icon="asterisk" />
                         <span v-text="$t('global.menu.entities.paso')">Paso</span>
                     </b-dropdown-item>
-                    <b-dropdown-item to="/entity/usuario">
+                    <b-dropdown-item v-if="false" to="/entity/usuario">
                         <font-awesome-icon icon="asterisk" />
                         <span v-text="$t('global.menu.entities.usuario')">Usuario</span>
                     </b-dropdown-item>
