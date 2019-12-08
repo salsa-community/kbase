@@ -40,6 +40,7 @@ public class MensajeErrorServiceImpl implements MensajeErrorService {
     @Override
     public MensajeErrorDTO save(MensajeError mensajeErrorDTO) {
         log.debug("Request to save MensajeError : {}", mensajeErrorDTO);
+        mensajeErrorDTO.setClave(mensajeErrorDTO.getClave().toUpperCase());
         mensajeErrorDTO = mensajeErrorRepository.save(mensajeErrorDTO);
         return mensajeErrorMapper.toDto(mensajeErrorDTO);
     }
@@ -67,6 +68,12 @@ public class MensajeErrorServiceImpl implements MensajeErrorService {
     public Optional<MensajeError> findOne(String id) {
         log.debug("Request to get MensajeError : {}", id);
         return mensajeErrorRepository.findById(id);
+    }
+
+    @Override
+    public Optional<MensajeError> findOneByClave(String clave) {
+        log.debug("Request to get MensajeError : {}", clave);
+        return mensajeErrorRepository.findByClave(clave.toUpperCase());
     }
 
     /**

@@ -6,11 +6,11 @@
                 <div>
                     <div class="form-group">
                         <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.clave')" for="mensaje-error-clave">Clave</label>
-                        <b-form-input 
+                        <b-form-input
                             name="clave" 
                             id="mensaje-error-clave" 
                             :state="!$v.mensajeError.clave.$invalid" 
-                            :placeholder="$t('kbaseApp.mensajeError.detail.codigoPlaceHolder')" v-model.trim="$v.mensajeError.clave.$model"></b-form-input>
+                            :placeholder="$t('kbaseApp.mensajeError.detail.codigoPlaceHolder')" v-model.trim="clave"></b-form-input>
                         <div v-if="$v.mensajeError.clave.$invalid">
                             <small class="form-text text-danger" v-if="!$v.mensajeError.clave.required" v-text="$t('entity.validation.required')">
                                 This field is required.
@@ -45,7 +45,30 @@
                                 {{$t('entity.validation.minlength', { min: '4' })}}
                             </small>
                             <small class="form-text text-danger" v-if="!$v.mensajeError.desc.maxLength">
-                                {{$t('entity.validation.maxlength', { max: '250' })}}
+                                {{$t('entity.validation.maxlength', { max: '500' })}}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.instruccion')" for="mensaje-error-desc">Desc</label>
+                        <b-form-textarea 
+                            :state="!$v.mensajeError.instruccion.desc.$invalid"
+                            name="desc"
+                            rows="5"
+                            class="form-control" 
+                            id="mensaje-error-desc" 
+                            :placeholder="$t('kbaseApp.mensajeError.detail.descripcionPlaceHolder')"
+                            v-model.trim="$v.mensajeError.instruccion.desc.$model">
+                        </b-form-textarea>
+                        <div v-if="$v.mensajeError.instruccion.desc.$invalid">
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.instruccion.desc.required" v-text="$t('entity.validation.required')">
+                                This field is required.
+                            </small>
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.instruccion.desc.minLength">
+                                {{$t('entity.validation.minlength', { min: '4' })}}
+                            </small>
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.instruccion.desc.maxLength">
+                                {{$t('entity.validation.maxlength', { max: '500' })}}
                             </small>
                         </div>
                     </div>
@@ -114,7 +137,7 @@
                         {{$t('entity.validation.minlength', { min: '4' })}}
                     </small>
                     <small class="form-text text-danger" v-if="!$v.newStep.desc.maxLength">
-                        {{$t('entity.validation.maxlength', { max: '250' })}}
+                        {{$t('entity.validation.maxlength', { max: '500' })}}
                     </small>
                 </div>
             </div>
@@ -142,7 +165,7 @@
                         {{$t('entity.validation.minlength', { min: '4' })}}
                     </small>
                     <small class="form-text text-danger" v-if="!$v.newStep.desc.maxLength">
-                        {{$t('entity.validation.maxlength', { max: '250' })}}
+                        {{$t('entity.validation.maxlength', { max: '500' })}}
                     </small>
                 </div>
             </div>

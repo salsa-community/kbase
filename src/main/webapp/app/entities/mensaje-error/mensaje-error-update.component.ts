@@ -25,14 +25,21 @@ const validations: any = {
     desc: {
       required,
       minLength: minLength(4),
-      maxLength: maxLength(250)
+      maxLength: maxLength(500)
+    },
+    instruccion: {
+      desc: {
+        required,
+        minLength: minLength(4),
+        maxLength: maxLength(500)
+      }
     }
   },
   newStep: {
     desc: {
       required,
       minLength: minLength(4),
-      maxLength: maxLength(250)
+      maxLength: maxLength(500)
     }
   }
 };
@@ -171,5 +178,12 @@ export default class MensajeErrorUpdate extends Vue {
     this.mensajeError.instruccion.pasos.forEach(paso => {
       paso.paso = count++;
     });
+  }
+
+  get clave() {
+    return this.mensajeError.clave;
+  }
+  set clave(text: string) {
+    this.mensajeError.clave = text.toUpperCase();
   }
 }

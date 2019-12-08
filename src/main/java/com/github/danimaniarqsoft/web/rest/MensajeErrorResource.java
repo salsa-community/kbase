@@ -114,6 +114,13 @@ public class MensajeErrorResource {
         return ResponseUtil.wrapOrNotFound(mensajeErrorDTO);
     }
 
+    @GetMapping("/mensaje-errors/codigo/{id}")
+    public ResponseEntity<MensajeError> getMensajeErrorByCodigo(@PathVariable String id) {
+        log.debug("REST request to get MensajeError : {}", id);
+        Optional<MensajeError> mensajeErrorDTO = mensajeErrorService.findOneByClave(id);
+        return ResponseUtil.wrapOrNotFound(mensajeErrorDTO);
+    }
+
     /**
      * {@code DELETE  /mensaje-errors/:id} : delete the "id" mensajeError.
      *

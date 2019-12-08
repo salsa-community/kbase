@@ -44,4 +44,6 @@ public interface MensajeErrorService {
      * @param id the id of the entity.
      */
     void delete(String id);
+
+    Optional<MensajeError> findOneByClave(String clave);
 }
