@@ -1,7 +1,9 @@
 package com.github.danimaniarqsoft.config.dbmigrations;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.danimaniarqsoft.domain.Authority;
 import com.github.danimaniarqsoft.domain.User;
+import com.github.danimaniarqsoft.migration.ErrorMigration;
 import com.github.danimaniarqsoft.security.AuthoritiesConstants;
 
 import com.github.mongobee.changeset.ChangeLog;
@@ -13,11 +15,13 @@ import java.time.Instant;
 /**
  * Creates the initial database setup.
  */
-@ChangeLog(order = "001")
+@ChangeLog(order = "002")
 public class MensajeErroresMigration {
 
     //@ChangeSet(order = "01", author = "arquitectura", id = "01-addMensajeErrores")
-    public void addAuthorities(MongoTemplate mongoTemplate) {
+    public void addErrors(MongoTemplate mongoTemplate) {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.readValue(src, ErrorMigration.class);
         Authority adminAuthority = new Authority();
         adminAuthority.setName(AuthoritiesConstants.ADMIN);
         Authority userAuthority = new Authority();
