@@ -13,35 +13,23 @@ import com.github.danimaniarqsoft.migration.ErrorMigration;
 import com.github.danimaniarqsoft.security.AuthoritiesConstants;
 
 import com.github.mongobee.changeset.ChangeLog;
-import com.github.mongobee.changeset.ChangeSet;
 import org.springframework.data.mongodb.core.MongoTemplate;
-
-import java.time.Instant;
-import java.util.List;
 
 /**
  * Creates the initial database setup.
  */
-@ChangeLog(order = "002")
-public class MensajeErroresMigration {
+@ChangeLog(order = "003")
+public class UsuarioMigration {
 
     // @ChangeSet(order = "01", author = "arquitectura", id =
     // "01-addMensajeErrores")
-    public void addErrors(MongoTemplate mongoTemplate)
-            throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
-        String errorUrl = "https://raw.githubusercontent.com/danimaniarqsoft/kbase/develop/src/main/resources/dbmigration/errores.json";
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.readValue(new URL(errorUrl), ErrorMigration.class);
-    }
-
-    public static void main(String[] args)
+    public void addUsuario(MongoTemplate mongoTemplate)
             throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
         String errorUrl = "https://raw.githubusercontent.com/danimaniarqsoft/kbase/develop/src/main/resources/dbmigration/errores.json";
         ObjectMapper mapper = new ObjectMapper();
         ErrorMigration[] model = mapper.readValue(new URL(errorUrl), ErrorMigration[].class);
         for (ErrorMigration error : model) {
-            System.out.println(error.getClave());
+            
         }
-        
     }
 }
