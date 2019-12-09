@@ -10,7 +10,7 @@ services:
     depends_on:
     - bot-mongodb
   kbase-app:
-    image: kbase
+    image: i2cmx/kbase:latest
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,swagger
