@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import com.github.danimaniarqsoft.domain.Authority;
+import com.github.danimaniarqsoft.domain.Instruccion;
 import com.github.danimaniarqsoft.domain.User;
 import com.github.danimaniarqsoft.migration.ErrorMigration;
 import com.github.danimaniarqsoft.security.AuthoritiesConstants;

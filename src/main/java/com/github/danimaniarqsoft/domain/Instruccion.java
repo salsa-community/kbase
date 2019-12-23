@@ -1,9 +1,10 @@
 package com.github.danimaniarqsoft.domain;
+
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A Instruccion.
@@ -16,7 +17,7 @@ public class Instruccion implements Serializable {
     private String desc;
 
     @Field("pasos")
-    private Set<Paso> pasos = new HashSet<>();
+    private List<Paso> pasos = new ArrayList<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getDesc() {
@@ -32,11 +33,11 @@ public class Instruccion implements Serializable {
         this.desc = desc;
     }
 
-    public Set<Paso> getPasos() {
+    public List<Paso> getPasos() {
         return pasos;
     }
 
-    public Instruccion pasos(Set<Paso> pasos) {
+    public Instruccion pasos(List<Paso> pasos) {
         this.pasos = pasos;
         return this;
     }
@@ -51,7 +52,7 @@ public class Instruccion implements Serializable {
          return this;
     }
 
-    public void setPasos(Set<Paso> pasos) {
+    public void setPasos(List<Paso> pasos) {
         this.pasos = pasos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
