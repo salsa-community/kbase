@@ -9,7 +9,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Instruccion} and its DTO {@link InstruccionDTO}.
  */
-@Mapper(componentModel = "spring", uses = { PasoMigrationMapper.class})
+@Mapper(componentModel = "spring", uses = { PasoMigrationMapper.class })
 public interface InstruccionesMigrationMapper {
 
     Instruccion toEntity(Instrucciones from);

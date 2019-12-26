@@ -1,8 +1,6 @@
 package com.github.danimaniarqsoft.domain;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.data.annotation.Id;
+
 import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
@@ -18,7 +16,8 @@ public class Link implements Serializable {
     @Field("url")
     private String url;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not
+    // remove
     public String getUrl() {
         return url;
     }
@@ -31,7 +30,8 @@ public class Link implements Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and
+    // setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -51,8 +51,6 @@ public class Link implements Serializable {
 
     @Override
     public String toString() {
-        return "Link{" +
-            " url='" + getUrl() + "'" +
-            "}";
+        return "Link{" + " url='" + getUrl() + "'" + "}";
     }
 }

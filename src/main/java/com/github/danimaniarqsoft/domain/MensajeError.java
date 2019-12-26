@@ -1,11 +1,14 @@
 package com.github.danimaniarqsoft.domain;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -31,7 +34,7 @@ public class MensajeError implements Serializable {
     private Instruccion instruccion;
 
     @Field("links")
-    private Set<Link> links = new HashSet<>();
+    private List<Link> links = new ArrayList<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
@@ -81,11 +84,11 @@ public class MensajeError implements Serializable {
         this.instruccion = instruccion;
     }
 
-    public Set<Link> getLinks() {
+    public List<Link> getLinks() {
         return links;
     }
 
-    public MensajeError links(Set<Link> links) {
+    public MensajeError links(List<Link> links) {
         this.links = links;
         return this;
     }
@@ -100,7 +103,7 @@ public class MensajeError implements Serializable {
         return this;
     }
 
-    public void setLinks(Set<Link> links) {
+    public void setLinks(List<Link> links) {
         this.links = links;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
