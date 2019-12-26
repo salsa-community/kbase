@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * A Usuario.
  */
-@Document(collection = "usuario")
+@Document(collection = "usuarios")
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
