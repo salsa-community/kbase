@@ -4,12 +4,13 @@
 /src/main/webapp/content/css/main.css
 /target/classes/static/**
 /src/test/javascript/coverage/
+/src/main/docker/data/
 
 ######################
 # Node
 ######################
 /node/
-node_tmp/
+node_tmp/<
 node_modules/
 npm-debug.log.*
 /.awcache/*
