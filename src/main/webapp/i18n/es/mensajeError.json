@@ -1,0 +1,28 @@
+{
+  "kbaseApp": {
+    "mensajeError": {
+      "home": {
+        "title": "Lista de Código de Errores",
+        "createLabel": "Crear nuevo código de error",
+        "createOrEditLabel": "Crear / Editar código de Error",
+        "notFound": "No se ha encontrado ningún código de Error"
+      },
+      "created": "Un nuevo código de Error ha sido creado con el identificador {{ param }}",
+      "updated": "Un nuevo código de Error ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un código de Error ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar el código de Error {{ id }}?"
+      },
+      "detail": {
+        "title": "Código de Error",
+        "codigoPlaceHolder": "CFI...",
+        "descripcionPlaceHolder": "Descripción del código de error"
+      },
+      "clave": "Código",
+      "desc": "Descripción",
+      "instruccion": "Instrucciones",
+      "links": "Links",
+      "pasos": "Pasos"
+    }
+  }
+}

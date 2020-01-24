@@ -24,6 +24,36 @@ const JhiLogsComponent = () => import('../admin/logs/logs.vue');
 const JhiAuditsComponent = () => import('../admin/audits/audits.vue');
 const JhiMetricsComponent = () => import('../admin/metrics/metrics.vue');
 /* tslint:disable */
+// prettier-ignore
+const MensajeError = () => import('../entities/mensaje-error/mensaje-error.vue');
+// prettier-ignore
+const MensajeErrorUpdate = () => import('../entities/mensaje-error/mensaje-error-update.vue');
+// prettier-ignore
+const MensajeErrorDetails = () => import('../entities/mensaje-error/mensaje-error-details.vue');
+// prettier-ignore
+const Instruccion = () => import('../entities/instruccion/instruccion.vue');
+// prettier-ignore
+const InstruccionUpdate = () => import('../entities/instruccion/instruccion-update.vue');
+// prettier-ignore
+const InstruccionDetails = () => import('../entities/instruccion/instruccion-details.vue');
+// prettier-ignore
+const Link = () => import('../entities/link/link.vue');
+// prettier-ignore
+const LinkUpdate = () => import('../entities/link/link-update.vue');
+// prettier-ignore
+const LinkDetails = () => import('../entities/link/link-details.vue');
+// prettier-ignore
+const Paso = () => import('../entities/paso/paso.vue');
+// prettier-ignore
+const PasoUpdate = () => import('../entities/paso/paso-update.vue');
+// prettier-ignore
+const PasoDetails = () => import('../entities/paso/paso-details.vue');
+// prettier-ignore
+const Usuario = () => import('../entities/usuario/usuario.vue');
+// prettier-ignore
+const UsuarioUpdate = () => import('../entities/usuario/usuario-update.vue');
+// prettier-ignore
+const UsuarioDetails = () => import('../entities/usuario/usuario-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 Vue.use(Router);
@@ -140,6 +170,131 @@ export default new Router({
       name: 'JhiConfigurationComponent',
       component: JhiConfigurationComponent,
       meta: { authorities: ['ROLE_ADMIN'] }
+    }
+    ,
+    {
+      path: '/entity/mensaje-error',
+      name: 'MensajeError',
+      component: MensajeError,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/mensaje-error/new',
+      name: 'MensajeErrorCreate',
+      component: MensajeErrorUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/mensaje-error/:mensajeErrorId/edit',
+      name: 'MensajeErrorEdit',
+      component: MensajeErrorUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/mensaje-error/:mensajeErrorId/view',
+      name: 'MensajeErrorView',
+      component: MensajeErrorDetails,
+      meta: { authorities: ['ROLE_USER'] }
+    }
+    ,
+    {
+      path: '/entity/instruccion',
+      name: 'Instruccion',
+      component: Instruccion,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/instruccion/new',
+      name: 'InstruccionCreate',
+      component: InstruccionUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/instruccion/:instruccionId/edit',
+      name: 'InstruccionEdit',
+      component: InstruccionUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/instruccion/:instruccionId/view',
+      name: 'InstruccionView',
+      component: InstruccionDetails,
+      meta: { authorities: ['ROLE_USER'] }
+    }
+    ,
+    {
+      path: '/entity/link',
+      name: 'Link',
+      component: Link,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/link/new',
+      name: 'LinkCreate',
+      component: LinkUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/link/:linkId/edit',
+      name: 'LinkEdit',
+      component: LinkUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/link/:linkId/view',
+      name: 'LinkView',
+      component: LinkDetails,
+      meta: { authorities: ['ROLE_USER'] }
+    }
+    ,
+    {
+      path: '/entity/paso',
+      name: 'Paso',
+      component: Paso,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/paso/new',
+      name: 'PasoCreate',
+      component: PasoUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/paso/:pasoId/edit',
+      name: 'PasoEdit',
+      component: PasoUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/paso/:pasoId/view',
+      name: 'PasoView',
+      component: PasoDetails,
+      meta: { authorities: ['ROLE_USER'] }
+    }
+    ,
+    {
+      path: '/entity/usuario',
+      name: 'Usuario',
+      component: Usuario,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/usuario/new',
+      name: 'UsuarioCreate',
+      component: UsuarioUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/usuario/:usuarioId/edit',
+      name: 'UsuarioEdit',
+      component: UsuarioUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/usuario/:usuarioId/view',
+      name: 'UsuarioView',
+      component: UsuarioDetails,
+      meta: { authorities: ['ROLE_USER'] }
     }
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here
   ]

@@ -1,0 +1,24 @@
+{
+  "kbaseApp": {
+    "paso": {
+      "home": {
+        "title": "Pasos",
+        "createLabel": "Create a new Paso",
+        "createOrEditLabel": "Create or edit a Paso",
+        "notFound": "No Pasos found"
+      },
+      "created": "A new Paso is created with identifier {{ param }}",
+      "updated": "A Paso is updated with identifier {{ param }}",
+      "deleted": "A Paso is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Paso {{ id }}?"
+      },
+      "detail": {
+        "title": "Paso"
+      },
+      "paso": "Paso",
+      "desc": "Desc",
+      "instruccion": "Instruccion"
+    }
+  }
+}

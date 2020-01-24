@@ -1,0 +1,38 @@
+
+entity MensajeError {
+    clave String required,
+    desc String required
+}
+
+entity Instruccion {
+    desc String
+}
+
+entity Link {
+    url String required
+}
+
+entity Paso {
+    paso Integer,
+    desc String
+}
+
+entity Usuario {
+    nombre String,
+    primerApellido String,
+    segundoApellido String,
+    rfc String
+}
+
+relationship OneToOne {
+    MensajeError{instruccion} to Instruccion
+}
+
+relationship OneToMany{
+    MensajeError{links} to Link , 
+    Instruccion{pasos} to Paso
+}
+
+paginate all with pagination
+dto * with mapstruct
+service all with serviceImpl

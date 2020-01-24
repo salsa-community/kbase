@@ -52,7 +52,8 @@ public class DatabaseConfiguration {
     }
 
     @Bean
-    public Mongobee mongobee(MongoClient mongoClient, MongoTemplate mongoTemplate, MongoProperties mongoProperties) {
+    public Mongobee mongobee(MongoClient mongoClient, MongoTemplate mongoTemplate, MongoProperties mongoProperties,
+            org.springframework.core.env.Environment enviroment) {
         log.debug("Configuring Mongobee");
         Mongobee mongobee = new Mongobee(mongoClient);
         mongobee.setDbName(mongoProperties.getMongoClientDatabase());
@@ -61,4 +62,5 @@ public class DatabaseConfiguration {
         mongobee.setChangeLogsScanPackage("com.github.danimaniarqsoft.config.dbmigrations");
         mongobee.setEnabled(true);
         return mongobee;
-    }}
+    }
+}

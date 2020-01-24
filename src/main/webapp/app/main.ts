@@ -25,7 +25,14 @@ import AlertService from '@/shared/alert/alert.service';
 import TranslationService from '@/locale/translation.service';
 import ConfigurationService from '@/admin/configuration/configuration.service';
 
+import MensajeErrorService from '@/entities/mensaje-error/mensaje-error.service';
+import InstruccionService from '@/entities/instruccion/instruccion.service';
+import LinkService from '@/entities/link/link.service';
+import PasoService from '@/entities/paso/paso.service';
+import UsuarioService from '@/entities/usuario/usuario.service';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
+
+import draggable from 'vuedraggable';
 
 Vue.config.productionTip = false;
 config.initVueApp(Vue);
@@ -34,6 +41,7 @@ bootstrapVueConfig.initBootstrapVue(Vue);
 Vue.use(Vue2Filters);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('jhi-item-count', JhiItemCountComponent);
+Vue.component('draggable', draggable);
 
 const i18n = config.initI18N(Vue);
 const store = config.initVueXStore(Vue);
@@ -82,6 +90,11 @@ new Vue({
     metricsService: () => new MetricsService(),
     alertService: () => alertService,
     translationService: () => translationService,
+    mensajeErrorService: () => new MensajeErrorService(),
+    instruccionService: () => new InstruccionService(),
+    linkService: () => new LinkService(),
+    pasoService: () => new PasoService(),
+    usuarioService: () => new UsuarioService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService
   },

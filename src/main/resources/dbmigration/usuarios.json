@@ -1,0 +1,11 @@
+[
+  {
+    "_id": {
+      "$oid": "5ddf7acacfdec8518819327e"
+    },
+    "nombre": "ITZIA MARIA DEL CARMEN",
+    "primerApellido": "SANCHEZ",
+    "segundoApellido": "MENDEZ",
+    "rfc": "SAMI760605RH6"
+  }
+]

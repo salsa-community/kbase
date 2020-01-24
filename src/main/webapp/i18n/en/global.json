@@ -6,7 +6,12 @@
       "home": "Home",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
-        "main": "Entities",
+        "main": "Options",
+        "mensajeError": "Error Code",
+        "instruccion": "Instruccion",
+        "link": "Link",
+        "paso": "Paso",
+        "usuario": "Usuario",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

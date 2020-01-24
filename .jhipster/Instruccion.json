@@ -1,0 +1,27 @@
+{
+    "name": "Instruccion",
+    "fields": [
+        {
+            "fieldName": "desc",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "paso",
+            "otherEntityRelationshipName": "instruccion",
+            "relationshipName": "pasos"
+        }
+    ],
+    "changelogDate": "20191129061734",
+    "entityTableName": "instruccion",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
