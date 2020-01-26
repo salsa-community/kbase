@@ -34,7 +34,7 @@ public class MensajeErroresMigration {
     @ChangeSet(order = "03", author = "arquitectura", id = "03-addAtebUsuario")
     public void addAtebUsuario(MongoTemplate mongoTemplate)
             throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
-        mongoTemplate.save(new Usuario().nombre("ATEB").rfc("ASE0209252Q1"));
+        mongoTemplate.save(new Usuario().nombre("ATEB").primerApellido("").segundoApellido("").rfc("ASE0209252Q1"));
     }
 
     @ChangeSet(order = "04", author = "arquitectura", id = "04-deleteAllMensajeErrores")
