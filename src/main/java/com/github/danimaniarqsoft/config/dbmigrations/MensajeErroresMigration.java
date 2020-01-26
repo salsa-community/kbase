@@ -18,14 +18,10 @@ import com.github.danimaniarqsoft.domain.Paso;
 import com.github.danimaniarqsoft.domain.Usuario;
 import com.github.danimaniarqsoft.migration.ErrorMigration;
 import com.github.danimaniarqsoft.migration.Instrucciones;
-import com.github.danimaniarqsoft.service.mapper.MensajeErrorMapper;
-import com.github.danimaniarqsoft.service.mapper.migration.ErrorMigrationMapper;
 import com.github.mongobee.changeset.ChangeLog;
 import com.github.mongobee.changeset.ChangeSet;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.stereotype.Component;
 
 /**
  * Creates the initial database setup.
