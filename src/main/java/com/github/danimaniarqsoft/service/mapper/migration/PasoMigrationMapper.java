@@ -10,7 +10,7 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {})
 public interface PasoMigrationMapper {
 
-    @Mapping(source = "paso.$numberInt", target = "paso")
+    @Mapping(source = "paso", target = "paso")
     com.github.danimaniarqsoft.domain.Paso toEntity(Paso paso);
 
 }

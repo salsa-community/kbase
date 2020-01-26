@@ -18,19 +18,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Paso {
 
     @JsonProperty("paso")
-    private Paso_ paso;
+    private Integer paso;
     @JsonProperty("desc")
     private String desc;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("paso")
-    public Paso_ getPaso() {
+    public Integer getPaso() {
         return paso;
     }
 
     @JsonProperty("paso")
-    public void setPaso(Paso_ paso) {
+    public void setPaso(Integer paso) {
         this.paso = paso;
     }
 
