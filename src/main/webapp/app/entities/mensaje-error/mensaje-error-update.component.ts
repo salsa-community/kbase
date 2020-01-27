@@ -148,7 +148,7 @@ export default class MensajeErrorUpdate extends Vue {
   }
 
   public saveStep(): void {
-    var step = new Paso();
+    const step = new Paso();
     step.paso = this.newStep.paso;
     step.desc = this.newStep.desc;
     this.mensajeError.instruccion.pasos.splice(this.mensajeError.instruccion.pasos.indexOf(this.stepId), 1, step);
@@ -156,7 +156,7 @@ export default class MensajeErrorUpdate extends Vue {
   }
 
   public addStep(): void {
-    var step = new Paso();
+    const step = new Paso();
     step.paso = Infinity;
     step.desc = this.newStep.desc;
     this.mensajeError.instruccion.pasos.push(step);
@@ -174,7 +174,7 @@ export default class MensajeErrorUpdate extends Vue {
   }
 
   public orderSteps(): void {
-    var count = 1;
+    let count = 1;
     this.mensajeError.instruccion.pasos.forEach(paso => {
       paso.paso = count++;
     });
