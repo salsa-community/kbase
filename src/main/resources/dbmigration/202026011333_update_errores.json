@@ -1,7 +1,7 @@
 [
   {
     "_id": {
-      "$oid": "5e2df678ae478a6b52e58e69"
+      "$oid": "5e2fbf650fc5ae38c6dd4ffc"
     },
     "clave": "CFDI33110",
     "desc": "No fue posible enviar el CFDI. El tipo de comprobante no es \"I\", \"E\" o \"N\" y un concepto incluye el campo descuento. (Cuando el tipo de comprobante sea \"I\", \"E\", o \"N\" y algún concepto incluya el atributo Descuento, debe existir el documento el descuento del \"CFDI\" Almacenado en la Base de datos de Aranda",
@@ -38,9 +38,9 @@
   },
   {
     "_id": {
-      "$oid": "5e2df679ae478a6b52e58e6a"
+      "$oid": "5e2fbf650fc5ae38c6dd4ffd"
     },
-    "clave": "CFDI33113",
+    "clave": "CFDI33113-B",
     "desc": "No fue posible enviar el CFD \"33113\".- El campo TipoDeCambiono tiene valor \"1\" y la moneda indicada es MXN Almacenado en la Base de datos de Aranda",
     "instrucciones": {
       "desc": "Para la moneda,en esté caso el error es porque usted en su XML no esta colocando de manera correcta el tipo de moneda, tipo de cambio. No se está declarando el tipo de cambio correcto para la moneda. En este caso se trata de moneda MXN",
@@ -78,9 +78,9 @@
   },
   {
     "_id": {
-      "$oid": "5e2df679ae478a6b52e58e6b"
+      "$oid": "5e2fbf650fc5ae38c6dd4ffe"
     },
-    "clave": "CFDI33113",
+    "clave": "CFDI33113-A",
     "desc": "No fue posible enviar el CFD \"33113\" El campo TipoDeCambiono tiene valor \"1\" y la moneda indicada es MXN Almacenado en la Base de datos de Aranda",
     "instrucciones": {
       "desc": "Esté error es porque usted en su XML no esta colocando de manera correcta el tipo de moneda, tipo de cambio. No se está declarando el tipo de cambio correcto para la moneda. En este caso se trata del \"TipoCambio\"",
@@ -115,12 +115,12 @@
   },
   {
     "_id": {
-      "$oid": "5e2df679ae478a6b52e58e6c"
+      "$oid": "5e2fbf650fc5ae38c6dd4fff"
     },
     "clave": "CFDI33116",
-    "desc": "CFDI 33116. El campo TipoCambio no cumple con el patrón requerido Almacenado en la Base de datos de Aranda",
+    "desc": "No fue posible enviar el cfd. CFDI 33116. El campo TipoCambio no cumple con el patrón requerido Almacenado en la Base de datos de Aranda",
     "instrucciones": {
-      "desc": "El campo TipoCambio enviado en el XML contiene siete decimales lo cual es erróneo, según el indice del Anexo 20. Este TipoCambio debe de contener solo seis.",
+      "desc": "El campo TipoCambio enviado en el XML contiene siete decimales lo cual es erróneo, según el indice del Anexo 20. Este TipoCambio debe de contener solo seis",
       "pasos": [
         {
           "paso": 1,
@@ -155,10 +155,10 @@
   },
   {
     "_id": {
-      "$oid": "5e2df679ae478a6b52e58e6d"
+      "$oid": "5e2fbf650fc5ae38c6dd5000"
     },
     "clave": "CFDI33159",
-    "desc": "No fue posible enviar el CFDI \"33159\"- El valor del campo TasaOCuota que corresponde a traslado no contiene el valor catálogo c_TasaOCuota o se encuentra fuera de rango. Almacenado en la Base de datos de Aranda ",
+    "desc": "No fue posible enviar el CFDI “33159”- El valor del campo TasaOCuota que corresponde a traslado no contiene el valor catálogo c_TasaOCuota o se encuentra fuera de rango Almacenado en la Base de datos de Aranda",
     "instrucciones": {
       "desc": "El valor de la tasa de cuota no cumple con los decimales permitidos, se encuentra fuera del rango de aceptación",
       "pasos": [
@@ -172,7 +172,7 @@
         },
         {
           "paso": 3,
-          "desc": "Posterior buscar el nodo\"TasaOCuota\" y revisar que tenga los decimales correspondientes según el catalogo de impuestos del SAT."
+          "desc": "Posterior buscar el nodo”TasaOCuota” y revisar que tenga los decimales correspondientes según el catálogo de impuestos del SAT. c_TasaOCuota"
         },
         {
           "paso": 4,
@@ -195,10 +195,10 @@
   },
   {
     "_id": {
-      "$oid": "5e2df679ae478a6b52e58e6e"
+      "$oid": "5e2fbf650fc5ae38c6dd5001"
     },
     "clave": "CFDI33170",
-    "desc": "No se pudo enviar el CFDI \"33170\" El número de pedimento es inválido. (El valor de los últimos seis dígitos del NúmeroPedimento en \"Concepto\"debe estar entre el valor mínimo 1 y el valor máximo de números consecutivos de la columna cantidad del catalogo. Almacenado en la Base de datos de Aranda",
+    "desc": "No fue posible enviar el cfd. CFDI33170. El número de pedimento es inválido. (El valor de los últimos seis dígitos del NúmeroPedimento en \"Concepto\" debe estar entre el valor mínimo 1 y el valor máximo de números consecutivos de la \"columna cantidad del catalogo”",
     "instrucciones": {
       "desc": "Para este caso se debe corroborar que el número de pedimento concuerde con la cantidad de aduana.",
       "pasos": [
@@ -208,15 +208,15 @@
         },
         {
           "paso": 2,
-          "desc": "Buscar la opción del nodo \"Traslado\" / CFDI TRASLADO"
+          "desc": "Buscar la opción del nodo \"Concepto\""
         },
         {
           "paso": 3,
-          "desc": "Posterior buscar el nodo\"InformacionAduanera\" \"NumeroPedimento\" y revisar que tenga los números de pedimento correspondientes que indica el Catalogo de Pedimento del SAT"
+          "desc": "Posterior buscar el nodo”InformacionAduanera” “NumeroPedimento” y revisar que tenga los números de pedimento correspondientes que indica el Catálogo de Pedimento del SAT."
         },
         {
           "paso": 4,
-          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi"
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
         }
       ]
     },
@@ -235,7 +235,7 @@
   },
   {
     "_id": {
-      "$oid": "5e2df679ae478a6b52e58e6f"
+      "$oid": "5e2fbf650fc5ae38c6dd5002"
     },
     "clave": "CFDI33161",
     "desc": "No fue posible enviar el CFDI 33161- El valor campo importe que corresponde a traslado no se encuentra entre el límite inferior y superior permitido. Almacenado en la Base de datos de Aranda",
@@ -275,7 +275,7 @@
   },
   {
     "_id": {
-      "$oid": "5e2df679ae478a6b52e58e70"
+      "$oid": "5e2fbf650fc5ae38c6dd5003"
     },
     "clave": "CFDI33183",
     "desc": "No fue posible enviar el CFDI 33183. El campo importe correspondiente a Traslado no es igual a la suma de los importes de los impuestos trasladados registrados en los conceptos donde el impuesto del concepto sea igual al campo TasaOCuota de este elemento Almacenado en la Base de datos de Aranda ",
@@ -315,7 +315,7 @@
   },
   {
     "_id": {
-      "$oid": "5e2df679ae478a6b52e58e71"
+      "$oid": "5e2fbf650fc5ae38c6dd5004"
     },
     "clave": "CFDI33189",
     "desc": "Error al obtener respuesta validada. Error al validar CFDI 33189. El campo importe correspondiente a retención no es igual a la suma de los importes de los impuestos retenidos registrados en los conceptos donde el impuesto sea igual al campo impuesto de este elemento. Almacenado en la Base de datos de Aranda",
@@ -355,9 +355,9 @@
   },
   {
     "_id": {
-      "$oid": "5e2df679ae478a6b52e58e72"
+      "$oid": "5e2fbf650fc5ae38c6dd5005"
     },
-    "clave": "CFDI301",
+    "clave": "CFDI301-A",
     "desc": "No fue posible enviar el CFD 301 Namespace o SchemaLocation mal definido para el complemento tfd. Almacenado en la Base de datos de Aranda ",
     "instrucciones": {
       "desc": "La definición del schemalocation del CFDI dentro del complemento para el Timbre Fiscal Digital es incorrecta, no contiene versión del esquema.",
@@ -372,7 +372,7 @@
         },
         {
           "paso": 3,
-          "desc": "Posterior buscar el nodo \"xsi:schemalocation\" Estas ligas deben de coincidir y corresponder a la definición del schema según el Anexo 20, página 11."
+          "desc": "Posterior buscar el nodo \"xsi:schemalocation\" Estas ligas deben de coincidir y corresponder a la definición del schema según el Anexo 20"
         },
         {
           "paso": 4,
@@ -391,6 +391,710 @@
         "url": "Página o tema"
       }
     ],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5006"
+    },
+    "clave": "CFDI301-B",
+    "desc": "No fue posible enviar el CFDI 301. Namespace o SchemaLocation mal definido para el complemento ventavehículos Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "Esté error es porque no puso las ligas correspondientes para la definición de este nodo",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "El nodo de schemalocation para este complemento debe de ser declarado a nivel cfdi comprobante."
+        },
+        {
+          "paso": 2,
+          "desc": "Ingresar a su XML"
+        },
+        {
+          "paso": 3,
+          "desc": "Posterior buscar el nodo “xmlns: ventavehiculos” Este nodo debe de traer la liga referencia completa que debe de ser de la siguiente manera: xsi:schemalocation=”http://www.sat.gob.mx/siitio_interner/cfd/ventavehiculos/ventavehiculos11.xsd”"
+        },
+        {
+          "paso": 4,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5007"
+    },
+    "clave": "CFDI301-C",
+    "desc": "No fue posible enviar el cfd 301. Namespace o schemalocation mal definido para el complemento pago 10 Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "La declaración de Namespace y schemalocation es incorrecta. Para el caso de Namespace:",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML"
+        },
+        {
+          "paso": 2,
+          "desc": "Verificar que la declaración venga dentro del nodo de “complemento”"
+        },
+        {
+          "paso": 3,
+          "desc": "Para el caso de Schemalocation: Hace falta incluir http://www.sat.gob.mx/Pagos http://www.sat.gob.mx/sitio_internet/cfd/Pagos/Pagos10.xsd"
+        },
+        {
+          "paso": 4,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5008"
+    },
+    "clave": "CFDI601",
+    "desc": "No fue posible enviar el cfd. 601. Complemento de pago 10 no implementado Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "De acuerdo a la definición en el anexo de pagos el atributo pago10:pago debe ser con minúscula. En la página 1 y página 11: http://omawww.sat.gob.mx/informacion_fiscal/factura_electronica/Documents/Com plementoscfdi/Pagos10.pdf",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML"
+        },
+        {
+          "paso": 2,
+          "desc": "Verificar que la declaración venga dentro del nodo de “complemento”"
+        },
+        {
+          "paso": 3,
+          "desc": "Posterior dirigirse al nodo “pagos” y verificar de acuerdo a la definición Pago10"
+        },
+        {
+          "paso": 4,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5009"
+    },
+    "clave": "CFDI602",
+    "desc": "Error al obtener la respuesta validar. Error al validar CFD, motivo de rechazo: 602- El complemento terceros: Por cuenta de terceros debe de estar declarado dentro del nodo cfdi: Complemento Conceptos. Sello válido. No se pudo validar el sello. La firma del sello no es válido. Los datos presentados no coinciden. El XML pudo ser alterado Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "De acuerdo a la definición del Complemento Concepto PorCuentadeTerceros, la declaración debe de ir dentro del nodo ComplementoConcepto, para este ejemplo se declaró afuera.",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML y buscar el nodo de: ComplementoConcepto (nodo padre)"
+        },
+        {
+          "paso": 2,
+          "desc": "Dentro de este nodo ComplementoConcepto verificar que este el nodo hijo TercerosPorCuentadeTerceros se encuentre dentro del nodo padre."
+        },
+        {
+          "paso": 3,
+          "desc": "Sí este nodo hijo,no este dentro del nodo padre ComplementoConcepto , tiene que colocarlo para solucionar el error."
+        },
+        {
+          "paso": 4,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd500a"
+    },
+    "clave": "CFDI602-B",
+    "desc": "Error al validar CFD, motivo de rechazo: 602- El complemento terceros: Por cuenta de terceros debe de estar declarado dentro del nodo cfdi: Complemento Conceptos. Sello válido. No se pudo validar el sello. La firma del sello no es válido. Los datos presentados no coinciden. El XML pudo ser alterado. Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "De acuerdo a la definición del Complemento Concepto PorCuentadeTerceros, la declaración debe de ir dentro del nodo ComplementoConcepto, para este ejemplo se declaró afuera.",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML y buscar el nodo de: ComplementoConcepto (nodo padre)"
+        },
+        {
+          "paso": 2,
+          "desc": "Dentro de este nodo ComplementoConcepto verificar que este el nodo hijo TercerosPorCuentadeTerceros se encuentre dentro del nodo padre."
+        },
+        {
+          "paso": 3,
+          "desc": "Sí este nodo hijo,no este dentro del nodo padre ComplementoConcepto , tiene que colocarlo para solucionar el error."
+        },
+        {
+          "paso": 4,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd500b"
+    },
+    "clave": "CFDI119",
+    "desc": "No fue posible envía el cfd. CRP 119. El valor del campo unitario debe de ser cero “0” Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "Le comentamos que el error de validación hace referencia al campo ValorUnitario.",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML y buscar el nodo de: ValorUnitario"
+        },
+        {
+          "paso": 2,
+          "desc": "Verifique que el nodo de ValorUnitario se ecuentre como “0” cerrado, sin decimales como “0.00”. Sí este se encentra con decimales y no cero cerrado deberá de ser cambiado."
+        },
+        {
+          "paso": 3,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd500c"
+    },
+    "clave": "CFDI219",
+    "desc": "CRP 219 El campo No fue posible envía el CFDI CRP 219 Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "El campo TipoCambioDR no se debe registrar. No se debe registrar el atributo TipoCambioDR ya que el valor \"USD\" de MonedaDR es igual al de MonedaP",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML y buscar el nodo de: TipoDeCambio"
+        },
+        {
+          "paso": 2,
+          "desc": "Valide que el xml Tipo de cambio es el mismo 'USD' , si fuera 'USD' y 'MEX' si se pone la opción de TipoCambioDR."
+        },
+        {
+          "paso": 3,
+          "desc": "Se debe de registrar el número de unidades de la moneda señalada en el documento relacionado que equivalen a una unidad de moneda de pago."
+        },
+        {
+          "paso": 4,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd500d"
+    },
+    "clave": "CFDI235",
+    "desc": "No fue posible envía el CRP 235. El campo ImpPagado se debe registrar Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "El error de validación hace referencia al campo ImpPagado, ya que no se esta incluyendo dentro del XML",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML y buscar el nodo de: Complemento y Pago10"
+        },
+        {
+          "paso": 2,
+          "desc": "Verifique que el nodo ImpPagado se encuentre dentro de de la referencia del nodo pago Sí este no se encentra dentro deberá de ser agregado."
+        },
+        {
+          "paso": 3,
+          "desc": "ImpPagado es el atributo condicional para expresar el importe pagado para el documento relacionado. Este es obligatorio cuando exista más de un documento relacionado."
+        },
+        {
+          "paso": 4,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd500e"
+    },
+    "clave": "CFDI239",
+    "desc": "No fue posible envía el CFDI CRP 239. El campo CtaBeneficiario no cumple con el patrón requerido. Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "El error se produce por que el campo Ctabeneficiario  no está cumpliendo con el parámetro establecido por el SAT en su Catalogo, el cual lleva como nombre  catCFDI y puede ser descargado en la pagina: http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20_version3-3.htm  en la opción de Catalogos.",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML y buscar el nodo de: CtaBeneficiario"
+        },
+        {
+          "paso": 2,
+          "desc": "Descargar el catalogo del SAT"
+        },
+        {
+          "paso": 3,
+          "desc": "Una vez descargado y abierto el archivo, ir a la pestaña de C_FormaPago que se encuentra en la parte inferior del documento."
+        },
+        {
+          "paso": 4,
+          "desc": "Buscar la Fila donde se mencione la forma de Pago que maneja en el complemento."
+        },
+        {
+          "paso": 5,
+          "desc": "Buscar la columna llamada \"Patrón Para cuenta Beneficiaria\" ( en esta vendrá un formato parecido al siguiente: [0-9]{10,11}|[0-9]{15,16}|[0-9]{18}|[A-Z0-9_]{10,50} )"
+        },
+        {
+          "paso": 6,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd500f"
+    },
+    "clave": "CFDI120",
+    "desc": "No fue posible envía el CFDI CRP 120. El valor del campo importe debe de ser cero “0” Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "Le comentamos que el error de validación hace referencia al campo Importe.",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML y buscar el nodo de: Importe"
+        },
+        {
+          "paso": 2,
+          "desc": "Verifique que el nodo de Importe se encuentre como “0” cerrado, sin decimales como “0.00”. Sí este se encentra con decimales y no cero cerrado deberá de ser cambiado."
+        },
+        {
+          "paso": 3,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5010"
+    },
+    "clave": "CFDINA",
+    "desc": "No fue posible envía el CFDI. Sello válido. No se puede validar el sello .La firma del sello no es válido Los datos presentados no coinciden. El XML pudo ser alterado. Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "Le comentamos que el error de validación hace referencia a que los datos del xml pudieron ser alterados.",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5011"
+    },
+    "clave": "CFDINB",
+    "desc": "No fue posible envía el CFD. SchemaLocations para Namespace http://www.sat.gob.mx/TimbreFiscalDigital previamente definido con otro valor. Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "El error es porque el Namespaces y schemalocation pueden ir en encabezado del CFDI, o en el complemento del mismo, sin embargo, siempre deben ir en pares (Namespace y Esquema) y no se pueden repetir o poner en nodos diferentes, para este caso se repiten con definiciones diferentes",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML y buscar el nodo de: Comprobante xsi: schemaLocations"
+        },
+        {
+          "paso": 2,
+          "desc": "Verifique que el nodo de xsi:schemaLocation contenga la misma estructura del namespace y contengan los mismos pares."
+        },
+        {
+          "paso": 3,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5012"
+    },
+    "clave": "CFDINC",
+    "desc": "No fue posible envía el CFD. Namespace http://www.sat.gob.mx/TimbreFiscalDigital previamente definido con otro prefijo. Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "Declaración incorrecta del prefijo del Namespace del Timbre Fiscal Digital",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML y buscar el nodo de: CfdiComprobante"
+        },
+        {
+          "paso": 2,
+          "desc": "Verifique que el nodo de xmlns:ns3 no esté declarado en el encabezado del XML. Además, prefijo “ns3” es incorrecto de acuerd al código fuente del SAT, este debe ser tfd."
+        },
+        {
+          "paso": 3,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5013"
+    },
+    "clave": "CFDIND",
+    "desc": "No fue posible envía el CFDI. Error en NameSpace para CFDi 3.3 Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "El error es porque la declaración del schemaLocation, es errónea.",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML y buscar el nodo de: Cfdi. Comprobante xsi ShemaLocation"
+        },
+        {
+          "paso": 2,
+          "desc": "Verifique que el nodo de xsischemaLocation este declarado de manera correcta como lo indica la guía de llenado del Anexo 20 del SAT: http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd."
+        },
+        {
+          "paso": 3,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5014"
+    },
+    "clave": "CFDINE",
+    "desc": "No fue posible envía el CFDI. Invalid character in the given encoding. Line, postion 63 Almacenado en la Base de datos de Aranda",
+    "instrucciones": {
+      "desc": "Le comentamos que el error de validación hace referencia a que el documento XML se encontró una codificación no válida.",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingresar a su XML y verificar que el documento XML este codificado como UTF-8"
+        },
+        {
+          "paso": 2,
+          "desc": "Envíe esta validación a su proveedor de facturación para que hagan las modificaciones correspondientes y vuelva a subir su comprobante a la red cofidi con el error."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5015"
+    },
+    "clave": "SOLACUSE",
+    "desc": "SOLICITUD DE ACUSES DE RECIBO",
+    "instrucciones": {
+      "desc": "Buen día\nGracias por ponerse en contacto con nosotros. Para la descarga de acuses de recibo puede hacer el siguiente procedimiento:",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingrese a la página principal de Red Cofidi V 2.0 a través de: https://red.cofidi.com.mx/Default.aspx"
+        },
+        {
+          "paso": 2,
+          "desc": "Posterior busque la opción de “Acceso a la comunidad” (De clic en el botón)"
+        },
+        {
+          "paso": 3,
+          "desc": "Una vez que ingreso a la comunidad, de clic en “Acceso a proveedores”"
+        },
+        {
+          "paso": 4,
+          "desc": "Red Cofidi le enviará un formulario en el cual debe de ingresar los campos \n-RFC (Emisor, empresa que emite la factura)\n- Correo electrónico que se proporciono al momento de hacer la carga en el portal. \n-El número TrackId que el sistema le arrojo al momento de finalizar la carga. (Este número se captura sin los cuatro primeros ceros) Los tres datos son requeridos, si son erróneos no se permitirá avanzar a la siguiente pantalla."
+        },
+        {
+          "paso": 5,
+          "desc": "Una vez realizando esto, el sistema automáticamente le abrirá la pantalla donde se encuentran sus acuses de recibo. Filtre por fecha para encontrar su acuse."
+        },
+        {
+          "paso": 6,
+          "desc": "En la última columna de lado derecho muestra el estatus de los documentos recibidos por la RED COFIDI. (Para descargar el acuse el estatus debe estar con una paloma en color verde)"
+        },
+        {
+          "paso": 7,
+          "desc": "Una vez que el documento fue identificado, seleccionar el icono de la paloma en verde para descargar el acuse en xml."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5016"
+    },
+    "clave": "SOLESTATUS",
+    "desc": "SOLICITUD DE ESTATUS DE ACUSES DE RECIBO",
+    "instrucciones": {
+      "desc": "Buen día\nGracias por ponerse en contacto con nosotros. Para la consulta de los estatus de acuse de recibo debe realizar el siguiente proceso:",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingrese a la página principal de Red Cofidi V 2.0 a través de: https://red.cofidi.com.mx/Default.aspx"
+        },
+        {
+          "paso": 2,
+          "desc": "Posterior busque la opción de “Acceso a la comunidad” (De clic en el botón)"
+        },
+        {
+          "paso": 3,
+          "desc": "Una vez que ingreso a la comunidad, de clic en “Acceso a proveedores”"
+        },
+        {
+          "paso": 4,
+          "desc": "Red Cofidi le enviará un formulario en el cual debe de ingresar los campos \n-RFC (Emisor, empresa que emite la factura)\n- Correo electrónico que se proporciono al momento de hacer la carga en el portal. \n-El número TrackId que el  le arrojo al momento de finalizar la carga. (Este número se captura sin los cuatro primeros ceros) Los tres datos son requeridos, si son erróneos no se permitirá avanzar a la siguiente pantalla."
+        },
+        {
+          "paso": 5,
+          "desc": "Una vez realizando esto, el sistema automáticamente le abrirá la pantalla donde se encuentran sus acuses de recibo. Filtre por fecha para encontrar su acuse."
+        },
+        {
+          "paso": 6,
+          "desc": "En la última columna de lado derecho muestra el estatus de los documentos recibidos por la RED COFIDI."
+        },
+        {
+          "paso": 7,
+          "desc": "Verifique su estatus según los estados:"
+        },
+        {
+          "paso": 8,
+          "desc": "-Estatus “0” (Documento cargado en Red Cofidi, sobre en blanco) \n-Estatus “1” (Descargado para procesarse por la empresa, flecha azul hacia abajo)\n-Estatus “2” (Cargado en COFIDI, y la empresa lo ha recibido y aceptado paloma en verde)\n-Estatus “3” (Documento rechazado por COFIDI y la empresa, tache en rojo)"
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5017"
+    },
+    "clave": "SOLTRACKID",
+    "desc": "RECUPERACIÓN DE TRACKID",
+    "instrucciones": {
+      "desc": "Buen día\nGracias por ponerse en contacto con nosotros. Para la consultar su número TrackId extraviado deberá de realizar los siguientes pasos:",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingrese a la página principal de Red Cofidi V 2.0 a través de: https://red.cofidi.com.mx/Default.aspx"
+        },
+        {
+          "paso": 2,
+          "desc": "Posteriormente va a cargar el documento CFDI a la Red Cofidi, como si fuera a cargarlo nuevamente en el portal."
+        },
+        {
+          "paso": 3,
+          "desc": "A su vez el portal le arrojará un mensaje que dirá “El CFDI, ya fue cargado con anterioridad con el número de trackid \"#\". Solo de esta manera podrá recuperar el número. (Esto es solo para saber cual fue el número TrackId ya que la pantalla de validación no vuelve a salir)"
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5018"
+    },
+    "clave": "SOLARCHIVOS",
+    "desc": "AGREGAR ARCHIVOS ANEXOS A RED COFIDI (PDF)",
+    "instrucciones": {
+      "desc": "Buen día\nGracias por ponerse en contacto con nosotros. Para realizar la carga de archivos anexos en Red Cofidi (PDF) deberá de realizar el siguiente proceso:",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingrese a la página principal de Red Cofidi V 2.0 a través de: https://red.cofidi.com.mx/Default.aspx"
+        },
+        {
+          "paso": 2,
+          "desc": "Posteriormente va a cargar el documento CFDI a la Red Cofidi, como si fuera a cargarlo nuevamente en el portal."
+        },
+        {
+          "paso": 3,
+          "desc": "A su vez el portal le arrojará un mensaje que dirá “El CFDI, ya fue cargado con anterioridad con el número de trackid \"#. ¿Desea agregar archivos anexos? Usted dará en el botón “aceptar”."
+        },
+        {
+          "paso": 4,
+          "desc": "Una vez dando clic en “aceptar” le abrirá la página de “archivos anexos” donde deberá adjuntar la carga de los PDF nuevamente."
+        },
+        {
+          "paso": 5,
+          "desc": "Terminando esté proceso le dará en el botón “Next” arrojando su trackid."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd5019"
+    },
+    "clave": "SOLCODIFICACION",
+    "desc": "ERROR EN CODIFICACIÓN UTF-8",
+    "instrucciones": {
+      "desc": "Buen día\nGracias por ponerse en contacto con nosotros. El xml no está bien codificado en formato UTF-8 por lo que la red cofidi no lo identifica en el portal.",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingrese a su archivo xml para corregir"
+        },
+        {
+          "paso": 2,
+          "desc": "Posteriormente va a guardar su archivo como documento txt."
+        },
+        {
+          "paso": 3,
+          "desc": "Introduzca su nombre de archivo preferido, y haga clic en el menú desplegable que se encuentra junto a \"Codificación\" y luego elija \"UTF-8\"."
+        },
+        {
+          "paso": 4,
+          "desc": "Finalmente deberá dar clic en “Guardar”"
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd501a"
+    },
+    "clave": "SOLTRACKID-A",
+    "desc": "RECUPERACIÓN DE TRACKID",
+    "instrucciones": {
+      "desc": "Buen día\nGracias por ponerse en contacto con nosotros. Para la consultar su número TrackId extraviado deberá de realizar los siguientes pasos:",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingrese a la página principal de Red Cofidi V 2.0 a través de: https://red.cofidi.com.mx/Default.aspx"
+        },
+        {
+          "paso": 2,
+          "desc": "Posteriormente va a cargar el documento CFDI a la Red Cofidi, como si fuera a cargarlo nuevamente en el portal."
+        },
+        {
+          "paso": 3,
+          "desc": "A su vez el portal le arrojará un mensaje que dirá “El CFDI, ya fue cargado con anterioridad con el número de trackid \"#\". Solo de esta manera podrá recuperar el número. (Esto es solo para saber cual fue el número TrackId ya que la pantalla de validación no vuelve a salir)"
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd501b"
+    },
+    "clave": "SOLERROR",
+    "desc": "ERROR EN LÍNEAS OC U OP",
+    "instrucciones": {
+      "desc": "Buen día\nGracias por ponerse en contacto con nosotros. Para resolver la duda de a problemática del número de línea OC u OP debe de realizar el siguiente procedimiento:",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "En el llenado de Addenda, deberá de posicionarse en el apartado de “Partes”"
+        },
+        {
+          "paso": 2,
+          "desc": "Una vez ingresando a “Partes” deberá de habilitar el campo dando doble clic, el campo debe de decir “Linea OC o Línea OP”"
+        },
+        {
+          "paso": 3,
+          "desc": "Después de haber habilitado este campo, deberá de dígitar el número “1” con su teclado. (Usted deberá de digitar en serie si es que tiene más de una línea a la vez, es decir “1”, “2”, “3” etc.)"
+        },
+        {
+          "paso": 4,
+          "desc": "Finalmente después de haber digitado el número “1” o todas sus partidas, le dará un “enter” con su teclado para que el portal guarde la información requerida."
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd501c"
+    },
+    "clave": "SOLRFC",
+    "desc": "ERROR EN RFC / NO ES INTEGRANTE DE LA RED COFIDI",
+    "instrucciones": {
+      "desc": "Buen día\nGracias por ponerse en contacto con nosotros. El error es porque el RFC que usted está cargando probablemente sea el  suyo y esté debe de ser el del receptor.",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingrese a la página principal de Red Cofidi V 2.0 a través de: https://red.cofidi.com.mx/Default.aspx"
+        },
+        {
+          "paso": 2,
+          "desc": "Posteriormente colocarse en el campo RFC de cliente. (Receptor del comprobante)"
+        },
+        {
+          "paso": 3,
+          "desc": "Verifique que el RFC a validar sea el de la empresa receptora (empresa que recibirá su validación)"
+        }
+      ]
+    },
+    "links": [],
+    "_class": "com.github.danimaniarqsoft.domain.MensajeError"
+  },
+  {
+    "_id": {
+      "$oid": "5e2fbf650fc5ae38c6dd501d"
+    },
+    "clave": "SOLMANUALES",
+    "desc": "CONSULTA DE MANUALES DE APOYO",
+    "instrucciones": {
+      "desc": "Buen día\nGracias por ponerse en contacto con nosotros. Para consultar los manuales de apoyo en red cofidi, usted deberá de realizar los siguientes pasos.",
+      "pasos": [
+        {
+          "paso": 1,
+          "desc": "Ingrese a la página principal de Red Cofidi V 2.0 a través de: https://red.cofidi.com.mx/Default.aspx"
+        },
+        {
+          "paso": 2,
+          "desc": "Dentro del portal en la parte superior buscará la opción de “Recursos de ayuda” y dará clic dentro del campo."
+        },
+        {
+          "paso": 3,
+          "desc": "Posteriormente le abrirá la opción de “Manuales” y ahí usted podrá visualizar y descargar los manuales que necesiten."
+        }
+      ]
+    },
+    "links": [],
     "_class": "com.github.danimaniarqsoft.domain.MensajeError"
   }
 ]
