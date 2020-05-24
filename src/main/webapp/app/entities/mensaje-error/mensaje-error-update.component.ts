@@ -62,6 +62,12 @@ export default class MensajeErrorUpdate extends Vue {
   public isSaving = false;
   public stepId = null;
   public newStep = new Paso();
+  public dragOptions = {
+    animation: 200,
+    group: 'description',
+    disabled: false,
+    ghostClass: 'ghost'
+  };
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -120,8 +126,11 @@ export default class MensajeErrorUpdate extends Vue {
 
   public initRelationships(): void {}
 
-  public prepareRemove(step: IPaso): void {
+  public removeStep(step: IPaso): void {
     this.stepId = step;
+    this.mensajeError.instruccion.pasos.splice(this.mensajeError.instruccion.pasos.indexOf(this.stepId), 1);
+    this.orderSteps();
+    this.closeDialog();
   }
 
   public prepareToSave(step: any): void {
@@ -135,12 +144,6 @@ export default class MensajeErrorUpdate extends Vue {
     this.newStep.paso = -1;
     this.newStep.desc = '';
     (<any>this.$refs.addStep).show();
-  }
-
-  public removeStep(): void {
-    this.mensajeError.instruccion.pasos.splice(this.mensajeError.instruccion.pasos.indexOf(this.stepId), 1);
-    this.orderSteps();
-    this.closeDialog();
   }
 
   public closeDialog(): void {

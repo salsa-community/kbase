@@ -72,7 +72,8 @@ import {
   Calendar,
   Backtop,
   PageHeader,
-  Loading
+  Loading,
+  Popconfirm
 } from 'element-ui';
 
 export function initElementVue(vue) {
@@ -147,5 +148,6 @@ export function initElementVue(vue) {
   vue.use(Calendar);
   vue.use(Backtop);
   vue.use(PageHeader);
+  vue.use(Popconfirm);
   vue.use(Loading.directive);
 }
