@@ -30,6 +30,10 @@ entity Contexto {
     desc String
 }
 
+entity UnknowIntents {
+    word String,
+    lastModified LocalDate
+}
 relationship OneToOne {
     MensajeError{instruccion} to Instruccion
 }

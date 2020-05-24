@@ -13,6 +13,7 @@
         "paso": "Paso",
         "usuario": "Usuario",
         "contexto": "Contextos",
+        "unknowIntents": "Logs de intenciones",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

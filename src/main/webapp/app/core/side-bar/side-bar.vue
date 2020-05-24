@@ -34,6 +34,11 @@
             <span class="fa fa-tags mr-3"></span> {{ $t('global.menu.entities.contexto') }}
           </router-link>
         </li>
+        <li  v-if="authenticated">
+          <router-link :to="'/entity/unknow-intents'">
+            <span class="fa fa-commenting-o mr-3"></span> {{ $t('global.menu.entities.unknowIntents') }}
+          </router-link>
+        </li>
       </ul>
 
       <ul   v-if="authenticated" class="list-unstyled components mb-5">

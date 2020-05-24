@@ -1,0 +1,24 @@
+{
+    "name": "UnknowIntents",
+    "fields": [
+        {
+            "fieldName": "word",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastModified",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200524201014",
+    "entityTableName": "unknow_intents",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

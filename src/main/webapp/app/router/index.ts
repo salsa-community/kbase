@@ -60,6 +60,12 @@ const Contexto = () => import('../entities/contexto/contexto.vue');
 const ContextoUpdate = () => import('../entities/contexto/contexto-update.vue');
 // prettier-ignore
 const ContextoDetails = () => import('../entities/contexto/contexto-details.vue');
+// prettier-ignore
+const UnknowIntents = () => import('../entities/unknow-intents/unknow-intents.vue');
+// prettier-ignore
+const UnknowIntentsUpdate = () => import('../entities/unknow-intents/unknow-intents-update.vue');
+// prettier-ignore
+const UnknowIntentsDetails = () => import('../entities/unknow-intents/unknow-intents-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 Vue.use(Router);
@@ -325,6 +331,31 @@ export default new Router({
       path: '/entity/contexto/:contextoId/view',
       name: 'ContextoView',
       component: ContextoDetails,
+      meta: { authorities: ['ROLE_USER'] }
+    }
+    ,
+    {
+      path: '/entity/unknow-intents',
+      name: 'UnknowIntents',
+      component: UnknowIntents,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/unknow-intents/new',
+      name: 'UnknowIntentsCreate',
+      component: UnknowIntentsUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/unknow-intents/:unknowIntentsId/edit',
+      name: 'UnknowIntentsEdit',
+      component: UnknowIntentsUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/unknow-intents/:unknowIntentsId/view',
+      name: 'UnknowIntentsView',
+      component: UnknowIntentsDetails,
       meta: { authorities: ['ROLE_USER'] }
     }
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

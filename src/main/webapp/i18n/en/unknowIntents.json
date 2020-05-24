@@ -1,0 +1,23 @@
+{
+  "kbaseApp": {
+    "unknowIntents": {
+      "home": {
+        "title": "Intenciones no atendidas",
+        "createLabel": "Create a new Unknow Intents",
+        "createOrEditLabel": "Create or edit a Unknow Intents",
+        "notFound": "No Unknow Intents found"
+      },
+      "created": "A new Unknow Intents is created with identifier {{ param }}",
+      "updated": "A Unknow Intents is updated with identifier {{ param }}",
+      "deleted": "A Unknow Intents is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Unknow Intents {{ id }}?"
+      },
+      "detail": {
+        "title": "Unknow Intents"
+      },
+      "word": "Intención",
+      "lastModified": "Last Modified"
+    }
+  }
+}
