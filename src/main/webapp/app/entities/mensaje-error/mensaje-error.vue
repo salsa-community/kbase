@@ -25,17 +25,23 @@
                 <thead>
                 <tr class="text-center">
                     <th v-on:click="changeOrder('clave')"><span v-text="$t('kbaseApp.mensajeError.clave')">Clave</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
+                    <th ><span v-text="$t('kbaseApp.mensajeError.servicios')">Servicios</span></th>
                     <th v-on:click="changeOrder('desc')"><span v-text="$t('kbaseApp.mensajeError.desc')">Desc</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
-                    <th></th>
+                    <th> Acciones </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr v-for="mensajeError in mensajeErrors" :key="mensajeError.id">
                     <td class="text-center">{{mensajeError.clave}}</td>
+                    <td>
+                        <div class="p-1" v-for="(servicio, index) in mensajeError.servicios" :key="index">
+                            <el-tag effect="plain" size="mini" :type='resolveTagType(index)'>{{ servicio }}</el-tag>
+                        </div>
+                    </td>
                     <td>{{mensajeError.desc}}</td>
                     <td class="text-right">
                         <div class="btn-group">
-                            <router-link v-if="false" :to="{name: 'MensajeErrorView', params: {mensajeErrorId: mensajeError.id}}" tag="button" class="btn btn-info btn-sm details">
+                            <router-link :to="{name: 'MensajeErrorView', params: {mensajeErrorId: mensajeError.id}}" tag="button" class="btn btn-info btn-sm details">
                                 <font-awesome-icon icon="eye"></font-awesome-icon>
                                 <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
                             </router-link>

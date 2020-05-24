@@ -28,6 +28,12 @@ export default class MensajeError extends mixins(Vue2Filters.mixin) {
   public alertType: string = this.$store.getters.alertType;
   public alertMessage: any = this.$store.getters.alertMessage;
 
+  public tagTypeList: string[] = ['', 'success', 'info', 'warning', 'danger'];
+
+  public resolveTagType(index: number) {
+    let i = index % this.tagTypeList.length;
+    return this.tagTypeList[i];
+  }
   public getAlertFromStore() {
     this.dismissCountDown = this.$store.getters.dismissCountDown;
     this.dismissSecs = this.$store.getters.dismissSecs;
