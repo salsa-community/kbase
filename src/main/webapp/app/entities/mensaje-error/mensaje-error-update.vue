@@ -129,7 +129,7 @@
                 </div>
                 <br><br>
                 <div>
-                    <button type="button" id="cancel-save" class="btn btn-secondary" v-on:click="previousState()">
+                    <button type="button" id="cancel-save" class="btn btn-outline-danger" v-on:click="previousState()">
                         <font-awesome-icon icon="ban"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.cancel')">Cancel</span>
                     </button>
                     <button type="submit" id="save-entity" :disabled="$v.mensajeError.$invalid || isSaving" class="btn btn-primary">
@@ -190,7 +190,7 @@
                 </div>
             </div>
             <div slot="modal-footer">
-                <b-button variant="outline-dark" v-text="$t('entity.action.cancel')" v-on:click="closeEditStepDialog()"></b-button>
+                <b-button variant="outline-danger" v-text="$t('entity.action.cancel')" v-on:click="closeEditStepDialog()"></b-button>
                 <b-button :disabled="$v.newStep.desc.$invalid" variant="outline-primary" v-text="$t('entity.action.save')" v-on:click="saveStep()"></b-button>
             </div>
         </b-modal>
