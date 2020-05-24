@@ -73,10 +73,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.servicios')" for="mensaje-error-servicios">Servicios</label>
-                        <el-checkbox-group v-model="mensajeError.servicios">
-                            <el-checkbox label="pack-web" >Pack Web</el-checkbox>
-                            <el-checkbox label="red-codifi" >Red Cofidi</el-checkbox>
+                        <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.contextos')" for="mensaje-error-contextos">Contextos</label>
+                        <el-checkbox-group v-model="mensajeError.contextos">
+                            <el-checkbox v-for="(contexto, index) in contextos" :key="index" :label="contexto.clave" >{{ contexto.nombre }}</el-checkbox>
                         </el-checkbox-group>
                     </div>
                     <div class="form-group">

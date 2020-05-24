@@ -54,6 +54,12 @@ const Usuario = () => import('../entities/usuario/usuario.vue');
 const UsuarioUpdate = () => import('../entities/usuario/usuario-update.vue');
 // prettier-ignore
 const UsuarioDetails = () => import('../entities/usuario/usuario-details.vue');
+// prettier-ignore
+const Contexto = () => import('../entities/contexto/contexto.vue');
+// prettier-ignore
+const ContextoUpdate = () => import('../entities/contexto/contexto-update.vue');
+// prettier-ignore
+const ContextoDetails = () => import('../entities/contexto/contexto-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 Vue.use(Router);
@@ -294,6 +300,31 @@ export default new Router({
       path: '/entity/usuario/:usuarioId/view',
       name: 'UsuarioView',
       component: UsuarioDetails,
+      meta: { authorities: ['ROLE_USER'] }
+    }
+    ,
+    {
+      path: '/entity/contexto',
+      name: 'Contexto',
+      component: Contexto,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/contexto/new',
+      name: 'ContextoCreate',
+      component: ContextoUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/contexto/:contextoId/edit',
+      name: 'ContextoEdit',
+      component: ContextoUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/contexto/:contextoId/view',
+      name: 'ContextoView',
+      component: ContextoDetails,
       meta: { authorities: ['ROLE_USER'] }
     }
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

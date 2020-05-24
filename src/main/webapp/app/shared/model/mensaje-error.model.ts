@@ -8,7 +8,7 @@ export interface IMensajeError {
   instruccionId?: string;
   instruccion?: IInstruccion;
   links?: ILink[];
-  servicios?: string[];
+  contextos?: string[];
 }
 
 export class MensajeError implements IMensajeError {
@@ -19,8 +19,8 @@ export class MensajeError implements IMensajeError {
     public instruccionId?: string,
     public instruccion?: Instruccion,
     public links?: ILink[],
-    public servicios?: string[]
+    public contextos?: string[]
   ) {
-    this.servicios = [];
+    this.contextos = [];
   }
 }

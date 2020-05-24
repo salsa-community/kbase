@@ -11,10 +11,9 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "mensajeError",
-            "otherEntityRelationshipName": "links",
             "relationshipName": "mensajeError",
+            "otherEntityName": "mensajeError",
+            "relationshipType": "many-to-one",
             "otherEntityField": "id"
         }
     ],

@@ -24,6 +24,12 @@ entity Usuario {
     rfc String
 }
 
+entity Contexto {
+    nombre String,
+    clave String,
+    desc String
+}
+
 relationship OneToOne {
     MensajeError{instruccion} to Instruccion
 }

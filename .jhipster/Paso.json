@@ -12,10 +12,9 @@
     ],
     "relationships": [
         {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "instruccion",
-            "otherEntityRelationshipName": "pasos",
             "relationshipName": "instruccion",
+            "otherEntityName": "instruccion",
+            "relationshipType": "many-to-one",
             "otherEntityField": "id"
         }
     ],

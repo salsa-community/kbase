@@ -29,6 +29,11 @@
             <span class="fa fa-sticky-note mr-3"></span> {{ $t('global.menu.entities.mensajeError') }}
           </router-link>
         </li>
+        <li  v-if="authenticated">
+          <router-link :to="'/entity/contexto'">
+            <span class="fa fa-tags mr-3"></span> {{ $t('global.menu.entities.contexto') }}
+          </router-link>
+        </li>
       </ul>
 
       <ul   v-if="authenticated" class="list-unstyled components mb-5">

@@ -159,3 +159,9 @@ For more information refer to [Using Docker and Docker-Compose][], this page als
 ## Continuous Integration (optional)
 
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
+
+## Generation
+
+In order to just modify the `.entity/` json files and not generate the entities:
+
+`jhipster import-jdl ./entities.jh --json-only --blueprints vuejs`

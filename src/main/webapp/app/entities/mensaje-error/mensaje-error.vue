@@ -25,7 +25,7 @@
                 <thead>
                 <tr class="text-center">
                     <th v-on:click="changeOrder('clave')"><span v-text="$t('kbaseApp.mensajeError.clave')">Clave</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
-                    <th ><span v-text="$t('kbaseApp.mensajeError.servicios')">Servicios</span></th>
+                    <th ><span v-text="$t('kbaseApp.mensajeError.contextos')">Contextos</span></th>
                     <th v-on:click="changeOrder('desc')"><span v-text="$t('kbaseApp.mensajeError.desc')">Desc</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
                     <th> Acciones </th>
                 </tr>
@@ -34,8 +34,8 @@
                 <tr v-for="mensajeError in mensajeErrors" :key="mensajeError.id">
                     <td class="text-center">{{mensajeError.clave}}</td>
                     <td>
-                        <div class="p-1" v-for="(servicio, index) in mensajeError.servicios" :key="index">
-                            <el-tag effect="plain" size="mini" :type='resolveTagType(index)'>{{ servicio }}</el-tag>
+                        <div class="p-1" v-for="(contexto, index) in mensajeError.contextos" :key="index">
+                            <el-tag effect="plain" size="mini" :type='resolveTagType(index)'>{{ contexto }}</el-tag>
                         </div>
                     </td>
                     <td>{{mensajeError.desc}}</td>

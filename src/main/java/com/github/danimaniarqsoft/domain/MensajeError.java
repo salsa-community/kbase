@@ -36,8 +36,8 @@ public class MensajeError implements Serializable {
     @Field("links")
     private List<Link> links = new ArrayList<>();
 
-    @Field("servicios")
-    private List<String> servicios = new ArrayList<>();
+    @Field("contextos")
+    private List<String> contextos = new ArrayList<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not
     // remove
@@ -111,12 +111,12 @@ public class MensajeError implements Serializable {
         this.links = links;
     }
 
-    public List<String> getServicios() {
-        return servicios;
+    public List<String> getContextos() {
+        return contextos;
     }
 
-    public void setServicios(List<String> servicios) {
-        this.servicios = servicios;
+    public void setContextos(List<String> contextos) {
+        this.contextos = contextos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and
     // setters here, do not remove

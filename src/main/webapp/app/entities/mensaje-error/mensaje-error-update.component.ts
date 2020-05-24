@@ -6,6 +6,9 @@ import { isUnique } from '@/validators/isUniqueCode';
 import InstruccionService from '../instruccion/instruccion.service';
 import { IInstruccion, Instruccion } from '@/shared/model/instruccion.model';
 
+import ContextoService from '../contexto/contexto.service';
+import { IContexto, Contexto } from '@/shared/model/contexto.model';
+
 import LinkService from '../link/link.service';
 import { ILink } from '@/shared/model/link.model';
 import { IPaso, Paso } from '@/shared/model/paso.model';
@@ -57,6 +60,10 @@ export default class MensajeErrorUpdate extends Vue {
   public instruccions: IInstruccion[] = [];
 
   @Inject('linkService') private linkService: () => LinkService;
+
+  @Inject('contextoService') private contextoService: () => ContextoService;
+
+  public contextos: IContexto[] = [];
 
   public links: ILink[] = [];
   public isSaving = false;
@@ -124,7 +131,14 @@ export default class MensajeErrorUpdate extends Vue {
     this.$router.go(-1);
   }
 
-  public initRelationships(): void {}
+  public initRelationships(): void {
+    this.contextoService()
+      .findAll()
+      .then(res => {
+        this.contextos = res;
+      })
+      .catch();
+  }
 
   public removeStep(step: IPaso): void {
     this.stepId = step;
