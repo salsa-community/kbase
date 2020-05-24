@@ -73,6 +73,13 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.servicios')" for="mensaje-error-servicios">Servicios</label>
+                        <el-checkbox-group v-model="mensajeError.servicios">
+                            <el-checkbox label="pack-web" >Pack Web</el-checkbox>
+                            <el-checkbox label="red-codifi" >Red Cofidi</el-checkbox>
+                        </el-checkbox-group>
+                    </div>
+                    <div class="form-group">
                         <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.pasos')" for="mensaje-error-pasos">Pasos</label>
                         <div class="table-responsive">
                             <b-button v-on:click="prepareToAddStep()" 

@@ -21,18 +21,17 @@
             <span v-text="$t('kbaseApp.mensajeError.home.notFound')">No mensajeErrors found</span>
         </div>
         <div class="table-responsive" v-if="mensajeErrors && mensajeErrors.length > 0">
-            <table class="table table-striped">
+            <table class="table table-hover">
                 <thead>
-                <tr>
+                <tr class="text-center">
                     <th v-on:click="changeOrder('clave')"><span v-text="$t('kbaseApp.mensajeError.clave')">Clave</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
                     <th v-on:click="changeOrder('desc')"><span v-text="$t('kbaseApp.mensajeError.desc')">Desc</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="mensajeError in mensajeErrors"
-                    :key="mensajeError.id">
-                    <td>{{mensajeError.clave}}</td>
+                <tr v-for="mensajeError in mensajeErrors" :key="mensajeError.id">
+                    <td class="text-center">{{mensajeError.clave}}</td>
                     <td>{{mensajeError.desc}}</td>
                     <td class="text-right">
                         <div class="btn-group">
@@ -46,8 +45,7 @@
                             </router-link>
                             <b-button v-on:click="prepareRemove(mensajeError)"
                                    variant="danger"
-                                   class="btn btn-sm"
-                                   v-b-modal.removeEntity>
+                                   class="btn btn-sm">
                                 <font-awesome-icon icon="times"></font-awesome-icon>
                                 <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
                             </b-button>
@@ -60,7 +58,7 @@
         <b-modal ref="removeEntity" id="removeEntity" >
             <span slot="modal-title"><span id="kbaseApp.mensajeError.delete.question" v-text="$t('entity.delete.title')">Confirm delete operation</span></span>
             <div class="modal-body">
-                <p id="jhi-delete-mensajeError-heading" v-bind:title="$t('kbaseApp.mensajeError.delete.question')">Are you sure you want to delete this Mensaje Error?</p>
+                <p id="jhi-delete-mensajeError-heading">{{ $t('kbaseApp.mensajeError.delete.question', {id: currentClave}) }}</p>
             </div>
             <div slot="modal-footer">
                 <button type="button" class="btn btn-secondary" v-text="$t('entity.action.cancel')" v-on:click="closeDialog()">Cancel</button>

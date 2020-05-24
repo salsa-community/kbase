@@ -1,6 +1,7 @@
 import { BForm } from 'bootstrap-vue';
 import { BFormInput } from 'bootstrap-vue';
 import { BFormCheckbox } from 'bootstrap-vue';
+import { BFormCheckboxGroup } from 'bootstrap-vue';
 import { BFormGroup } from 'bootstrap-vue';
 import { BProgress } from 'bootstrap-vue';
 import { BProgressBar } from 'bootstrap-vue';
@@ -41,6 +42,7 @@ export function initBootstrapVue(vue) {
   vue.component('b-form-input', BFormInput);
   vue.component('b-form-group', BFormGroup);
   vue.component('b-form-checkbox', BFormCheckbox);
+  vue.component('b-form-checkbox-group', BFormCheckboxGroup);
   vue.component('b-collapse', BCollapse);
   vue.component('b-nav-item', BNavItem);
   vue.component('b-nav-item-dropdown', BNavItemDropdown);

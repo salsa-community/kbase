@@ -20,6 +20,7 @@ export default class MensajeError extends mixins(Vue2Filters.mixin) {
   public reverse = false;
   public totalItems = 0;
   public mensajeErrors: IMensajeError[] = [];
+  public currentClave: string = null;
 
   public isFetching = false;
   public dismissCountDown: number = this.$store.getters.dismissCountDown;
@@ -72,7 +73,10 @@ export default class MensajeError extends mixins(Vue2Filters.mixin) {
   }
 
   public prepareRemove(instance: IMensajeError): void {
+    console.log(instance);
     this.removeId = instance.id;
+    this.currentClave = instance.clave;
+    (<any>this.$refs['removeEntity']).show();
   }
 
   public removeMensajeError(): void {

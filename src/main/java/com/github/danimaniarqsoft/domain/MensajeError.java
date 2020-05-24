@@ -36,7 +36,11 @@ public class MensajeError implements Serializable {
     @Field("links")
     private List<Link> links = new ArrayList<>();
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    @Field("servicios")
+    private List<String> servicios = new ArrayList<>();
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not
+    // remove
     public String getId() {
         return id;
     }
@@ -106,7 +110,16 @@ public class MensajeError implements Serializable {
     public void setLinks(List<Link> links) {
         this.links = links;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    public List<String> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(List<String> servicios) {
+        this.servicios = servicios;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and
+    // setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -126,10 +139,6 @@ public class MensajeError implements Serializable {
 
     @Override
     public String toString() {
-        return "MensajeError{" +
-            "id=" + getId() +
-            ", clave='" + getClave() + "'" +
-            ", desc='" + getDesc() + "'" +
-            "}";
+        return "MensajeError{" + "id=" + getId() + ", clave='" + getClave() + "'" + ", desc='" + getDesc() + "'" + "}";
     }
 }

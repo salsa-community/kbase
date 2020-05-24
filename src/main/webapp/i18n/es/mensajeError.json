@@ -22,7 +22,8 @@
       "desc": "Descripción",
       "instruccion": "Instrucciones",
       "links": "Links",
-      "pasos": "Pasos"
+      "pasos": "Pasos",
+      "servicios": "Servicios"
     }
   }
 }
