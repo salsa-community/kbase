@@ -81,49 +81,53 @@
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.pasos')" for="mensaje-error-pasos">Pasos</label>
-                            <b-button v-on:click="prepareToAddStep()" 
-                                    class="btn btn-sm"
-                                    variant="primary">Agregar Paso
-                            </b-button>
-
-                            <draggable class="container" v-if="mensajeError.instruccion" v-model.trim="mensajeError.instruccion.pasos" 
-                                @change="orderSteps"
-                                @start="drag=true"
-                                @end="drag=false"         
-                                v-bind="dragOptions"
->
-                                <transition-group type="transition" name="flip-list">
-                                <div 
-                                    class="row p-1 step-row" 
-                                    v-for="step in mensajeError.instruccion.pasos" 
-                                    :key="step.paso"
-                                >
-                                    <div class="col-sm-1">
-                                    {{step.paso}}
-                                    </div>
-                                    <div class="col-sm-8">
-                                    {{step.desc}}
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="btn-group">
-                                            <el-button  v-on:click="prepareToSave(step)" type="primary" icon="el-icon-edit" circle></el-button>
-                                            <el-popconfirm
-                                                v-on:onConfirm="removeStep(step)"
-                                                confirmButtonText='OK'
-                                                cancelButtonText='Cancelar'
-                                                icon="el-icon-warning"
-                                                iconColor="red"
-                                                title="¿Estás seguro de eliminar este paso?"
-                                                >
-                                                    <el-button slot="reference" type="danger" icon="el-icon-delete" circle></el-button>
-                                                </el-popconfirm>
-                                        </div>
+                    </div>
+                    <div class="container">
+                        <draggable class="container" v-if="mensajeError.instruccion" v-model.trim="mensajeError.instruccion.pasos" 
+                            @change="orderSteps"
+                            @start="drag=true"
+                            @end="drag=false"         
+                            v-bind="dragOptions"
+    >
+                            <transition-group type="transition" name="flip-list">
+                            <div 
+                                class="row pb-1" 
+                                v-for="step in mensajeError.instruccion.pasos" 
+                                :key="step.paso"
+                            >
+                                <div class="col mr-1 step-row text-center">
+                                {{step.paso}}
+                                </div>
+                                <div class="col-sm-9 step-row">
+                                {{step.desc}}
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="btn-group">
+                                        <el-button v-on:click="prepareToSave(step)" type="primary" icon="el-icon-edit" circle></el-button>
+                                        <el-popconfirm
+                                            v-on:onConfirm="removeStep(step)"
+                                            confirmButtonText='Aceptar'
+                                            cancelButtonText='Cancelar'
+                                            icon="el-icon-warning"
+                                            iconColor="red"
+                                            title="¿Estás seguro de eliminar este paso?"
+                                            >
+                                                <el-button slot="reference" type="danger" icon="el-icon-delete" circle></el-button>
+                                            </el-popconfirm>
                                     </div>
                                 </div>
-                                </transition-group>
-                            </draggable>
+                            </div>
+                            </transition-group>
+                        </draggable>
+                        <div>
+                            <b-button block v-on:click="prepareToAddStep()" 
+                            class="btn btn-sm"
+                            variant="outline-info">Agregar Paso
+                            </b-button>
+                        </div>
                     </div>
                 </div>
+                <br><br>
                 <div>
                     <button type="button" id="cancel-save" class="btn btn-secondary" v-on:click="previousState()">
                         <font-awesome-icon icon="ban"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.cancel')">Cancel</span>
@@ -206,7 +210,7 @@
 </script>
 
 <style scoped>
-.step-row:hover {
-  font-weight: bold;
+.step-row {
+  background-color: #f8f9fa;
 }
 </style>
