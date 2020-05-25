@@ -7,7 +7,7 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Options",
-        "mensajeError": "Error Code",
+        "mensajeError": "Mensajes de error",
         "instruccion": "Instruccion",
         "link": "Link",
         "paso": "Paso",

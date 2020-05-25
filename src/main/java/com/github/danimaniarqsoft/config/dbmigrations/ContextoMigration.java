@@ -1,18 +1,10 @@
 package com.github.danimaniarqsoft.config.dbmigrations;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import com.github.danimaniarqsoft.domain.Authority;
+import java.util.List;
+
 import com.github.danimaniarqsoft.domain.Contexto;
-import com.github.danimaniarqsoft.domain.User;
-import com.github.danimaniarqsoft.domain.Usuario;
-import com.github.danimaniarqsoft.migration.ErrorMigration;
-import com.github.danimaniarqsoft.security.AuthoritiesConstants;
+import com.github.danimaniarqsoft.domain.MensajeError;
 
 import com.github.mongobee.changeset.ChangeLog;
 import com.github.mongobee.changeset.ChangeSet;
@@ -38,5 +30,14 @@ public class ContextoMigration {
         pacWeb.clave("PacWeb");
         pacWeb.desc("Contexto para el sistema de PacWeb");
         mongoTemplate.save(pacWeb);
+    }
+
+    @ChangeSet(order = "02", author = "arquitectura", id = "02-AddDefaultContexto")
+    public void addDefaultContexto(MongoTemplate mongoTemplate) {
+        List<MensajeError> mensajes = mongoTemplate.findAll(MensajeError.class);
+        mensajes.forEach(mensaje -> {
+            mensaje.addContextos("RedCofidi");
+            mongoTemplate.save(mensaje);
+        });
     }
 }

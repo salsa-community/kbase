@@ -7,9 +7,7 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * A MensajeError.
@@ -109,6 +107,11 @@ public class MensajeError implements Serializable {
 
     public void setLinks(List<Link> links) {
         this.links = links;
+    }
+
+    public MensajeError addContextos(String string) {
+        this.contextos.add(string);
+        return this;
     }
 
     public List<String> getContextos() {

@@ -1,11 +1,9 @@
 <template>
-  <div id="app" class="wrapper d-flex align-items-stretch">
+  <div id="app" class="wrapper d-flex align-items-stretch h-100">
     <ribbon></ribbon>
-    <div id="app-header">
-      <side-bar></side-bar>
-    </div>
+    <side-bar></side-bar>
     <div class="container-fluid">
-      <div class="card jh-card">
+      <div class="jh-card">
         <transition name="fade" mode="out-in">
           <router-view></router-view>
         </transition>

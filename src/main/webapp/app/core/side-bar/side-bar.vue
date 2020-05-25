@@ -1,8 +1,8 @@
 <template>
-  <nav id="sidebar" :class="{active: false}">
+  <nav id="sidebar" :class="{active: collapse}">
     <div class="custom-menu">
-      <button type="button" id="sidebarCollapse" class="btn btn-primary">
-        <i class="fa fa-bars" @click="toggleSidebar"></i>
+      <button @click="toggleSidebar" type="button" id="sidebarCollapse" class="btn btn-primary">
+        <i class="fa fa-bars"></i>
         <span class="sr-only">Toggle Menu</span>
       </button>
     </div>
@@ -26,7 +26,7 @@
 
         <li  v-if="authenticated">
           <router-link :to="'/entity/mensaje-error'">
-            <span class="fa fa-sticky-note mr-3"></span> {{ $t('global.menu.entities.mensajeError') }}
+            <span class="fa fa-comments-o mr-3"></span> {{ $t('global.menu.entities.mensajeError') }}
           </router-link>
         </li>
         <li  v-if="authenticated">
@@ -36,7 +36,7 @@
         </li>
         <li  v-if="authenticated">
           <router-link :to="'/entity/unknow-intents'">
-            <span class="fa fa-commenting-o mr-3"></span> {{ $t('global.menu.entities.unknowIntents') }}
+            <span class="fa fa-th-list mr-3"></span> {{ $t('global.menu.entities.unknowIntents') }}
           </router-link>
         </li>
       </ul>
