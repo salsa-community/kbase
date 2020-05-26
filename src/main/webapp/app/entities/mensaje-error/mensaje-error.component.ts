@@ -31,7 +31,7 @@ export default class MensajeError extends mixins(Vue2Filters.mixin) {
   public tagTypeList: string[] = ['', 'success', 'info', 'warning', 'danger'];
 
   public resolveTagType(index: number) {
-    let i = index % this.tagTypeList.length;
+    const i = index % this.tagTypeList.length;
     return this.tagTypeList[i];
   }
   public getAlertFromStore() {
