@@ -13,7 +13,7 @@
         </router-link>
       </h1>
       <ul class="list-unstyled components mb-5">
-        <li class="active">
+        <li v-if="authenticated" class="active">
           <router-link :to="'/'">
             <span class="fa fa-home mr-3" ></span> {{ $t('global.menu.home') }}
           </router-link>

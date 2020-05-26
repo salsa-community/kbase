@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="wrapper d-flex align-items-stretch h-100">
+  <div id="app" class="wrapper d-flex align-items-stretch h-100" width=100%>
     <ribbon></ribbon>
     <side-bar></side-bar>
     <div class="container-fluid">
@@ -20,6 +20,7 @@
 </script>
 
 <style scoped>
+
 .wrapper {
   width: 100%;
 }
