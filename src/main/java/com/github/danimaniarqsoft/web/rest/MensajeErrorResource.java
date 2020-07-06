@@ -94,9 +94,9 @@ public class MensajeErrorResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of mensajeErrors in body.
      */
     @GetMapping("/mensaje-errors")
-    public ResponseEntity<List<MensajeError>> getAllMensajeErrors(Pageable pageable) {
-        log.debug("REST request to get a page of MensajeErrors");
-        Page<MensajeError> page = mensajeErrorService.findAll(pageable);
+    public ResponseEntity<List<MensajeError>> getAllMensajeErrors(Pageable pageable, @RequestParam(required = false) String codigo) {
+        log.debug("REST request to get a page of MensajeErrors and param {}", codigo);
+        Page<MensajeError> page = mensajeErrorService.findAll(codigo, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

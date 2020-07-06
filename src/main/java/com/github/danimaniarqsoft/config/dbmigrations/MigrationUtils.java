@@ -43,6 +43,8 @@ public class MigrationUtils {
 
     public static MensajeError toEntity(ErrorMigration from) {
         MensajeError to = new MensajeError();
+        to.setOrden(from.getOrden());
+        to.setTipo(from.getTipo());
         to.setClave(from.getClave());
         to.setDesc(from.getDesc());
         to.setLinks(toLink(from.getLinks()));

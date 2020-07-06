@@ -2,12 +2,6 @@
     <div>
         <h2 id="page-heading">
             <span v-text="$t('kbaseApp.unknowIntents.home.title')" id="unknow-intents-heading">Unknow Intents</span>
-            <router-link :to="{name: 'UnknowIntentsCreate'}" tag="button" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-unknow-intents">
-                <font-awesome-icon icon="plus"></font-awesome-icon>
-                <span  v-text="$t('kbaseApp.unknowIntents.home.createLabel')">
-                    Create a new Unknow Intents
-                </span>
-            </router-link>
         </h2>
         <b-alert :show="dismissCountDown"
             dismissible

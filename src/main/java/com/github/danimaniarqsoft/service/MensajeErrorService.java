@@ -27,7 +27,7 @@ public interface MensajeErrorService {
      * @param pageable the pagination information.
      * @return the list of entities.
      */
-    Page<MensajeError> findAll(Pageable pageable);
+    Page<MensajeError> findAll(String codigo, Pageable pageable);
 
 
     /**

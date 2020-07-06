@@ -18,10 +18,10 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 @ChangeLog(order = "002")
 public class MensajeErroresMigration {
 
-    @ChangeSet(order = "01", author = "arquitectura", id = "01-addMensajeErrores")
-    public void addErrors(MongoTemplate mongoTemplate)
+    @ChangeSet(order = "05", author = "arquitectura", id = "01-createMensajeErrores")
+    public void updateMensajeErrores(MongoTemplate mongoTemplate)
             throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
-        MigrationUtils.saveMensajesErrores("202026011248_create_errores.json", mongoTemplate);
+        MigrationUtils.saveMensajesErrores("202026011333_update_errores.json", mongoTemplate);
     }
 
     @ChangeSet(order = "02", author = "arquitectura", id = "02-addDefaultUsuario")
@@ -37,15 +37,4 @@ public class MensajeErroresMigration {
         mongoTemplate.save(new Usuario().nombre("ATEB").primerApellido("").segundoApellido("").rfc("ASE0209252Q1"));
     }
 
-    @ChangeSet(order = "04", author = "arquitectura", id = "04-deleteAllMensajeErrores")
-    public void deleteAllMensajeErrores(MongoTemplate mongoTemplate)
-            throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
-        mongoTemplate.dropCollection(MensajeError.class);
-    }
-
-    @ChangeSet(order = "05", author = "arquitectura", id = "05-updateMensajeErrores")
-    public void updateMensajeErrores(MongoTemplate mongoTemplate)
-            throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
-        MigrationUtils.saveMensajesErrores("202026011333_update_errores.json", mongoTemplate);
-    }
 }

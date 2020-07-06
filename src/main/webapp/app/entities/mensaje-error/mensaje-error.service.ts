@@ -15,9 +15,9 @@ export default class MensajeErrorService {
     });
   }
 
-  public retrieve(paginationQuery?: any): Promise<any> {
+  public retrieve(paginationQuery?: any, codigoError?: string): Promise<any> {
     return new Promise<any>(resolve => {
-      axios.get(baseApiUrl + `?${buildPaginationQueryOpts(paginationQuery)}`).then(function(res) {
+      axios.get(baseApiUrl + `?codigo=${codigoError}&${buildPaginationQueryOpts(paginationQuery)}`).then(function(res) {
         resolve(res);
       });
     });

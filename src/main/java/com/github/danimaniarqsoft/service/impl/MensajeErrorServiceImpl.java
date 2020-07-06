@@ -52,9 +52,13 @@ public class MensajeErrorServiceImpl implements MensajeErrorService {
      * @return the list of entities.
      */
     @Override
-    public Page<MensajeError> findAll(Pageable pageable) {
+    public Page<MensajeError> findAll(String codigo, Pageable pageable) {
         log.debug("Request to get all MensajeErrors");
-        return mensajeErrorRepository.findAll(pageable);
+        if (codigo != null && !codigo.isEmpty() && !codigo.equals("null")) {
+            return mensajeErrorRepository.findByClaveLikeIgnoreCase(codigo, pageable);
+        } else {
+            return mensajeErrorRepository.findAll(pageable);
+        }
     }
 
 

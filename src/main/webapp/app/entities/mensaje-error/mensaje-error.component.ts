@@ -16,11 +16,12 @@ export default class MensajeError extends mixins(Vue2Filters.mixin) {
   public queryCount: number = null;
   public page = 1;
   public previousPage = 1;
-  public propOrder = 'id';
-  public reverse = false;
+  public propOrder = 'orden';
+  public reverse = true;
   public totalItems = 0;
   public mensajeErrors: IMensajeError[] = [];
   public currentClave: string = null;
+  public codigoSearch: string = null;
 
   public isFetching = false;
   public dismissCountDown: number = this.$store.getters.dismissCountDown;
@@ -52,9 +53,14 @@ export default class MensajeError extends mixins(Vue2Filters.mixin) {
 
   public clear(): void {
     this.page = 1;
+    this.codigoSearch = null;
     this.retrieveAllMensajeErrors();
   }
 
+  public buscarPorCodigo() {
+    this.page = 1;
+    this.retrieveAllMensajeErrors();
+  }
   public retrieveAllMensajeErrors(): void {
     this.isFetching = true;
 
@@ -64,7 +70,7 @@ export default class MensajeError extends mixins(Vue2Filters.mixin) {
       sort: this.sort()
     };
     this.mensajeErrorService()
-      .retrieve(paginationQuery)
+      .retrieve(paginationQuery, this.codigoSearch)
       .then(
         res => {
           this.mensajeErrors = res.data;
