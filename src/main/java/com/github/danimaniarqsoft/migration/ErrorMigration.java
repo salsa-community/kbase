@@ -30,6 +30,11 @@ public class ErrorMigration {
     @JsonProperty("links")
     private List<Link> links = null;
 
+    @JsonProperty("orden")
+    private Integer orden;
+    @JsonProperty("tipo")
+    private String tipo;
+
     @JsonProperty("_id")
     public Id getId() {
         return id;
@@ -79,5 +84,25 @@ public class ErrorMigration {
     public void setLinks(List<Link> links) {
         this.links = links;
     }
+
+    @JsonProperty("orden")
+	public Integer getOrden() {
+		return orden;
+	}
+
+    @JsonProperty("orden")
+	public void setOrden(Integer orden) {
+		this.orden = orden;
+	}
+
+    @JsonProperty("tipo")
+	public String getTipo() {
+		return tipo;
+	}
+
+    @JsonProperty("tipo")
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 }

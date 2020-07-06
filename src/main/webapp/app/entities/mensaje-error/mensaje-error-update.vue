@@ -5,6 +5,18 @@
                 <h2 id="kbaseApp.mensajeError.home.createOrEditLabel" v-text="$t('kbaseApp.mensajeError.home.createOrEditLabel')">Create or edit a MensajeError</h2>
                 <div>
                     <div class="form-group">
+                        <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.tipo')" for="mensaje-error-tipo">Tipo</label>
+                        <div>
+                        <el-radio v-model="$v.mensajeError.tipo.$model" label="general" border>General</el-radio>
+                        <el-radio v-model="$v.mensajeError.tipo.$model" label="error" border>Código de Error</el-radio>
+                        </div>
+                        <div v-if="$v.mensajeError.tipo.$invalid">
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.tipo.required" v-text="$t('entity.validation.required')">
+                                This field is required.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.clave')" for="mensaje-error-clave">Clave</label>
                         <b-form-input
                             name="clave" 

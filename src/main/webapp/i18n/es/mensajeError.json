@@ -23,7 +23,9 @@
       "instruccion": "Instrucciones",
       "links": "Links",
       "pasos": "Pasos",
-      "contextos": "Contextos"
+      "contextos": "Contextos",
+      "tipo": "Tipo de error",
+      "orden": "Orden"
     }
   }
 }

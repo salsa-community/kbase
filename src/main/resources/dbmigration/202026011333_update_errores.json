@@ -3,6 +3,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd4ffc"
     },
+    "orden": 11,
+    "tipo": "error",
     "clave": "CFDI33110",
     "desc": "No fue posible enviar el CFDI. El tipo de comprobante no es \"I\", \"E\" o \"N\" y un concepto incluye el campo descuento. (Cuando el tipo de comprobante sea \"I\", \"E\", o \"N\" y algún concepto incluya el atributo Descuento, debe existir el documento el descuento del \"CFDI\" Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -40,6 +42,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd4ffd"
     },
+    "orden": 12,
+    "tipo": "error",
     "clave": "CFDI33113-B",
     "desc": "No fue posible enviar el CFD \"33113\".- El campo TipoDeCambiono tiene valor \"1\" y la moneda indicada es MXN Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -80,6 +84,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd4ffe"
     },
+    "orden": 13,
+    "tipo": "error",
     "clave": "CFDI33113-A",
     "desc": "No fue posible enviar el CFD \"33113\" El campo TipoDeCambiono tiene valor \"1\" y la moneda indicada es MXN Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -117,6 +123,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd4fff"
     },
+    "orden": 14,
+    "tipo": "error",
     "clave": "CFDI33116",
     "desc": "No fue posible enviar el cfd. CFDI 33116. El campo TipoCambio no cumple con el patrón requerido Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -157,6 +165,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5000"
     },
+    "orden": 15,
+    "tipo": "error",
     "clave": "CFDI33159",
     "desc": "No fue posible enviar el CFDI “33159”- El valor del campo TasaOCuota que corresponde a traslado no contiene el valor catálogo c_TasaOCuota o se encuentra fuera de rango Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -197,6 +207,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5001"
     },
+    "orden": 16,
+    "tipo": "error",
     "clave": "CFDI33170",
     "desc": "No fue posible enviar el cfd. CFDI33170. El número de pedimento es inválido. (El valor de los últimos seis dígitos del NúmeroPedimento en \"Concepto\" debe estar entre el valor mínimo 1 y el valor máximo de números consecutivos de la \"columna cantidad del catalogo”",
     "instrucciones": {
@@ -237,6 +249,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5002"
     },
+    "orden": 17,
+    "tipo": "error",
     "clave": "CFDI33161",
     "desc": "No fue posible enviar el CFDI 33161- El valor campo importe que corresponde a traslado no se encuentra entre el límite inferior y superior permitido. Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -277,6 +291,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5003"
     },
+    "orden": 18,
+    "tipo": "error",
     "clave": "CFDI33183",
     "desc": "No fue posible enviar el CFDI 33183. El campo importe correspondiente a Traslado no es igual a la suma de los importes de los impuestos trasladados registrados en los conceptos donde el impuesto del concepto sea igual al campo TasaOCuota de este elemento Almacenado en la Base de datos de Aranda ",
     "instrucciones": {
@@ -317,6 +333,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5004"
     },
+    "orden": 19,
+    "tipo": "error",
     "clave": "CFDI33189",
     "desc": "Error al obtener respuesta validada. Error al validar CFDI 33189. El campo importe correspondiente a retención no es igual a la suma de los importes de los impuestos retenidos registrados en los conceptos donde el impuesto sea igual al campo impuesto de este elemento. Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -357,6 +375,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5005"
     },
+    "orden": 20,
+    "tipo": "error",
     "clave": "CFDI301-A",
     "desc": "No fue posible enviar el CFD 301 Namespace o SchemaLocation mal definido para el complemento tfd. Almacenado en la Base de datos de Aranda ",
     "instrucciones": {
@@ -397,6 +417,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5006"
     },
+    "orden": 21,
+    "tipo": "error",
     "clave": "CFDI301-B",
     "desc": "No fue posible enviar el CFDI 301. Namespace o SchemaLocation mal definido para el complemento ventavehículos Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -427,6 +449,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5007"
     },
+    "orden": 22,
+    "tipo": "error",
     "clave": "CFDI301-C",
     "desc": "No fue posible enviar el cfd 301. Namespace o schemalocation mal definido para el complemento pago 10 Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -457,6 +481,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5008"
     },
+    "orden": 23,
+    "tipo": "error",
     "clave": "CFDI601",
     "desc": "No fue posible enviar el cfd. 601. Complemento de pago 10 no implementado Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -487,6 +513,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5009"
     },
+    "orden": 24,
+    "tipo": "error",
     "clave": "CFDI602",
     "desc": "Error al obtener la respuesta validar. Error al validar CFD, motivo de rechazo: 602- El complemento terceros: Por cuenta de terceros debe de estar declarado dentro del nodo cfdi: Complemento Conceptos. Sello válido. No se pudo validar el sello. La firma del sello no es válido. Los datos presentados no coinciden. El XML pudo ser alterado Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -517,6 +545,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd500a"
     },
+    "orden": 25,
+    "tipo": "error",
     "clave": "CFDI602-B",
     "desc": "Error al validar CFD, motivo de rechazo: 602- El complemento terceros: Por cuenta de terceros debe de estar declarado dentro del nodo cfdi: Complemento Conceptos. Sello válido. No se pudo validar el sello. La firma del sello no es válido. Los datos presentados no coinciden. El XML pudo ser alterado. Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -547,6 +577,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd500b"
     },
+    "orden": 26,
+    "tipo": "error",
     "clave": "CFDI119",
     "desc": "No fue posible envía el cfd. CRP 119. El valor del campo unitario debe de ser cero “0” Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -573,6 +605,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd500c"
     },
+    "orden": 27,
+    "tipo": "error",
     "clave": "CFDI219",
     "desc": "CRP 219 El campo No fue posible envía el CFDI CRP 219 Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -603,6 +637,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd500d"
     },
+    "orden": 28,
+    "tipo": "error",
     "clave": "CFDI235",
     "desc": "No fue posible envía el CRP 235. El campo ImpPagado se debe registrar Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -633,6 +669,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd500e"
     },
+    "orden": 29,
+    "tipo": "error",
     "clave": "CFDI239",
     "desc": "No fue posible envía el CFDI CRP 239. El campo CtaBeneficiario no cumple con el patrón requerido. Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -671,6 +709,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd500f"
     },
+    "orden": 30,
+    "tipo": "error",
     "clave": "CFDI120",
     "desc": "No fue posible envía el CFDI CRP 120. El valor del campo importe debe de ser cero “0” Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -697,6 +737,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5010"
     },
+    "orden": 31,
+    "tipo": "error",
     "clave": "CFDINA",
     "desc": "No fue posible envía el CFDI. Sello válido. No se puede validar el sello .La firma del sello no es válido Los datos presentados no coinciden. El XML pudo ser alterado. Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -715,6 +757,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5011"
     },
+    "orden": 32,
+    "tipo": "error",
     "clave": "CFDINB",
     "desc": "No fue posible envía el CFD. SchemaLocations para Namespace http://www.sat.gob.mx/TimbreFiscalDigital previamente definido con otro valor. Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -741,6 +785,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5012"
     },
+    "orden": 33,
+    "tipo": "error",
     "clave": "CFDINC",
     "desc": "No fue posible envía el CFD. Namespace http://www.sat.gob.mx/TimbreFiscalDigital previamente definido con otro prefijo. Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -767,6 +813,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5013"
     },
+    "orden": 34,
+    "tipo": "error",
     "clave": "CFDIND",
     "desc": "No fue posible envía el CFDI. Error en NameSpace para CFDi 3.3 Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -793,6 +841,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5014"
     },
+    "orden": 35,
+    "tipo": "error",
     "clave": "CFDINE",
     "desc": "No fue posible envía el CFDI. Invalid character in the given encoding. Line, postion 63 Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -815,6 +865,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5015"
     },
+    "orden": 36,
+    "tipo": "general",
     "clave": "SOLACUSE",
     "desc": "SOLICITUD DE ACUSES DE RECIBO",
     "instrucciones": {
@@ -857,6 +909,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5016"
     },
+    "orden": 37,
+    "tipo": "general",
     "clave": "SOLESTATUS",
     "desc": "SOLICITUD DE ESTATUS DE ACUSES DE RECIBO",
     "instrucciones": {
@@ -903,6 +957,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5017"
     },
+    "orden": 38,
+    "tipo": "general",
     "clave": "SOLTRACKID",
     "desc": "RECUPERACIÓN DE TRACKID",
     "instrucciones": {
@@ -929,6 +985,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5018"
     },
+    "orden": 39,
+    "tipo": "general",
     "clave": "SOLARCHIVOS",
     "desc": "AGREGAR ARCHIVOS ANEXOS A RED COFIDI (PDF)",
     "instrucciones": {
@@ -963,6 +1021,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd5019"
     },
+    "orden": 40,
+    "tipo": "general",
     "clave": "SOLCODIFICACION",
     "desc": "ERROR EN CODIFICACIÓN UTF-8",
     "instrucciones": {
@@ -993,6 +1053,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd501a"
     },
+    "orden": 41,
+    "tipo": "general",
     "clave": "SOLTRACKID-A",
     "desc": "RECUPERACIÓN DE TRACKID",
     "instrucciones": {
@@ -1019,6 +1081,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd501b"
     },
+    "orden": 42,
+    "tipo": "general",
     "clave": "SOLERROR",
     "desc": "ERROR EN LÍNEAS OC U OP",
     "instrucciones": {
@@ -1049,6 +1113,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd501c"
     },
+    "orden": 43,
+    "tipo": "general",
     "clave": "SOLRFC",
     "desc": "ERROR EN RFC / NO ES INTEGRANTE DE LA RED COFIDI",
     "instrucciones": {
@@ -1075,6 +1141,8 @@
     "_id": {
       "$oid": "5e2fbf650fc5ae38c6dd501d"
     },
+    "orden": 45,
+    "tipo": "general",
     "clave": "SOLMANUALES",
     "desc": "CONSULTA DE MANUALES DE APOYO",
     "instrucciones": {

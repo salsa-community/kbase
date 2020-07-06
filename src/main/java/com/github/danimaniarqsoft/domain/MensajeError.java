@@ -37,6 +37,13 @@ public class MensajeError implements Serializable {
     @Field("contextos")
     private List<String> contextos = new ArrayList<>();
 
+    @Field("orden")
+    private Integer orden;
+
+    @NotNull
+    @Field("tipo")
+    private String tipo;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not
     // remove
     public String getId() {
@@ -121,6 +128,23 @@ public class MensajeError implements Serializable {
     public void setContextos(List<String> contextos) {
         this.contextos = contextos;
     }
+
+    	public Integer getOrden() {
+		return orden;
+	}
+
+	public void setOrden(Integer orden) {
+		this.orden = orden;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and
     // setters here, do not remove
 
@@ -142,6 +166,8 @@ public class MensajeError implements Serializable {
 
     @Override
     public String toString() {
-        return "MensajeError{" + "id=" + getId() + ", clave='" + getClave() + "'" + ", desc='" + getDesc() + "'" + "}";
+        return "MensajeError{" + "id=" + getId() + ", clave='" + getClave() + "'" + ", desc='" + getDesc() + "'"
+                + ", orden='" + getOrden() + "'" + ", tipo='" + getTipo() + "'" + "}";
     }
+    
 }

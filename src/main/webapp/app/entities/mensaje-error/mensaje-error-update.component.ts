@@ -30,6 +30,9 @@ const validations: any = {
       minLength: minLength(4),
       maxLength: maxLength(500)
     },
+    tipo: {
+      required
+    },
     instruccion: {
       desc: {
         required,

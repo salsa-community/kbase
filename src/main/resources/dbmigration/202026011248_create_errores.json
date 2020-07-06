@@ -3,6 +3,8 @@
     "_id": {
       "$oid": "5e2df678ae478a6b52e58e69"
     },
+    "orden": 1,
+    "tipo": "error",
     "clave": "CFDI33110",
     "desc": "No fue posible enviar el CFDI. El tipo de comprobante no es \"I\", \"E\" o \"N\" y un concepto incluye el campo descuento. (Cuando el tipo de comprobante sea \"I\", \"E\", o \"N\" y algún concepto incluya el atributo Descuento, debe existir el documento el descuento del \"CFDI\" Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -40,6 +42,8 @@
     "_id": {
       "$oid": "5e2df679ae478a6b52e58e6a"
     },
+    "orden": 2,
+    "tipo": "error",
     "clave": "CFDI33113",
     "desc": "No fue posible enviar el CFD \"33113\".- El campo TipoDeCambiono tiene valor \"1\" y la moneda indicada es MXN Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -80,6 +84,8 @@
     "_id": {
       "$oid": "5e2df679ae478a6b52e58e6b"
     },
+    "orden": 3,
+    "tipo": "error",
     "clave": "CFDI33113",
     "desc": "No fue posible enviar el CFD \"33113\" El campo TipoDeCambiono tiene valor \"1\" y la moneda indicada es MXN Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -117,6 +123,8 @@
     "_id": {
       "$oid": "5e2df679ae478a6b52e58e6c"
     },
+    "orden": 4,
+    "tipo": "error",
     "clave": "CFDI33116",
     "desc": "CFDI 33116. El campo TipoCambio no cumple con el patrón requerido Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -157,6 +165,8 @@
     "_id": {
       "$oid": "5e2df679ae478a6b52e58e6d"
     },
+    "orden": 5,
+    "tipo": "error",
     "clave": "CFDI33159",
     "desc": "No fue posible enviar el CFDI \"33159\"- El valor del campo TasaOCuota que corresponde a traslado no contiene el valor catálogo c_TasaOCuota o se encuentra fuera de rango. Almacenado en la Base de datos de Aranda ",
     "instrucciones": {
@@ -197,6 +207,8 @@
     "_id": {
       "$oid": "5e2df679ae478a6b52e58e6e"
     },
+    "orden": 6,
+    "tipo": "error",
     "clave": "CFDI33170",
     "desc": "No se pudo enviar el CFDI \"33170\" El número de pedimento es inválido. (El valor de los últimos seis dígitos del NúmeroPedimento en \"Concepto\"debe estar entre el valor mínimo 1 y el valor máximo de números consecutivos de la columna cantidad del catalogo. Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -237,6 +249,8 @@
     "_id": {
       "$oid": "5e2df679ae478a6b52e58e6f"
     },
+    "orden": 7,
+    "tipo": "error",
     "clave": "CFDI33161",
     "desc": "No fue posible enviar el CFDI 33161- El valor campo importe que corresponde a traslado no se encuentra entre el límite inferior y superior permitido. Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -277,6 +291,8 @@
     "_id": {
       "$oid": "5e2df679ae478a6b52e58e70"
     },
+    "orden": 8,
+    "tipo": "error",
     "clave": "CFDI33183",
     "desc": "No fue posible enviar el CFDI 33183. El campo importe correspondiente a Traslado no es igual a la suma de los importes de los impuestos trasladados registrados en los conceptos donde el impuesto del concepto sea igual al campo TasaOCuota de este elemento Almacenado en la Base de datos de Aranda ",
     "instrucciones": {
@@ -317,6 +333,8 @@
     "_id": {
       "$oid": "5e2df679ae478a6b52e58e71"
     },
+    "orden": 9,
+    "tipo": "error",
     "clave": "CFDI33189",
     "desc": "Error al obtener respuesta validada. Error al validar CFDI 33189. El campo importe correspondiente a retención no es igual a la suma de los importes de los impuestos retenidos registrados en los conceptos donde el impuesto sea igual al campo impuesto de este elemento. Almacenado en la Base de datos de Aranda",
     "instrucciones": {
@@ -357,6 +375,8 @@
     "_id": {
       "$oid": "5e2df679ae478a6b52e58e72"
     },
+    "orden": 10,
+    "tipo": "error",
     "clave": "CFDI301",
     "desc": "No fue posible enviar el CFD 301 Namespace o SchemaLocation mal definido para el complemento tfd. Almacenado en la Base de datos de Aranda ",
     "instrucciones": {
