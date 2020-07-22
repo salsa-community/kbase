@@ -1,0 +1,10 @@
+{
+  "kbaseApp": {
+    "EstadoContacto": {
+      "null": "",
+      "NUEVO": "NUEVO",
+      "PENDIENTE": "PENDIENTE",
+      "CONTACTADO": "CONTACTADO"
+    }
+  }
+}

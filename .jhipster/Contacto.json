@@ -1,0 +1,41 @@
+{
+    "name": "Contacto",
+    "fields": [
+        {
+            "fieldName": "context",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "correo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rfc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "EstadoContacto",
+            "fieldValues": "NUEVO,PENDIENTE,CONTACTADO"
+        },
+        {
+            "fieldName": "desc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastModified",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200721182701",
+    "entityTableName": "contacto",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

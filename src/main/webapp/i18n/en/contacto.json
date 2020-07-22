@@ -1,0 +1,27 @@
+{
+  "kbaseApp": {
+    "contacto": {
+      "home": {
+        "title": "Solicitudes de contacto",
+        "createLabel": "Create a new Contacto",
+        "createOrEditLabel": "Create or edit a Contacto",
+        "notFound": "No Contactos found"
+      },
+      "created": "A new Contacto is created with identifier {{ param }}",
+      "updated": "A Contacto is updated with identifier {{ param }}",
+      "deleted": "A Contacto is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contacto {{ id }}?"
+      },
+      "detail": {
+        "title": "Contacto"
+      },
+      "context": "Contexto",
+      "correo": "Correo",
+      "rfc": "RFC",
+      "estado": "Estado",
+      "desc": "Descripción",
+      "lastModified": "Fecha de solicitud"
+    }
+  }
+}

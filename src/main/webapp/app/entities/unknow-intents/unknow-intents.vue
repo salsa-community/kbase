@@ -18,7 +18,6 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th><span v-text="$t('global.field.id')">ID</span></th>
                     <th><span v-text="$t('kbaseApp.unknowIntents.word')">Word</span></th>
                     <th><span v-text="$t('kbaseApp.unknowIntents.lastModified')">Last Modified</span></th>
                     <th></th>
@@ -27,9 +26,6 @@
                 <tbody>
                 <tr v-for="unknowIntents in unknowIntents"
                     :key="unknowIntents.id">
-                    <td>
-                        <router-link :to="{name: 'UnknowIntentsView', params: {unknowIntentsId: unknowIntents.id}}">{{unknowIntents.id}}</router-link>
-                    </td>
                     <td>{{unknowIntents.word}}</td>
                     <td>{{unknowIntents.lastModified}}</td>
                     <td class="text-right">

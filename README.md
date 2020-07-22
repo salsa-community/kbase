@@ -151,7 +151,7 @@ docker-compose -f src/main/docker/mongodb.yml down
 
 You can also fully dockerize your application and all the services that it depends on.
 To achieve this, first build a docker image of your app by running:
-./mvnw -Pprod verify jib:dockerBuild
+./mvnw -Pprod -DskipTests verify jib:dockerBuild
 Then run:
 docker-compose -f src/main/docker/app.yml up -d
 For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
@@ -165,3 +165,7 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 In order to just modify the `.entity/` json files and not generate the entities:
 
 `jhipster import-jdl ./entities.jh --json-only --blueprints vuejs`
+
+In order to just re-generate a specific entity:
+
+`jhipster entity contacto`

@@ -110,7 +110,13 @@
                                 {{step.paso}}
                                 </div>
                                 <div class="col-sm-9 step-row">
-                                {{step.desc}}
+                                    <b-form-textarea 
+                                        name="step"
+                                        plaintext
+                                        rows="2"
+                                        no-resize
+                                        v-model.trim="step.desc">
+                                    </b-form-textarea>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="btn-group">

@@ -39,6 +39,11 @@
             <span class="fa fa-th-list mr-3"></span> {{ $t('global.menu.entities.unknowIntents') }}
           </router-link>
         </li>
+        <li  v-if="authenticated">
+          <router-link :to="'/entity/contacto'">
+            <span class="fa fa-envelope-open mr-3"></span> {{ $t('global.menu.entities.contacto') }}
+          </router-link>
+        </li>
       </ul>
 
       <ul   v-if="authenticated" class="list-unstyled components mb-5">

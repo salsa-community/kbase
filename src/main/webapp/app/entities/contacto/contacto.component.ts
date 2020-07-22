@@ -2,15 +2,15 @@ import { mixins } from 'vue-class-component';
 
 import { Component, Inject } from 'vue-property-decorator';
 import Vue2Filters from 'vue2-filters';
-import { IUnknowIntents } from '@/shared/model/unknow-intents.model';
+import { IContacto } from '@/shared/model/contacto.model';
 import AlertService from '@/shared/alert/alert.service';
 
-import UnknowIntentsService from './unknow-intents.service';
+import ContactoService from './contacto.service';
 
 @Component
-export default class UnknowIntents extends mixins(Vue2Filters.mixin) {
+export default class Contacto extends mixins(Vue2Filters.mixin) {
   @Inject('alertService') private alertService: () => AlertService;
-  @Inject('unknowIntentsService') private unknowIntentsService: () => UnknowIntentsService;
+  @Inject('contactoService') private contactoService: () => ContactoService;
   private removeId: string = null;
   public itemsPerPage = 20;
   public queryCount: number = null;
@@ -19,13 +19,23 @@ export default class UnknowIntents extends mixins(Vue2Filters.mixin) {
   public propOrder = 'last_modified';
   public reverse = false;
   public totalItems = 0;
-  public unknowIntents: IUnknowIntents[] = [];
+  public contactos: IContacto[] = [];
 
   public isFetching = false;
   public dismissCountDown: number = this.$store.getters.dismissCountDown;
   public dismissSecs: number = this.$store.getters.dismissSecs;
   public alertType: string = this.$store.getters.alertType;
   public alertMessage: any = this.$store.getters.alertMessage;
+
+  public resolveTagType(estado) {
+    if (estado === 'NUEVO') {
+      return 'danger';
+    } else if (estado === 'PENDIENTE') {
+      return 'warning';
+    } else {
+      return 'success';
+    }
+  }
 
   public getAlertFromStore() {
     this.dismissCountDown = this.$store.getters.dismissCountDown;
@@ -40,15 +50,15 @@ export default class UnknowIntents extends mixins(Vue2Filters.mixin) {
   }
 
   public mounted(): void {
-    this.retrieveAllUnknowIntentss();
+    this.retrieveAllContactos();
   }
 
   public clear(): void {
     this.page = 1;
-    this.retrieveAllUnknowIntentss();
+    this.retrieveAllContactos();
   }
 
-  public retrieveAllUnknowIntentss(): void {
+  public retrieveAllContactos(): void {
     this.isFetching = true;
 
     const paginationQuery = {
@@ -56,11 +66,11 @@ export default class UnknowIntents extends mixins(Vue2Filters.mixin) {
       size: this.itemsPerPage,
       sort: this.sort()
     };
-    this.unknowIntentsService()
+    this.contactoService()
       .retrieve(paginationQuery)
       .then(
         res => {
-          this.unknowIntents = res.data;
+          this.contactos = res.data;
           this.totalItems = Number(res.headers['x-total-count']);
           this.queryCount = this.totalItems;
           this.isFetching = false;
@@ -71,20 +81,20 @@ export default class UnknowIntents extends mixins(Vue2Filters.mixin) {
       );
   }
 
-  public prepareRemove(instance: IUnknowIntents): void {
+  public prepareRemove(instance: IContacto): void {
     this.removeId = instance.id;
   }
 
-  public removeUnknowIntents(): void {
-    this.unknowIntentsService()
+  public removeContacto(): void {
+    this.contactoService()
       .delete(this.removeId)
       .then(() => {
-        const message = this.$t('kbaseApp.unknowIntents.deleted', { param: this.removeId });
+        const message = this.$t('kbaseApp.contacto.deleted', { param: this.removeId });
         this.alertService().showAlert(message, 'danger');
         this.getAlertFromStore();
 
         this.removeId = null;
-        this.retrieveAllUnknowIntentss();
+        this.retrieveAllContactos();
         this.closeDialog();
       });
   }
@@ -105,7 +115,7 @@ export default class UnknowIntents extends mixins(Vue2Filters.mixin) {
   }
 
   public transition(): void {
-    this.retrieveAllUnknowIntentss();
+    this.retrieveAllContactos();
   }
 
   public changeOrder(propOrder): void {

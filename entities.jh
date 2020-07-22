@@ -34,6 +34,22 @@ entity UnknowIntents {
     word String,
     lastModified LocalDate
 }
+
+entity Contacto {
+    context String,
+    correo String,
+    rfc String,
+    estado EstadoContacto,
+    desc String,
+    lastModified LocalDate
+}
+
+enum EstadoContacto {
+  NUEVO,
+  PENDIENTE,
+  CONTACTADO
+}
+
 relationship OneToOne {
     MensajeError{instruccion} to Instruccion
 }

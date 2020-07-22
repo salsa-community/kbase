@@ -66,6 +66,12 @@ const UnknowIntents = () => import('../entities/unknow-intents/unknow-intents.vu
 const UnknowIntentsUpdate = () => import('../entities/unknow-intents/unknow-intents-update.vue');
 // prettier-ignore
 const UnknowIntentsDetails = () => import('../entities/unknow-intents/unknow-intents-details.vue');
+// prettier-ignore
+const Contacto = () => import('../entities/contacto/contacto.vue');
+// prettier-ignore
+const ContactoUpdate = () => import('../entities/contacto/contacto-update.vue');
+// prettier-ignore
+const ContactoDetails = () => import('../entities/contacto/contacto-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 Vue.use(Router);
@@ -356,6 +362,31 @@ export default new Router({
       path: '/entity/unknow-intents/:unknowIntentsId/view',
       name: 'UnknowIntentsView',
       component: UnknowIntentsDetails,
+      meta: { authorities: ['ROLE_USER'] }
+    }
+    ,
+    {
+      path: '/entity/contacto',
+      name: 'Contacto',
+      component: Contacto,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/contacto/new',
+      name: 'ContactoCreate',
+      component: ContactoUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/contacto/:contactoId/edit',
+      name: 'ContactoEdit',
+      component: ContactoUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/contacto/:contactoId/view',
+      name: 'ContactoView',
+      component: ContactoDetails,
       meta: { authorities: ['ROLE_USER'] }
     }
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here
