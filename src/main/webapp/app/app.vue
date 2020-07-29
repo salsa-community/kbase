@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="wrapper d-flex align-items-stretch h-100" width=100%>
+  <div id="app" class="wrapper d-flex align-items-stretch">
     <ribbon></ribbon>
     <side-bar></side-bar>
     <div class="container-fluid">
