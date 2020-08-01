@@ -1,8 +1,12 @@
 {
   "name": "kbase",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Description for kbase",
   "private": true,
+  "authors": {
+    "name": "daniel",
+    "email": "daniel.cortes@i2c.mx"
+  },
   "license": "UNLICENSED",
   "cacheDirectories": [
     "node_modules"
@@ -20,7 +24,7 @@
     "jslint": "^0.12.1",
     "swagger-ui": "2.2.10",
     "tiptap": "^1.29.1",
-    "vue": "2.6.10",
+    "vue": "2.6.11",
     "vue-class-component": "7.0.2",
     "vue-cookie": "1.1.4",
     "vue-i18n": "8.12.0",
@@ -82,7 +86,10 @@
     "url-loader": "1.1.2",
     "vue-jest": "3.0.3",
     "vue-loader": "15.7.0",
-    "vue-template-compiler": "2.6.10",
+    "vue-template-compiler": "2.6.11",
+    "vuepress": "^1.5.2",
+    "@vuepress/plugin-back-to-top": "^1.5.2",
+    "@vuepress/plugin-medium-zoom": "^1.5.2",
     "webpack": "4.29.5",
     "webpack-bundle-analyzer": "3.3.2",
     "webpack-cli": "3.2.3",
@@ -121,7 +128,9 @@
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
     "test": "npm run lint && npm run jest",
     "test-ci": "npm run lint && npm run jest:update",
-    "test:watch": "npm run jest -- --watch"
+    "test:watch": "npm run jest -- --watch",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "jestSonar": {
     "reportPath": "target/test-results/jest",
