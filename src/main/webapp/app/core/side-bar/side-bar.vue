@@ -44,6 +44,17 @@
             <span class="fa fa-envelope-open mr-3"></span> {{ $t('global.menu.entities.contacto') }}
           </router-link>
         </li>
+
+        <li  v-if="authenticated">
+          <router-link :to="'/entity/actividad'">
+            <span class="fa fa-envelope-open mr-3"></span> {{ $t('global.menu.entities.actividad') }}
+          </router-link>
+        </li>
+        <li  v-if="authenticated">
+          <router-link :to="'/entity/evento'">
+            <span class="fa fa-envelope-open mr-3"></span> {{ $t('global.menu.entities.evento') }}
+          </router-link>
+        </li>
       </ul>
 
       <ul   v-if="authenticated" class="list-unstyled components mb-5">

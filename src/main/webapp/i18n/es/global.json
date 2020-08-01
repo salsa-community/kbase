@@ -15,6 +15,8 @@
         "contexto": "Contextos",
         "unknowIntents": "Logs de intenciones",
         "contacto": "Solicitudes de contacto",
+        "evento": "Evento",
+        "actividad": "Actividad",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

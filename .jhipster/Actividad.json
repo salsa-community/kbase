@@ -1,0 +1,40 @@
+{
+    "name": "Actividad",
+    "fields": [
+        {
+            "fieldName": "contexto",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "desc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evento",
+            "otherEntityRelationshipName": "actividad",
+            "relationshipName": "evento",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200801185855",
+    "entityTableName": "actividad",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

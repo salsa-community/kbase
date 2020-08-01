@@ -72,6 +72,18 @@ const Contacto = () => import('../entities/contacto/contacto.vue');
 const ContactoUpdate = () => import('../entities/contacto/contacto-update.vue');
 // prettier-ignore
 const ContactoDetails = () => import('../entities/contacto/contacto-details.vue');
+// prettier-ignore
+const Evento = () => import('../entities/evento/evento.vue');
+// prettier-ignore
+const EventoUpdate = () => import('../entities/evento/evento-update.vue');
+// prettier-ignore
+const EventoDetails = () => import('../entities/evento/evento-details.vue');
+// prettier-ignore
+const Actividad = () => import('../entities/actividad/actividad.vue');
+// prettier-ignore
+const ActividadUpdate = () => import('../entities/actividad/actividad-update.vue');
+// prettier-ignore
+const ActividadDetails = () => import('../entities/actividad/actividad-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 Vue.use(Router);
@@ -387,6 +399,56 @@ export default new Router({
       path: '/entity/contacto/:contactoId/view',
       name: 'ContactoView',
       component: ContactoDetails,
+      meta: { authorities: ['ROLE_USER'] }
+    }
+    ,
+    {
+      path: '/entity/evento',
+      name: 'Evento',
+      component: Evento,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/evento/new',
+      name: 'EventoCreate',
+      component: EventoUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/evento/:eventoId/edit',
+      name: 'EventoEdit',
+      component: EventoUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/evento/:eventoId/view',
+      name: 'EventoView',
+      component: EventoDetails,
+      meta: { authorities: ['ROLE_USER'] }
+    }
+    ,
+    {
+      path: '/entity/actividad',
+      name: 'Actividad',
+      component: Actividad,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/actividad/new',
+      name: 'ActividadCreate',
+      component: ActividadUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/actividad/:actividadId/edit',
+      name: 'ActividadEdit',
+      component: ActividadUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/actividad/:actividadId/view',
+      name: 'ActividadView',
+      component: ActividadDetails,
       meta: { authorities: ['ROLE_USER'] }
     }
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

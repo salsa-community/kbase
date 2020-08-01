@@ -1,0 +1,26 @@
+{
+  "kbaseApp": {
+    "actividad": {
+      "home": {
+        "title": "Actividads",
+        "createLabel": "Crear nuevo Actividad",
+        "createOrEditLabel": "Crear o editar Actividad",
+        "notFound": "No Actividads found"
+      },
+      "created": "Un nuevo Actividad ha sido creado con el identificador {{ param }}",
+      "updated": "Un Actividad ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Actividad ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Actividad {{ id }}?"
+      },
+      "detail": {
+        "title": "Actividad"
+      },
+      "contexto": "Contexto",
+      "valor": "Valor",
+      "desc": "Desc",
+      "fecha": "Fecha",
+      "evento": "Evento"
+    }
+  }
+}
