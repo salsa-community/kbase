@@ -50,6 +50,18 @@ enum EstadoContacto {
   CONTACTADO
 }
 
+entity Actividad {
+    contexto String,
+    valor String,
+    desc String,
+    fecha Instant
+}
+
+entity Evento {
+    nombre String,
+    desc String
+}
+
 relationship OneToOne {
     MensajeError{instruccion} to Instruccion
 }
@@ -57,6 +69,10 @@ relationship OneToOne {
 relationship OneToMany{
     MensajeError{links} to Link , 
     Instruccion{pasos} to Paso
+}
+
+relationship ManyToOne{
+    Actividad{evento} to Evento
 }
 
 paginate all with pagination
