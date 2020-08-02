@@ -33,6 +33,7 @@
       </div>
     </div>
     <br />
+    {{filtro}}
     <b-tabs no-body content-class="mt-3">
       <b-tab title="Filtros" active>
         <div class="row">
@@ -43,7 +44,7 @@
                   v-model="filtro.contextos"
                   :options="contextos"
                   name="contextos"
-                  value-field="id"
+                  value-field="nombre"
                   text-field="nombre"
                   stacked
                 ></b-form-checkbox-group>
