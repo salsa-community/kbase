@@ -26,6 +26,7 @@ import { BCard } from 'bootstrap-vue';
 import { BCardGroup } from 'bootstrap-vue';
 import { BTabs } from 'bootstrap-vue';
 import { BTab } from 'bootstrap-vue';
+import { BFormSelect } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
   vue.component('b-badge', BBadge);
@@ -55,5 +56,6 @@ export function initBootstrapVue(vue) {
   vue.component('b-card-group', BCardGroup);
   vue.component('b-tabs', BTabs);
   vue.component('b-tab', BTab);
+  vue.component('b-form-select', BFormSelect);
   vue.directive('b-modal', VBModal);
 }

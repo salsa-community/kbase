@@ -33,31 +33,43 @@
       </div>
     </div>
     <br />
-
     <b-tabs no-body content-class="mt-3">
       <b-tab title="Filtros" active>
         <div class="row">
           <div class="col-sm-2">
             <div class="form-group">
-              <select class="form-control" id="actividad-evento" name="evento">
-                <option v-bind:value="null"></option>
-                <option>Contexto 1</option>
-                <option>Contexto 2</option>
-              </select>
+              <b-form-group label="Contextos:">
+                <b-form-checkbox-group
+                  v-model="filtro.contextos"
+                  :options="contextos"
+                  name="contextos"
+                  value-field="id"
+                  text-field="nombre"
+                  stacked
+                ></b-form-checkbox-group>
+              </b-form-group>
             </div>
           </div>
-          <div class="col-sm-2">
-            <div class="form-group">
-              <select name id class="form-control">
-                <option>Evento 1</option>
-                <option>Evento 2</option>
-              </select>
-            </div>
+          <div class="col-sm-3">
+            <b-form-group label="Eventos:">
+              <b-form-checkbox-group
+                v-model="filtro.eventos"
+                :options="eventos"
+                name="eventos"
+                value-field="id"
+                text-field="nombre"
+                stacked
+              ></b-form-checkbox-group>
+            </b-form-group>
           </div>
 
           <div class="col-sm-3">
             <div class="form-group">
+              <div>
+                <p class="text-left">Rango de fechas:</p>
+              </div>
               <el-date-picker
+                v-model="filtro.rangoFechas"
                 class="form-control"
                 type="datetimerange"
                 range-separator="a"
@@ -70,8 +82,13 @@
         </div>
         <div class="row">
           <div class="col-sm-6">
-            <el-button type="primary" icon="el-icon-delete">Limpiar</el-button>
-            <el-button icon="el-icon-search" type="primary" :loading="false">Buscar</el-button>
+            <el-button type="default" icon="el-icon-delete" v-on:click="clearFiltro()">Limpiar</el-button>
+            <el-button
+              icon="el-icon-search"
+              type="primary"
+              :loading="isFetching"
+              v-on:click="search()"
+            >Buscar</el-button>
           </div>
         </div>
       </b-tab>
@@ -88,7 +105,7 @@
     <div class="alert alert-warning" v-if="!isFetching && actividads && actividads.length === 0">
       <span v-text="$t('kbaseApp.actividad.home.notFound')">No actividads found</span>
     </div>
-    <el-table v-loading="false" :data="actividads" style="width: 100%">
+    <el-table v-loading="isFetching" :data="actividads" style="width: 100%">
       <el-table-column prop="contexto" :label="$t('kbaseApp.actividad.contexto')">
         <template slot-scope="scope">
           <el-tag size="medium">{{ scope.row.contexto }}</el-tag>

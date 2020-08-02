@@ -4,6 +4,10 @@ import { Component, Inject } from 'vue-property-decorator';
 import Vue2Filters from 'vue2-filters';
 import { IActividad } from '@/shared/model/actividad.model';
 import AlertService from '@/shared/alert/alert.service';
+import EventoService from '../evento/evento.service';
+import { IEvento } from '@/shared/model/evento.model';
+import { IContexto } from '@/shared/model/contexto.model';
+import ContextoService from '../contexto/contexto.service';
 
 import ActividadService from './actividad.service';
 
@@ -11,6 +15,9 @@ import ActividadService from './actividad.service';
 export default class Actividad extends mixins(Vue2Filters.mixin) {
   @Inject('alertService') private alertService: () => AlertService;
   @Inject('actividadService') private actividadService: () => ActividadService;
+  @Inject('eventoService') private eventoService: () => EventoService;
+  @Inject('contextoService') private contextoService: () => ContextoService;
+
   private removeId: string = null;
   public itemsPerPage = 20;
   public queryCount: number = null;
@@ -20,6 +27,9 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
   public reverse = false;
   public totalItems = 0;
   public actividads: IActividad[] = [];
+  public eventos: IEvento[] = [];
+  public contextos: IContexto[] = [];
+  public filtro: any = { contextos: [], eventos: [], rangoFechas: [] };
 
   public isFetching = false;
   public dismissCountDown: number = this.$store.getters.dismissCountDown;
@@ -41,6 +51,30 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
 
   public mounted(): void {
     this.retrieveAllActividads();
+    this.initFiltros();
+  }
+
+  public search() {
+    this.retrieveAllActividads();
+  }
+
+  public initFiltros(): void {
+    this.eventoService()
+      .retrieve()
+      .then(res => {
+        this.eventos = res.data;
+      });
+    this.contextoService()
+      .retrieve()
+      .then(res => {
+        this.contextos = res.data;
+      });
+  }
+
+  public clearFiltro() {
+    this.filtro.contextos = [];
+    this.filtro.eventos = [];
+    this.filtro.rangoFechas = [];
   }
 
   public clear(): void {
