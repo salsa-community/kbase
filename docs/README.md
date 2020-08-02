@@ -8,9 +8,9 @@ actionLink: /guide/
 features:
   - title: Administración de Contextos
     details: A través de kbase, se pueden administrar los contextos que pueden ser instalados en los diferentes bots que se quieren instalar
-  - title: Feature 2 Title
-    details: Feature 2 Description
-  - title: Feature 3 Title
-    details: Feature 3 Description
+  - title: Administración de ayudas
+    details: Con kbase, se puede administrar las instrucciones y pasos a seguir durante una conversación
+  - title: Reporte de uso del bot
+    details: A través de kbase, se puede monitorear el aprendizaje de su bot
 footer: Made by i2c with ❤️
 ---

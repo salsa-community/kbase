@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: '',
+  title: 'kbase',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -16,6 +16,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
+    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon.png" }],
     ['meta', { name: 'theme-color', content: '#494ca2' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
@@ -35,16 +36,8 @@ module.exports = {
     logo: '/logo.png',
     nav: [
       {
-        text: 'Guide',
+        text: 'Guía',
         link: '/guide/',
-      },
-      {
-        text: 'Config',
-        link: '/config/'
-      },
-      {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org'
       }
     ],
     sidebar: {
