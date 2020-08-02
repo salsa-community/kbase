@@ -1,95 +1,125 @@
 <template>
-    <div>
-        <h2 id="page-heading">
-            <span v-text="$t('kbaseApp.actividad.home.title')" id="actividad-heading">Actividads</span>
-            <router-link :to="{name: 'ActividadCreate'}" tag="button" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-actividad">
-                <font-awesome-icon icon="plus"></font-awesome-icon>
-                <span  v-text="$t('kbaseApp.actividad.home.createLabel')">
-                    Create a new Actividad
-                </span>
-            </router-link>
-        </h2>
-        <b-alert :show="dismissCountDown"
-            dismissible
-            :variant="alertType"
-            @dismissed="dismissCountDown=0"
-            @dismiss-count-down="countDownChanged">
-            {{alertMessage}}
-        </b-alert>
-        <br/>
-        <div class="alert alert-warning" v-if="!isFetching && actividads && actividads.length === 0">
-            <span v-text="$t('kbaseApp.actividad.home.notFound')">No actividads found</span>
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="container">
+            <b-card-group class="row">
+              <b-card
+                text-variant="white"
+                body-bg-variant="purple"
+                border-variant="white"
+                footer="Código más consultado"
+                footer-text-variant="purple"
+                footer-bg-variant="white"
+                class="text-center col-sm-5"
+                title="CFDI33110"
+              ></b-card>
+              <div class="col-sm-1"></div>
+              <b-card
+                text-variant="white"
+                body-bg-variant="purple"
+                border-variant="white"
+                footer="Número de contactos"
+                footer-text-variant="purple"
+                footer-bg-variant="white"
+                class="text-center col-sm-5"
+                title="587"
+              ></b-card>
+            </b-card-group>
+          </div>
         </div>
-        <div class="table-responsive" v-if="actividads && actividads.length > 0">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th v-on:click="changeOrder('id')"><span v-text="$t('global.field.id')">ID</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
-                    <th v-on:click="changeOrder('contexto')"><span v-text="$t('kbaseApp.actividad.contexto')">Contexto</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
-                    <th v-on:click="changeOrder('valor')"><span v-text="$t('kbaseApp.actividad.valor')">Valor</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
-                    <th v-on:click="changeOrder('desc')"><span v-text="$t('kbaseApp.actividad.desc')">Desc</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
-                    <th v-on:click="changeOrder('fecha')"><span v-text="$t('kbaseApp.actividad.fecha')">Fecha</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
-                    <th v-on:click="changeOrder('eventoId')"><span v-text="$t('kbaseApp.actividad.evento')">Evento</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="actividad in actividads"
-                    :key="actividad.id">
-                    <td>
-                        <router-link :to="{name: 'ActividadView', params: {actividadId: actividad.id}}">{{actividad.id}}</router-link>
-                    </td>
-                    <td>{{actividad.contexto}}</td>
-                    <td>{{actividad.valor}}</td>
-                    <td>{{actividad.desc}}</td>
-                    <td>{{actividad.fecha | formatDate}}</td>
-                    <td>
-                        <div v-if="actividad.eventoId">
-                            <router-link :to="{name: 'EventoView', params: {eventoId: actividad.eventoId}}">{{actividad.eventoId}}</router-link>
-                        </div>
-                    </td>
-                    <td class="text-right">
-                        <div class="btn-group">
-                            <router-link :to="{name: 'ActividadView', params: {actividadId: actividad.id}}" tag="button" class="btn btn-info btn-sm details">
-                                <font-awesome-icon icon="eye"></font-awesome-icon>
-                                <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
-                            </router-link>
-                            <router-link :to="{name: 'ActividadEdit', params: {actividadId: actividad.id}}"  tag="button" class="btn btn-primary btn-sm edit">
-                                <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
-                                <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
-                            </router-link>
-                            <b-button v-on:click="prepareRemove(actividad)"
-                                   variant="danger"
-                                   class="btn btn-sm"
-                                   v-b-modal.removeEntity>
-                                <font-awesome-icon icon="times"></font-awesome-icon>
-                                <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
-                            </b-button>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <b-modal ref="removeEntity" id="removeEntity" >
-            <span slot="modal-title"><span id="kbaseApp.actividad.delete.question" v-text="$t('entity.delete.title')">Confirm delete operation</span></span>
-            <div class="modal-body">
-                <p id="jhi-delete-actividad-heading" v-bind:title="$t('kbaseApp.actividad.delete.question')">Are you sure you want to delete this Actividad?</p>
-            </div>
-            <div slot="modal-footer">
-                <button type="button" class="btn btn-secondary" v-text="$t('entity.action.cancel')" v-on:click="closeDialog()">Cancel</button>
-                <button type="button" class="btn btn-primary" id="jhi-confirm-delete-actividad" v-text="$t('entity.action.delete')" v-on:click="removeActividad()">Delete</button>
-            </div>
-        </b-modal>
-        <div v-show="actividads && actividads.length > 0">
-            <div class="row justify-content-center">
-                <jhi-item-count :page="page" :total="queryCount" :itemsPerPage="itemsPerPage"></jhi-item-count>
-            </div>
-            <div class="row justify-content-center">
-                <b-pagination size="md" :total-rows="totalItems" v-model="page" :per-page="itemsPerPage" :change="loadPage(page)"></b-pagination>
-            </div>
-        </div>
+        <div class="col-sm-4"></div>
+      </div>
     </div>
+    <br />
+
+    <b-tabs no-body content-class="mt-3">
+      <b-tab title="Filtros" active>
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-group">
+              <select class="form-control" id="actividad-evento" name="evento">
+                <option v-bind:value="null"></option>
+                <option>Contexto 1</option>
+                <option>Contexto 2</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <select name id class="form-control">
+                <option>Evento 1</option>
+                <option>Evento 2</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <el-date-picker
+                class="form-control"
+                type="datetimerange"
+                range-separator="a"
+                start-placeholder="Fecha inicio"
+                end-placeholder="Fecha fin"
+                align="left"
+              ></el-date-picker>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <el-button type="primary" icon="el-icon-delete">Limpiar</el-button>
+            <el-button icon="el-icon-search" type="primary" :loading="false">Buscar</el-button>
+          </div>
+        </div>
+      </b-tab>
+    </b-tabs>
+
+    <b-alert
+      :show="dismissCountDown"
+      dismissible
+      :variant="alertType"
+      @dismissed="dismissCountDown=0"
+      @dismiss-count-down="countDownChanged"
+    >{{alertMessage}}</b-alert>
+    <br />
+    <div class="alert alert-warning" v-if="!isFetching && actividads && actividads.length === 0">
+      <span v-text="$t('kbaseApp.actividad.home.notFound')">No actividads found</span>
+    </div>
+    <el-table v-loading="false" :data="actividads" style="width: 100%">
+      <el-table-column prop="contexto" :label="$t('kbaseApp.actividad.contexto')">
+        <template slot-scope="scope">
+          <el-tag size="medium">{{ scope.row.contexto }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column sortable prop="eventoNombre" :label="$t('kbaseApp.actividad.evento')"></el-table-column>
+      <el-table-column sortable prop="valor" :label="$t('kbaseApp.actividad.valor')"></el-table-column>
+      <el-table-column sortable prop="fecha" :label="$t('kbaseApp.actividad.fecha')">
+        <template slot-scope="scope">
+          <i class="el-icon-time"></i>
+          <span style="margin-left: 10px">
+            <em>{{ scope.row.fecha | timeElapsed}}</em>
+          </span>
+        </template>
+      </el-table-column>
+    </el-table>
+    <div v-show="actividads && actividads.length > 0">
+      <div class="row justify-content-center">
+        <jhi-item-count :page="page" :total="queryCount" :itemsPerPage="itemsPerPage"></jhi-item-count>
+      </div>
+      <div class="row justify-content-center">
+        <b-pagination
+          size="md"
+          :total-rows="totalItems"
+          v-model="page"
+          :per-page="itemsPerPage"
+          :change="loadPage(page)"
+        ></b-pagination>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" src="./actividad.component.ts">

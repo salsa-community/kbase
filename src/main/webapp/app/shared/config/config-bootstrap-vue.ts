@@ -22,6 +22,10 @@ import { BAlert } from 'bootstrap-vue';
 import { BModal } from 'bootstrap-vue';
 import { VBModal } from 'bootstrap-vue';
 import { BFormTextarea } from 'bootstrap-vue';
+import { BCard } from 'bootstrap-vue';
+import { BCardGroup } from 'bootstrap-vue';
+import { BTabs } from 'bootstrap-vue';
+import { BTab } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
   vue.component('b-badge', BBadge);
@@ -47,5 +51,9 @@ export function initBootstrapVue(vue) {
   vue.component('b-nav-item', BNavItem);
   vue.component('b-nav-item-dropdown', BNavItemDropdown);
   vue.component('b-form-textarea', BFormTextarea);
+  vue.component('b-card', BCard);
+  vue.component('b-card-group', BCardGroup);
+  vue.component('b-tabs', BTabs);
+  vue.component('b-tab', BTab);
   vue.directive('b-modal', VBModal);
 }

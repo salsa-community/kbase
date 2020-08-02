@@ -16,7 +16,7 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
   public queryCount: number = null;
   public page = 1;
   public previousPage = 1;
-  public propOrder = 'id';
+  public propOrder = 'fecha';
   public reverse = false;
   public totalItems = 0;
   public actividads: IActividad[] = [];

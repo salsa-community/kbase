@@ -17,10 +17,11 @@
         "title": "Actividad"
       },
       "contexto": "Contexto",
+      "evento": "Evento",
       "valor": "Valor",
       "desc": "Desc",
-      "fecha": "Fecha",
-      "evento": "Evento"
+      "tiempo": "Tiempo",
+      "fecha": "Fecha"
     }
   }
 }

@@ -12,8 +12,9 @@ import org.mapstruct.*;
 public interface ActividadMapper extends EntityMapper<ActividadDTO, Actividad> {
 
     @Mapping(source = "evento.id", target = "eventoId")
+    @Mapping(source = "evento.nombre", target = "eventoNombre")
     ActividadDTO toDto(Actividad actividad);
-
+       
     @Mapping(source = "eventoId", target = "evento")
     Actividad toEntity(ActividadDTO actividadDTO);
 

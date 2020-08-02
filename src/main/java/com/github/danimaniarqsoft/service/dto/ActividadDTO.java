@@ -21,6 +21,8 @@ public class ActividadDTO implements Serializable {
 
     private String eventoId;
 
+    private String eventoNombre;
+
     public String getId() {
         return id;
     }
@@ -68,6 +70,14 @@ public class ActividadDTO implements Serializable {
     public void setEventoId(String eventoId) {
         this.eventoId = eventoId;
     }
+
+    public String getEventoNombre() {
+		return eventoNombre;
+	}
+
+	public void setEventoNombre(String eventoNombre) {
+		this.eventoNombre = eventoNombre;
+	}
 
     @Override
     public boolean equals(Object o) {

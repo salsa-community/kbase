@@ -1,5 +1,6 @@
 import Vue from 'vue';
-import { format, parseISO } from 'date-fns';
+import { format, formatRelative, parseISO } from 'date-fns';
+import { es } from 'date-fns/locale';
 
 export const DATE_FORMAT = 'yyyy-MM-dd';
 export const DATE_TIME_FORMAT = 'yyyy-MM-dd HH:mm';
@@ -18,6 +19,12 @@ export function initFilters() {
   Vue.filter('formatMillis', function(value) {
     if (value) {
       return format(new Date(value), DATE_TIME_FORMAT);
+    }
+    return '';
+  });
+  Vue.filter('timeElapsed', function(value) {
+    if (value) {
+      return formatRelative(new Date(value), new Date(), { locale: es });
     }
     return '';
   });
