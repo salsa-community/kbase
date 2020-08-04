@@ -13,8 +13,8 @@
                 footer-text-variant="purple"
                 footer-bg-variant="white"
                 class="text-center col-sm-5"
-                title="CFDI33110"
-              ></b-card>
+                :title="reporte.topCodigoError"
+              >{{reporte.countCodigoError}}</b-card>
               <div class="col-sm-1"></div>
               <b-card
                 text-variant="white"
@@ -24,8 +24,9 @@
                 footer-text-variant="purple"
                 footer-bg-variant="white"
                 class="text-center col-sm-5"
-                title="587"
-              ></b-card>
+                title="Contactos"
+              >{{reporte.numContactos}}
+              </b-card>
             </b-card-group>
           </div>
         </div>
@@ -33,7 +34,6 @@
       </div>
     </div>
     <br />
-    {{filtro}}
     <b-tabs no-body content-class="mt-3">
       <b-tab title="Filtros" active>
         <div class="row">
@@ -44,7 +44,7 @@
                   v-model="filtro.contextos"
                   :options="contextos"
                   name="contextos"
-                  value-field="nombre"
+                  value-field="clave"
                   text-field="nombre"
                   stacked
                 ></b-form-checkbox-group>
@@ -103,16 +103,13 @@
       @dismiss-count-down="countDownChanged"
     >{{alertMessage}}</b-alert>
     <br />
-    <div class="alert alert-warning" v-if="!isFetching && actividads && actividads.length === 0">
-      <span v-text="$t('kbaseApp.actividad.home.notFound')">No actividads found</span>
-    </div>
     <el-table v-loading="isFetching" :data="actividads" style="width: 100%">
       <el-table-column prop="contexto" :label="$t('kbaseApp.actividad.contexto')">
         <template slot-scope="scope">
           <el-tag size="medium">{{ scope.row.contexto }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column sortable prop="eventoNombre" :label="$t('kbaseApp.actividad.evento')"></el-table-column>
+      <el-table-column sortable prop="evento" :label="$t('kbaseApp.actividad.evento')"></el-table-column>
       <el-table-column sortable prop="valor" :label="$t('kbaseApp.actividad.valor')"></el-table-column>
       <el-table-column sortable prop="fecha" :label="$t('kbaseApp.actividad.fecha')">
         <template slot-scope="scope">

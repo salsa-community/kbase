@@ -4,7 +4,7 @@ export interface IActividad {
   valor?: string;
   desc?: string;
   fecha?: Date;
-  eventoId?: string;
+  evento?: string;
 }
 
 export class Actividad implements IActividad {
@@ -14,6 +14,6 @@ export class Actividad implements IActividad {
     public valor?: string,
     public desc?: string,
     public fecha?: Date,
-    public eventoId?: string
+    public evento?: string
   ) {}
 }

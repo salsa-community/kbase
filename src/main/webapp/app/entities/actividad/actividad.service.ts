@@ -46,4 +46,12 @@ export default class ActividadService {
       });
     });
   }
+
+  public loadReporte(): Promise<any> {
+    return new Promise<IActividad>(resolve => {
+      axios.get(`${baseApiUrl}/reportes`).then(function(res) {
+        resolve(res.data);
+      });
+    });
+  }
 }

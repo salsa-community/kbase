@@ -18,10 +18,7 @@ public class ActividadDTO implements Serializable {
 
     private Instant fecha;
 
-
-    private String eventoId;
-
-    private String eventoNombre;
+    private String evento;
 
     public String getId() {
         return id;
@@ -63,21 +60,13 @@ public class ActividadDTO implements Serializable {
         this.fecha = fecha;
     }
 
-    public String getEventoId() {
-        return eventoId;
+    public String getEvento() {
+        return evento;
     }
 
-    public void setEventoId(String eventoId) {
-        this.eventoId = eventoId;
+    public void setEvento(String evento) {
+        this.evento = evento;
     }
-
-    public String getEventoNombre() {
-		return eventoNombre;
-	}
-
-	public void setEventoNombre(String eventoNombre) {
-		this.eventoNombre = eventoNombre;
-	}
 
     @Override
     public boolean equals(Object o) {
@@ -108,7 +97,7 @@ public class ActividadDTO implements Serializable {
             ", valor='" + getValor() + "'" +
             ", desc='" + getDesc() + "'" +
             ", fecha='" + getFecha() + "'" +
-            ", evento=" + getEventoId() +
+            ", evento=" + getEvento() +
             "}";
     }
 }

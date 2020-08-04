@@ -3,6 +3,8 @@ package com.github.danimaniarqsoft.web.rest;
 import com.github.danimaniarqsoft.service.ActividadService;
 import com.github.danimaniarqsoft.web.rest.errors.BadRequestAlertException;
 import com.github.danimaniarqsoft.service.dto.ActividadDTO;
+import com.github.danimaniarqsoft.service.dto.Filtro;
+import com.github.danimaniarqsoft.service.dto.ReporteDTO;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
@@ -12,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -20,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -93,11 +96,49 @@ public class ActividadResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of actividads in body.
      */
     @GetMapping("/actividads")
-    public ResponseEntity<List<ActividadDTO>> getAllActividads(Pageable pageable) {
-        log.debug("REST request to get a page of Actividads");
-        Page<ActividadDTO> page = actividadService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+    public ResponseEntity<List<ActividadDTO>> getAllActividads(
+            @RequestParam(required = false) List<String> contexto,
+            @RequestParam(required = false) List<String> evento,
+            @RequestParam(required = false) Instant fechaInicio, 
+            @RequestParam(required = false) Instant fechaFin, 
+            Pageable pageable) {
+        log.debug("contextos {}", contexto);
+        log.debug("eventos {}", evento);
+        log.debug("fechaInicio {}", fechaInicio);
+        log.debug("fechaFin {}", fechaFin);
+        Page<ActividadDTO> page = actividadService.findByFilter( resolveFiltro(contexto, evento, fechaInicio, fechaFin), pageable);
+        HttpHeaders headers = PaginationUtil
+                .generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/actividads/reportes/excel")
+    public ResponseEntity<List<ActividadDTO>> getReporte(
+            @RequestParam(required = false) List<String> contexto,
+            @RequestParam(required = false) List<String> evento,
+            @RequestParam(required = false) Instant fechaInicio, 
+            @RequestParam(required = false) Instant fechaFin) {
+        log.debug("contextos {}", contexto);
+        log.debug("eventos {}", evento);
+        log.debug("fechaInicio {}", fechaInicio);
+        log.debug("fechaFin {}", fechaFin);
+        Page<ActividadDTO> page = actividadService.findByFilter( resolveFiltro(contexto, evento, fechaInicio, fechaFin), pageable);
+        HttpHeaders headers = PaginationUtil
+                .generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+    
+    private Filtro resolveFiltro(
+            @RequestParam(required = false) List<String> contexto,
+            @RequestParam(required = false) List<String> evento,
+            @RequestParam(required = false) Instant fechaInicio, 
+            @RequestParam(required = false) Instant fechaFin){
+        Filtro filtro = new Filtro();
+        filtro.setContexto(contexto);
+        filtro.setEvento(evento);
+        filtro.setFechaInicio(fechaInicio);
+        filtro.setFechaFin(fechaFin);
+        return filtro;
     }
 
     /**
@@ -123,6 +164,19 @@ public class ActividadResource {
     public ResponseEntity<Void> deleteActividad(@PathVariable String id) {
         log.debug("REST request to delete Actividad : {}", id);
         actividadService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id)).build();
+        return ResponseEntity.noContent()
+                .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id)).build();
+    }
+    
+    /**
+     * {@code GET  /actividads/reportes} : get the "reporte.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the actividadDTO, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/actividads/reportes")
+    public ResponseEntity<ReporteDTO> getReporte() {
+        ReporteDTO reporte = actividadService.loadReporte();
+        Optional<ReporteDTO> reporteDTO = Optional.of(reporte);
+        return ResponseUtil.wrapOrNotFound(reporteDTO);
     }
 }

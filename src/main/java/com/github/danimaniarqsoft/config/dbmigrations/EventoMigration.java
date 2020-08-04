@@ -23,15 +23,15 @@ public class EventoMigration {
             throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
 
         Evento consultarCodigoError = new Evento();
-        consultarCodigoError.nombre("Consultar código de error").desc("Consulta de un código de error en la plataforma").setId("1");
+        consultarCodigoError.nombre("Consultar código de error").desc("Consulta de un código de error en la plataforma").setId("CODIGO_ERROR");
         mongoTemplate.save(consultarCodigoError);
 
         Evento registrarEncuesta = new Evento();
-        registrarEncuesta.nombre("Registrar encuesta").desc("Registro de encuensta en la plataforma").setId("2");
+        registrarEncuesta.nombre("Registrar encuesta").desc("Registro de encuensta en la plataforma").setId("REGISTRAR_ENCUESTA");
         mongoTemplate.save(registrarEncuesta);
 
         Evento registrarContacto = new Evento();
-        registrarContacto.nombre("Registrar contacto").desc("Registro de contacto nuevo en la plataforma").setId("3");
+        registrarContacto.nombre("Registrar contacto").desc("Registro de contacto nuevo en la plataforma").setId("REGISTRAR_CONTACTO");
         mongoTemplate.save(registrarContacto);
 
     }

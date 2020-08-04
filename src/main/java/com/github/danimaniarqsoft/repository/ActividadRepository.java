@@ -12,4 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ActividadRepository extends MongoRepository<Actividad, String> {
 
+      long countByEvento(String evento);
+
 }

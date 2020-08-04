@@ -29,6 +29,7 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
   public actividads: IActividad[] = [];
   public eventos: IEvento[] = [];
   public contextos: IContexto[] = [];
+  public reporte: any = {};
   public filtro: any = { contextos: [], eventos: [], rangoFechas: [] };
 
   public isFetching = false;
@@ -50,6 +51,11 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
   }
 
   public mounted(): void {
+    this.actividadService()
+      .loadReporte()
+      .then(res => {
+        this.reporte = res;
+      });
     this.retrieveAllActividads();
     this.initFiltros();
   }
@@ -84,6 +90,8 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
 
   public retrieveAllActividads(): void {
     this.isFetching = true;
+
+    console.log(this.filtro.rangoFechas);
 
     const paginationQuery = {
       page: this.page - 1,

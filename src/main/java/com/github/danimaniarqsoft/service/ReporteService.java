@@ -1,19 +1,16 @@
 package com.github.danimaniarqsoft.service;
 
 import com.github.danimaniarqsoft.service.dto.ActividadDTO;
-import com.github.danimaniarqsoft.service.dto.Filtro;
-import com.github.danimaniarqsoft.service.dto.ReporteDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
 import java.util.Optional;
 
 /**
- * Service Interface for managing {@link com.github.danimaniarqsoft.domain.Actividad}.
+ * Service Interface for managing {@link com.github.danimaniarqsoft.domain.Reporte}.
  */
-public interface ActividadService {
+public interface ReporteService {
 
     /**
      * Save a actividad.
@@ -46,11 +43,4 @@ public interface ActividadService {
      * @param id the id of the entity.
      */
     void delete(String id);
-
-    ReporteDTO loadReporte();
-
-
-    Page<ActividadDTO> findByFilter(Filtro filtro, Pageable pageable);
-    
-    List<ActividadDTO> findAllByFilter(Filtro filtro, Pageable pageable);
 }

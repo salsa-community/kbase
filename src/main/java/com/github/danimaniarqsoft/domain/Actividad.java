@@ -11,7 +11,7 @@ import java.time.Instant;
 /**
  * A Actividad.
  */
-@Document(collection = "actividad")
+@Document(collection = "actividades")
 public class Actividad implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,10 +31,8 @@ public class Actividad implements Serializable {
     @Field("fecha")
     private Instant fecha;
 
-    @DBRef
     @Field("evento")
-    @JsonIgnoreProperties("actividads")
-    private Evento evento;
+    private String evento;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
@@ -97,16 +95,16 @@ public class Actividad implements Serializable {
         this.fecha = fecha;
     }
 
-    public Evento getEvento() {
+    public String getEvento() {
         return evento;
     }
 
-    public Actividad evento(Evento evento) {
+    public Actividad evento(String evento) {
         this.evento = evento;
         return this;
     }
 
-    public void setEvento(Evento evento) {
+    public void setEvento(String evento) {
         this.evento = evento;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
