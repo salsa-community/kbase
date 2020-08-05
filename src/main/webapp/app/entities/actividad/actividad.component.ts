@@ -33,6 +33,7 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
   public filtro: any = { contextos: [], eventos: [], rangoFechas: [] };
 
   public isFetching = false;
+  public isDowloadingReport = false;
   public dismissCountDown: number = this.$store.getters.dismissCountDown;
   public dismissSecs: number = this.$store.getters.dismissSecs;
   public alertType: string = this.$store.getters.alertType;
@@ -64,6 +65,10 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
     this.retrieveAllActividads();
   }
 
+  public downloadReport() {
+    this.retrieveAllActividads(true);
+  }
+
   public initFiltros(): void {
     this.eventoService()
       .retrieve()
@@ -88,10 +93,12 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
     this.retrieveAllActividads();
   }
 
-  public retrieveAllActividads(): void {
-    this.isFetching = true;
-
-    console.log(this.filtro.rangoFechas);
+  public retrieveAllActividads(isFull?: boolean): void {
+    if (!isFull) {
+      this.isFetching = true;
+    } else {
+      this.isDowloadingReport = true;
+    }
 
     const paginationQuery = {
       page: this.page - 1,
@@ -99,19 +106,22 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
       sort: this.sort(),
       filtro: this.filtro
     };
-    this.actividadService()
-      .retrieve(paginationQuery)
-      .then(
-        res => {
-          this.actividads = res.data;
-          this.totalItems = Number(res.headers['x-total-count']);
-          this.queryCount = this.totalItems;
-          this.isFetching = false;
-        },
-        err => {
-          this.isFetching = false;
-        }
-      );
+    if (!isFull) {
+      this.actividadService()
+        .retrieve(paginationQuery)
+        .then(
+          res => {
+            this.actividads = res.data;
+            this.totalItems = Number(res.headers['x-total-count']);
+            this.queryCount = this.totalItems;
+            this.isFetching = false;
+          },
+          err => {
+            this.isFetching = false;
+          }
+        );
+    } else {
+    }
   }
 
   public prepareRemove(instance: IActividad): void {

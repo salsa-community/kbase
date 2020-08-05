@@ -169,3 +169,13 @@ In order to just modify the `.entity/` json files and not generate the entities:
 In order to just re-generate a specific entity:
 
 `jhipster entity contacto`
+
+## Documentation generation
+
+In order to generate documentation with Vuepress:
+
+`npm run docs:dev`
+
+Documentation for production:
+
+`npm run docs:build`

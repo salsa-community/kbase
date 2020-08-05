@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-8">
             <el-button type="default" icon="el-icon-delete" v-on:click="clearFiltro()">Limpiar</el-button>
             <el-button
               icon="el-icon-search"
@@ -90,6 +90,14 @@
               :loading="isFetching"
               v-on:click="search()"
             >Buscar</el-button>
+          </div>
+          <div class="col-sm-4">
+            <el-button
+              icon="el-icon-download"
+              type="primary"
+              :loading="isDowloadingReport"
+              v-on:click="downloadReport()"
+            >Exportar reporte</el-button>
           </div>
         </div>
       </b-tab>
