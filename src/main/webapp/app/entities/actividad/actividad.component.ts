@@ -31,6 +31,7 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
   public contextos: IContexto[] = [];
   public reporte: any = {};
   public filtro: any = { contextos: [], eventos: [], rangoFechas: [] };
+  public excel = null;
 
   public isFetching = false;
   public isDowloadingReport = false;
@@ -121,6 +122,17 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
           }
         );
     } else {
+      this.actividadService()
+        .loadExcel(paginationQuery)
+        .then(
+          res => {
+            this.excel = res.data;
+            this.isDowloadingReport = false;
+          },
+          err => {
+            this.isDowloadingReport = false;
+          }
+        );
     }
   }
 

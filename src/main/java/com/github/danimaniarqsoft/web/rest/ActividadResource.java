@@ -9,9 +9,23 @@ import com.github.danimaniarqsoft.service.dto.ReporteDTO;
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFFont;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Query;
@@ -21,10 +35,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -113,19 +131,71 @@ public class ActividadResource {
     }
 
     @GetMapping("/actividads/reportes/excel")
-    public ResponseEntity<List<ActividadDTO>> getReporte(
+    public ResponseEntity<InputStreamResource> getReporte(
             @RequestParam(required = false) List<String> contexto,
             @RequestParam(required = false) List<String> evento,
             @RequestParam(required = false) Instant fechaInicio, 
-            @RequestParam(required = false) Instant fechaFin) {
+            @RequestParam(required = false) Instant fechaFin, 
+            Pageable pageable) throws IOException {
         log.debug("contextos {}", contexto);
         log.debug("eventos {}", evento);
         log.debug("fechaInicio {}", fechaInicio);
-        log.debug("fechaFin {}", fechaFin);
-        Page<ActividadDTO> page = actividadService.findByFilter( resolveFiltro(contexto, evento, fechaInicio, fechaFin), pageable);
-        HttpHeaders headers = PaginationUtil
-                .generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
+        Page<ActividadDTO> page = actividadService
+                .findByFilter(resolveFiltro(contexto, evento, fechaInicio, fechaFin), pageable);
+        
+        ByteArrayInputStream in = customersToExcel(page.getContent());
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "attachment; filename=customers.xlsx");
+    
+     return ResponseEntity
+                  .ok()
+                  .headers(headers)
+                  .body(new InputStreamResource(in));
+    }
+
+    public static ByteArrayInputStream customersToExcel(List<ActividadDTO> customers) throws IOException {
+    String[] COLUMNs = {"Id", "Name", "Address", "Age"};
+    try(
+        Workbook workbook = new XSSFWorkbook();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+    ) {
+        CreationHelper createHelper = workbook.getCreationHelper();
+
+        Sheet sheet = workbook.createSheet("Customers");
+
+        Font headerFont = workbook.createFont();
+        headerFont.setBold(true);
+        headerFont.setColor(IndexedColors.BLUE.getIndex());
+
+        CellStyle headerCellStyle = workbook.createCellStyle();
+        headerCellStyle.setFont(headerFont);
+
+        // Row for Header
+        Row headerRow = sheet.createRow(0);
+
+        // Header
+        for (int col = 0; col < COLUMNs.length; col++) {
+            Cell cell = headerRow.createCell(col);
+            cell.setCellValue(COLUMNs[col]);
+            cell.setCellStyle(headerCellStyle);
+        }
+
+        // CellStyle for Age
+        CellStyle ageCellStyle = workbook.createCellStyle();
+        ageCellStyle.setDataFormat(createHelper.createDataFormat().getFormat("#"));
+
+        int rowIdx = 1;
+        for (ActividadDTO customer : customers) {
+            Row row = sheet.createRow(rowIdx++);
+
+            row.createCell(0).setCellValue(customer.getContexto());
+            row.createCell(1).setCellValue(customer.getDesc());
+        }
+
+        workbook.write(out);
+        return new ByteArrayInputStream(out.toByteArray());
+        }
     }
     
     private Filtro resolveFiltro(
