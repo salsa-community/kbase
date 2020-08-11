@@ -19,6 +19,7 @@ import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -31,6 +32,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -131,7 +133,7 @@ public class ActividadResource {
     }
 
     @GetMapping("/actividads/reportes/excel")
-    public ResponseEntity<InputStreamResource> getReporte(
+    public ResponseEntity<StreamingResponseBody> getReporte(
             @RequestParam(required = false) List<String> contexto,
             @RequestParam(required = false) List<String> evento,
             @RequestParam(required = false) Instant fechaInicio, 
@@ -140,62 +142,16 @@ public class ActividadResource {
         log.debug("contextos {}", contexto);
         log.debug("eventos {}", evento);
         log.debug("fechaInicio {}", fechaInicio);
-        Page<ActividadDTO> page = actividadService
-                .findByFilter(resolveFiltro(contexto, evento, fechaInicio, fechaFin), pageable);
-        
-        ByteArrayInputStream in = customersToExcel(page.getContent());
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "attachment; filename=customers.xlsx");
+        Workbook wb = actividadService.findByFilterAllReport(resolveFiltro(contexto, evento, fechaInicio, fechaFin));
     
-     return ResponseEntity
-                  .ok()
-                  .headers(headers)
-                  .body(new InputStreamResource(in));
-    }
-
-    public static ByteArrayInputStream customersToExcel(List<ActividadDTO> customers) throws IOException {
-    String[] COLUMNs = {"Id", "Name", "Address", "Age"};
-    try(
-        Workbook workbook = new XSSFWorkbook();
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-    ) {
-        CreationHelper createHelper = workbook.getCreationHelper();
-
-        Sheet sheet = workbook.createSheet("Customers");
-
-        Font headerFont = workbook.createFont();
-        headerFont.setBold(true);
-        headerFont.setColor(IndexedColors.BLUE.getIndex());
-
-        CellStyle headerCellStyle = workbook.createCellStyle();
-        headerCellStyle.setFont(headerFont);
-
-        // Row for Header
-        Row headerRow = sheet.createRow(0);
-
-        // Header
-        for (int col = 0; col < COLUMNs.length; col++) {
-            Cell cell = headerRow.createCell(col);
-            cell.setCellValue(COLUMNs[col]);
-            cell.setCellStyle(headerCellStyle);
-        }
-
-        // CellStyle for Age
-        CellStyle ageCellStyle = workbook.createCellStyle();
-        ageCellStyle.setDataFormat(createHelper.createDataFormat().getFormat("#"));
-
-        int rowIdx = 1;
-        for (ActividadDTO customer : customers) {
-            Row row = sheet.createRow(rowIdx++);
-
-            row.createCell(0).setCellValue(customer.getContexto());
-            row.createCell(1).setCellValue(customer.getDesc());
-        }
-
-        workbook.write(out);
-        return new ByteArrayInputStream(out.toByteArray());
-        }
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION,
+                        String.format("attachment; filename=\"%s\"", "reporte_plenaria.xlsx"))
+                .header(HttpHeaders.CONTENT_TYPE, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+                .body((os) -> {
+                    wb.write(os);
+                });
     }
     
     private Filtro resolveFiltro(

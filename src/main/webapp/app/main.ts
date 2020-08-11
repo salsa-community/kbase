@@ -37,6 +37,7 @@ import UnknowIntentsService from '@/entities/unknow-intents/unknow-intents.servi
 import ContactoService from '@/entities/contacto/contacto.service';
 import EventoService from '@/entities/evento/evento.service';
 import ActividadService from '@/entities/actividad/actividad.service';
+import ArchivoService from '@/entities/archivo/archivo.service';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 import draggable from 'vuedraggable';
@@ -108,6 +109,7 @@ new Vue({
     contactoService: () => new ContactoService(),
     eventoService: () => new EventoService(),
     actividadService: () => new ActividadService(),
+    archivoService: () => new ArchivoService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService
   },

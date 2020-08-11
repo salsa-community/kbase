@@ -25,8 +25,7 @@
                 footer-bg-variant="white"
                 class="text-center col-sm-5"
                 title="Contactos"
-              >{{reporte.numContactos}}
-              </b-card>
+              >{{reporte.numContactos}}</b-card>
             </b-card-group>
           </div>
         </div>
@@ -98,6 +97,8 @@
               :loading="isDowloadingReport"
               v-on:click="downloadReport()"
             >Exportar reporte</el-button>
+            <a href download ref="dummyDownloadLink" v-show="false"></a>
+            <br />
           </div>
         </div>
       </b-tab>

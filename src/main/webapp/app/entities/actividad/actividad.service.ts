@@ -57,9 +57,13 @@ export default class ActividadService {
 
   public loadExcel(paginationQuery?: any): Promise<any> {
     return new Promise<any>(resolve => {
-      axios.get(baseApiUrl + `/reportes/excel?${buildPaginationQueryOpts(paginationQuery)}`).then(function(res) {
-        resolve(res);
-      });
+      axios
+        .get(baseApiUrl + `/reportes/excel?${buildPaginationQueryOpts(paginationQuery)}`, {
+          responseType: 'blob'
+        })
+        .then(function(res) {
+          resolve(res);
+        });
     });
   }
 }

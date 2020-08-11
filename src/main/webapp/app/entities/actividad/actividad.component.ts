@@ -2,6 +2,8 @@ import { mixins } from 'vue-class-component';
 
 import { Component, Inject } from 'vue-property-decorator';
 import Vue2Filters from 'vue2-filters';
+import JhiDataUtils from '@/shared/data/data-utils.service';
+
 import { IActividad } from '@/shared/model/actividad.model';
 import AlertService from '@/shared/alert/alert.service';
 import EventoService from '../evento/evento.service';
@@ -12,7 +14,7 @@ import ContextoService from '../contexto/contexto.service';
 import ActividadService from './actividad.service';
 
 @Component
-export default class Actividad extends mixins(Vue2Filters.mixin) {
+export default class Actividad extends mixins(Vue2Filters.mixin, JhiDataUtils) {
   @Inject('alertService') private alertService: () => AlertService;
   @Inject('actividadService') private actividadService: () => ActividadService;
   @Inject('eventoService') private eventoService: () => EventoService;
@@ -122,11 +124,17 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
           }
         );
     } else {
+      // download the report
       this.actividadService()
         .loadExcel(paginationQuery)
         .then(
           res => {
-            this.excel = res.data;
+            const url = window.URL.createObjectURL(new Blob([res.data]));
+            const dummyDownloadLink = this.$refs.dummyDownloadLink as any;
+            dummyDownloadLink.href = url;
+            dummyDownloadLink.download = 'reporte' + this.getDateName() + '.xlsx';
+            dummyDownloadLink.click();
+            this.isFetching = false;
             this.isDowloadingReport = false;
           },
           err => {
@@ -134,6 +142,21 @@ export default class Actividad extends mixins(Vue2Filters.mixin) {
           }
         );
     }
+  }
+
+  public getDateName() {
+    let currentDate = new Date();
+    return (
+      currentDate.getFullYear() +
+      '' +
+      currentDate.getMonth() +
+      '' +
+      currentDate.getHours() +
+      '' +
+      currentDate.getMinutes() +
+      '' +
+      currentDate.getSeconds()
+    );
   }
 
   public prepareRemove(instance: IActividad): void {

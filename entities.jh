@@ -62,6 +62,11 @@ entity Evento {
     desc String
 }
 
+entity Archivo {
+    nombre String,
+    dato Blob
+}
+
 relationship OneToOne {
     MensajeError{instruccion} to Instruccion
 }

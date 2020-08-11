@@ -84,6 +84,12 @@ const Actividad = () => import('../entities/actividad/actividad.vue');
 const ActividadUpdate = () => import('../entities/actividad/actividad-update.vue');
 // prettier-ignore
 const ActividadDetails = () => import('../entities/actividad/actividad-details.vue');
+// prettier-ignore
+const Archivo = () => import('../entities/archivo/archivo.vue');
+// prettier-ignore
+const ArchivoUpdate = () => import('../entities/archivo/archivo-update.vue');
+// prettier-ignore
+const ArchivoDetails = () => import('../entities/archivo/archivo-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 Vue.use(Router);
@@ -449,6 +455,31 @@ export default new Router({
       path: '/entity/actividad/:actividadId/view',
       name: 'ActividadView',
       component: ActividadDetails,
+      meta: { authorities: ['ROLE_USER'] }
+    }
+    ,
+    {
+      path: '/entity/archivo',
+      name: 'Archivo',
+      component: Archivo,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/archivo/new',
+      name: 'ArchivoCreate',
+      component: ArchivoUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/archivo/:archivoId/edit',
+      name: 'ArchivoEdit',
+      component: ArchivoUpdate,
+      meta: { authorities: ['ROLE_USER'] }
+    },
+    {
+      path: '/entity/archivo/:archivoId/view',
+      name: 'ArchivoView',
+      component: ArchivoDetails,
       meta: { authorities: ['ROLE_USER'] }
     }
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

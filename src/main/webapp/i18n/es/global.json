@@ -17,6 +17,7 @@
         "contacto": "Solicitudes de contacto",
         "evento": "Evento",
         "actividad": "Consulta de reportes",
+        "archivo": "Archivo",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
