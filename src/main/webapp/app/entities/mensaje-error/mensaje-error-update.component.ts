@@ -30,6 +30,11 @@ const validations: any = {
       minLength: minLength(4),
       maxLength: maxLength(500)
     },
+    descEn: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(500)
+    },
     tipo: {
       required
     },
@@ -38,11 +43,21 @@ const validations: any = {
         required,
         minLength: minLength(4),
         maxLength: maxLength(500)
+      },
+      descEn: {
+        required,
+        minLength: minLength(4),
+        maxLength: maxLength(500)
       }
     }
   },
   newStep: {
     desc: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(500)
+    },
+    descEn: {
       required,
       minLength: minLength(4),
       maxLength: maxLength(500)
@@ -154,12 +169,14 @@ export default class MensajeErrorUpdate extends Vue {
     this.stepId = step;
     this.newStep.paso = step.paso;
     this.newStep.desc = step.desc;
+    this.newStep.descEn = step.descEn;
     (<any>this.$refs.editStep).show();
   }
 
   public prepareToAddStep() {
     this.newStep.paso = -1;
     this.newStep.desc = '';
+    this.newStep.descEn = '';
     (<any>this.$refs.addStep).show();
   }
 
@@ -171,6 +188,7 @@ export default class MensajeErrorUpdate extends Vue {
     const step = new Paso();
     step.paso = this.newStep.paso;
     step.desc = this.newStep.desc;
+    step.descEn = this.newStep.descEn;
     this.mensajeError.instruccion.pasos.splice(this.mensajeError.instruccion.pasos.indexOf(this.stepId), 1, step);
     this.closeEditStepDialog();
   }
@@ -179,6 +197,7 @@ export default class MensajeErrorUpdate extends Vue {
     const step = new Paso();
     step.paso = Infinity;
     step.desc = this.newStep.desc;
+    step.descEn = this.newStep.descEn;
     this.mensajeError.instruccion.pasos.push(step);
     this.orderSteps();
     this.closeEditStepDialog();

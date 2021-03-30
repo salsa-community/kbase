@@ -62,6 +62,29 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.descEn')" for="mensaje-error-descEn">Desc</label>
+                        <b-form-textarea 
+                            :state="!$v.mensajeError.descEn.$invalid"
+                            name="descEn"
+                            rows="5"
+                            class="form-control" 
+                            id="mensaje-error-descEn" 
+                            :placeholder="$t('kbaseApp.mensajeError.detail.descripcionPlaceHolder')"
+                            v-model.trim="$v.mensajeError.descEn.$model">
+                        </b-form-textarea>
+                        <div v-if="$v.mensajeError.descEn.$invalid">
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.descEn.required" v-text="$t('entity.validation.required')">
+                                This field is required.
+                            </small>
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.descEn.minLength">
+                                {{$t('entity.validation.minlength', { min: '4' })}}
+                            </small>
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.descEn.maxLength">
+                                {{$t('entity.validation.maxlength', { max: '500' })}}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.instruccion')" for="mensaje-error-desc">Desc</label>
                         <b-form-textarea 
                             :state="!$v.mensajeError.instruccion.desc.$invalid"
@@ -80,6 +103,29 @@
                                 {{$t('entity.validation.minlength', { min: '4' })}}
                             </small>
                             <small class="form-text text-danger" v-if="!$v.mensajeError.instruccion.desc.maxLength">
+                                {{$t('entity.validation.maxlength', { max: '500' })}}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.instruccionEn')" for="mensaje-error-descEn">DescEn</label>
+                        <b-form-textarea 
+                            :state="!$v.mensajeError.instruccion.descEn.$invalid"
+                            name="descEn"
+                            rows="5"
+                            class="form-control" 
+                            id="mensaje-error-descEn" 
+                            :placeholder="$t('kbaseApp.mensajeError.detail.descripcionPlaceHolder')"
+                            v-model.trim="$v.mensajeError.instruccion.descEn.$model">
+                        </b-form-textarea>
+                        <div v-if="$v.mensajeError.instruccion.descEn.$invalid">
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.instruccion.descEn.required" v-text="$t('entity.validation.required')">
+                                This field is required.
+                            </small>
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.instruccion.descEn.minLength">
+                                {{$t('entity.validation.minlength', { min: '4' })}}
+                            </small>
+                            <small class="form-text text-danger" v-if="!$v.mensajeError.instruccion.descEn.maxLength">
                                 {{$t('entity.validation.maxlength', { max: '500' })}}
                             </small>
                         </div>
@@ -158,6 +204,7 @@
         <b-modal ref="addStep" id="addStep" >
             <span slot="modal-title"><span id="kbaseApp.mensajeError.delete.question">Agregar Paso</span></span>
             <div class="form-group">
+                <label class="form-control-label" for="mensaje-error-desc">Descripción</label>
                 <b-form-textarea 
                     :state="!$v.newStep.desc.$invalid"
                     name="desc" 
@@ -178,6 +225,28 @@
                     </small>
                 </div>
             </div>
+            <div class="form-group">
+                <label class="form-control-label" for="mensaje-error-descEn">Descripción en Inglés</label>
+                <b-form-textarea 
+                    :state="!$v.newStep.descEn.$invalid"
+                    name="descEn" 
+                    rows="5"
+                    class="form-control" 
+                    id="mensaje-error-descEn"
+                    v-model.trim="newStep.descEn">
+                </b-form-textarea>
+                <div v-if="$v.newStep.descEn.$invalid">
+                    <small class="form-text text-danger" v-if="!$v.newStep.descEn.required" v-text="$t('entity.validation.required')">
+                        This field is required.
+                    </small>
+                    <small class="form-text text-danger" v-if="!$v.newStep.descEn.minLength">
+                        {{$t('entity.validation.minlength', { min: '4' })}}
+                    </small>
+                    <small class="form-text text-danger" v-if="!$v.newStep.descEn.maxLength">
+                        {{$t('entity.validation.maxlength', { max: '500' })}}
+                    </small>
+                </div>
+            </div>
             <div slot="modal-footer">
                 <b-button variant="outline-dark" v-text="$t('entity.action.cancel')" v-on:click="closeAddStepDialog()"></b-button>
                 <b-button :disabled="$v.newStep.desc.$invalid" variant="outline-primary" v-text="$t('entity.action.save')" v-on:click="addStep()"></b-button>
@@ -186,6 +255,7 @@
         <b-modal ref="editStep" id="editStep" >
             <span slot="modal-title"><span id="kbaseApp.mensajeError.delete.question">Editar Paso {{newStep.paso}}</span></span>
             <div class="form-group">
+                <label class="form-control-label" for="mensaje-error-desc">Descripción</label>
                 <b-form-textarea 
                     :state="!$v.newStep.desc.$invalid"
                     name="desc" 
@@ -202,6 +272,28 @@
                         {{$t('entity.validation.minlength', { min: '4' })}}
                     </small>
                     <small class="form-text text-danger" v-if="!$v.newStep.desc.maxLength">
+                        {{$t('entity.validation.maxlength', { max: '500' })}}
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" for="mensaje-error-descEn">Descripción en Inglés</label>
+                <b-form-textarea 
+                    :state="!$v.newStep.descEn.$invalid"
+                    name="descEn" 
+                    rows="5"
+                    class="form-control" 
+                    id="mensaje-error-descEn"
+                    v-model.trim="newStep.descEn">
+                </b-form-textarea>
+                <div v-if="$v.newStep.descEn.$invalid">
+                    <small class="form-text text-danger" v-if="!$v.newStep.descEn.required" v-text="$t('entity.validation.required')">
+                        This field is required.
+                    </small>
+                    <small class="form-text text-danger" v-if="!$v.newStep.descEn.minLength">
+                        {{$t('entity.validation.minlength', { min: '4' })}}
+                    </small>
+                    <small class="form-text text-danger" v-if="!$v.newStep.descEn.maxLength">
                         {{$t('entity.validation.maxlength', { max: '500' })}}
                     </small>
                 </div>

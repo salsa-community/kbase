@@ -14,6 +14,8 @@ public class MensajeErrorDTO implements Serializable {
 
     private String desc;
 
+    private String descEn;
+
     private String instruccionId;
 
     public String getId() {
@@ -77,5 +79,13 @@ public class MensajeErrorDTO implements Serializable {
             ", desc='" + getDesc() + "'" +
             ", instruccion=" + getInstruccionId() +
             "}";
+    }
+
+    public String getDescEn() {
+        return descEn;
+    }
+
+    public void setDescEn(String descEn) {
+        this.descEn = descEn;
     }
 }

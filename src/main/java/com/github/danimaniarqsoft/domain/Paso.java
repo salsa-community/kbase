@@ -16,6 +16,9 @@ public class Paso implements Serializable {
     @Field("desc")
     private String desc;
 
+    @Field("descEn")
+    private String descEn;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not
     // remove
     public Integer getPaso() {
@@ -42,6 +45,19 @@ public class Paso implements Serializable {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+    
+    public String getDescEn() {
+        return descEn;
+    }
+
+    public Paso descEn(String descEn) {
+        this.descEn = descEn;
+        return this;
+    }
+
+    public void setDescEn(String descEn) {
+        this.descEn = descEn;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and
     // setters here, do not remove

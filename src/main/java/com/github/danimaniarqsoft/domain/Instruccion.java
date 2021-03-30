@@ -16,6 +16,10 @@ public class Instruccion implements Serializable {
     @Field("desc")
     private String desc;
 
+    @Field("descEn")
+    private String descEn;
+
+
     @Field("pasos")
     private List<Paso> pasos = new ArrayList<>();
 
@@ -62,5 +66,13 @@ public class Instruccion implements Serializable {
         return "Instruccion{" +
             "desc='" + getDesc() + "'" +
             "}";
+    }
+
+    public String getDescEn() {
+        return descEn;
+    }
+
+    public void setDescEn(String descEn) {
+        this.descEn = descEn;
     }
 }

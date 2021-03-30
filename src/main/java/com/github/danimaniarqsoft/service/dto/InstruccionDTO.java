@@ -11,6 +11,8 @@ public class InstruccionDTO implements Serializable {
 
     private String desc;
 
+    private String descEn;
+
 
     public String getId() {
         return id;
@@ -26,6 +28,14 @@ public class InstruccionDTO implements Serializable {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getDescEn() {
+        return descEn;
+    }
+
+    public void setDescEn(String descEn) {
+        this.descEn = descEn;
     }
 
     @Override

@@ -13,6 +13,7 @@ public class PasoDTO implements Serializable {
 
     private String desc;
 
+    private String descEn;
 
     private String instruccionId;
 
@@ -77,5 +78,13 @@ public class PasoDTO implements Serializable {
             ", desc='" + getDesc() + "'" +
             ", instruccion=" + getInstruccionId() +
             "}";
+    }
+
+    public String getDescEn() {
+        return descEn;
+    }
+
+    public void setDescEn(String descEn) {
+        this.descEn = descEn;
     }
 }

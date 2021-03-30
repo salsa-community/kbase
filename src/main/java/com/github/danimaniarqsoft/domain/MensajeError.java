@@ -28,6 +28,10 @@ public class MensajeError implements Serializable {
     @Field("desc")
     private String desc;
 
+    @NotNull
+    @Field("descEn")
+    private String descEn;
+
     @Field("instrucciones")
     private Instruccion instruccion;
 
@@ -168,6 +172,14 @@ public class MensajeError implements Serializable {
     public String toString() {
         return "MensajeError{" + "id=" + getId() + ", clave='" + getClave() + "'" + ", desc='" + getDesc() + "'"
                 + ", orden='" + getOrden() + "'" + ", tipo='" + getTipo() + "'" + "}";
+    }
+
+    public String getDescEn() {
+        return descEn;
+    }
+
+    public void setDescEn(String descEn) {
+        this.descEn = descEn;
     }
     
 }
