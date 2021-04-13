@@ -65,7 +65,7 @@
                         <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.descEn')" for="mensaje-error-descEn">Desc</label>
                         <b-form-textarea 
                             :state="!$v.mensajeError.descEn.$invalid"
-                            name="descEn"
+                            name="descEn" 
                             rows="5"
                             class="form-control" 
                             id="mensaje-error-descEn" 
