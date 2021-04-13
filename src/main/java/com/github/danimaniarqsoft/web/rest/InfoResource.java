@@ -14,7 +14,7 @@ public class InfoResource {
 
     @GetMapping("/info")
     public ResponseEntity<Info> getInfo() {
-        return ResponseEntity.ok().body(new Info("2.0.0"));
+        return ResponseEntity.ok().body(new Info("2.0.1"));
     }
 }
 
