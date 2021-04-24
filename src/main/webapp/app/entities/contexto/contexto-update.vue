@@ -3,7 +3,7 @@
         <div class="col-8">
             <form name="editForm" role="form" novalidate v-on:submit.prevent="save()" >
                 <h2 id="kbaseApp.contexto.home.createOrEditLabel" v-text="$t('kbaseApp.contexto.home.createOrEditLabel')">Create or edit a Contexto</h2>
-                <b-tabs content-class="mt-4" fill pills>
+                <b-tabs content-class="mt-4" fill pills small>
                     <b-tab title="Datos generales">
                         <div class="form-group" v-if="contexto.id">
                             <label for="id" v-text="$t('global.field.id')">ID</label>
