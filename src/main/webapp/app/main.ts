@@ -8,6 +8,7 @@ import router from './router';
 import * as config from './shared/config/config';
 import * as bootstrapVueConfig from './shared/config/config-bootstrap-vue';
 import * as elementVueConfig from './shared/config/config-element-vue';
+import * as codehighlightVueConfig from './shared/config/config-code-highlight-vue';
 
 import JhiItemCountComponent from './shared/jhi-item-count.vue';
 import AuditsService from './admin/audits/audits.service';
@@ -47,6 +48,7 @@ config.initVueApp(Vue);
 config.initFortAwesome(Vue);
 bootstrapVueConfig.initBootstrapVue(Vue);
 elementVueConfig.initElementVue(Vue);
+codehighlightVueConfig.initCodeHighlightVue(Vue);
 Vue.use(Vue2Filters);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('jhi-item-count', JhiItemCountComponent);

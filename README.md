@@ -179,3 +179,15 @@ In order to generate documentation with Vuepress:
 Documentation for production:
 
 `npm run docs:build`
+
+### Create docker
+
+```bash
+./mvnw -Pprod -DskipTests verify jib:dockerBuild
+```
+
+```bash
+docker login --username=i2cmx
+docker tag 3bb870e7a6d4 i2cmx/kbase:latest
+docker push i2cmx/kbase:latest
+```

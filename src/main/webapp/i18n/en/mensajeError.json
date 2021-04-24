@@ -2,7 +2,7 @@
   "kbaseApp": {
     "mensajeError": {
       "home": {
-        "title": "Mensaje Errors",
+        "title": "Flujos de atención",
         "createLabel": "Create a new Mensaje Error",
         "createOrEditLabel": "Create or edit a Mensaje Error",
         "notFound": "No Mensaje Errors found"

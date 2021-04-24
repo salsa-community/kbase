@@ -6,11 +6,21 @@ import AlertService from '@/shared/alert/alert.service';
 import { IContexto, Contexto } from '@/shared/model/contexto.model';
 import ContextoService from './contexto.service';
 
+import { highlight, languages } from 'prismjs/components/prism-core';
+
 const validations: any = {
   contexto: {
     nombre: {},
     clave: {},
-    desc: {}
+    desc: {},
+    descEn: {},
+    objetivo: {},
+    objetivoEn: {},
+    organizacion: {},
+    loginMessage: {},
+    loginMessageEn: {},
+    welcomeMessage: {},
+    welcomeMessageEn: {}
   }
 };
 
@@ -22,6 +32,42 @@ export default class ContextoUpdate extends Vue {
   @Inject('contextoService') private contextoService: () => ContextoService;
   public contexto: IContexto = new Contexto();
   public isSaving = false;
+  public color = 0;
+
+  public codeHighlightKey = 0;
+
+  get headcode(): string {
+    this.codeHighlightKey = this.codeHighlightKey + 1;
+    return `
+  <html>
+    <head>
+        <link rel="stylesheet" href="/${this.contexto.clave}/css/embed.css?color=34495E" />
+        <script src="/embed.js"></script>
+    </head>
+
+  </html>
+  `;
+  }
+
+  get bodycode(): string {
+    this.codeHighlightKey = this.codeHighlightKey + 1;
+    return `
+  <html>
+    <body>
+        <div id="embedded_messenger">
+          <header id="message_header">
+              <div class="circle"></div>
+              <img id="avatar-bot" class="avatar_icon" src="" alt="Avatar" >
+              <div class="header_text">Botkit.title()</div>
+          </header>
+          <iframe id="botkit_client" title="bot" ></iframe>
+        </div>
+        <script id="bot-client-script" bothome=""
+        src="/${this.contexto.clave}/scripts/bot.js?color=34495E&culture=es-MX"></script>
+    </body>
+  </html>
+  `;
+  }
 
   beforeRouteEnter(to, from, next) {
     next(vm => {

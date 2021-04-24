@@ -3,7 +3,7 @@
     "contexto": {
       "home": {
         "title": "Contextos",
-        "createLabel": "Create a new Contexto",
+        "createLabel": "Registro de un contexto",
         "createOrEditLabel": "Create or edit a Contexto",
         "notFound": "No Contextos found"
       },
@@ -16,9 +16,17 @@
       "detail": {
         "title": "Contexto"
       },
-      "nombre": "Nombre",
+      "nombre": "Nombre del contexto",
       "clave": "Clave",
-      "desc": "Descripción"
+      "desc": "Descripción",
+      "descEn": "Descripción en inglés",
+      "objetivo": "Objetivo",
+      "objetivoEn": "Objetivo en Inglés",
+      "organizacion": "Nombre de la Organización",
+      "loginMessage": "Mensaje que se muestra para solicitar credenciales",
+      "loginMessageEn": "Mensaje en inglés que se muestra para solicitar credenciales",
+      "welcomeMessage": "Mensaje de bienvenida que se muestra despues de iniciar sesión",
+      "welcomeMessageEn": "Mensaje de bienvenida en inglésque se muestra despues de iniciar sesión"
     }
   }
 }

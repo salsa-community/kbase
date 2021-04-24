@@ -25,6 +25,30 @@ public class Contexto implements Serializable {
     @Field("desc")
     private String desc;
 
+    @Field("descEn")
+    private String descEn;
+
+    @Field("objetivo")
+    private String objetivo;
+
+    @Field("objetivoEn")
+    private String objetivoEn;
+
+    @Field("organizacion")
+    private String organizacion;
+
+    @Field("loginMessage")
+    private String loginMessage;
+
+    @Field("loginMessageEn")
+    private String loginMessageEn;
+    
+    @Field("welcomeMessage")
+    private String welcomeMessage;
+    
+    @Field("welcomeMessageEn")
+    private String welcomeMessageEn;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
         return id;
@@ -72,6 +96,70 @@ public class Contexto implements Serializable {
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
+    public String getDescEn() {
+        return descEn;
+    }
+
+    public void setDescEn(String descEn) {
+        this.descEn = descEn;
+    }
+
+    public String getObjetivo() {
+        return objetivo;
+    }
+
+    public void setObjetivo(String objetivo) {
+        this.objetivo = objetivo;
+    }
+
+    public String getObjetivoEn() {
+        return objetivoEn;
+    }
+
+    public void setObjetivoEn(String objetivoEn) {
+        this.objetivoEn = objetivoEn;
+    }
+
+    public String getOrganizacion() {
+        return organizacion;
+    }
+
+    public void setOrganizacion(String organizacion) {
+        this.organizacion = organizacion;
+    }
+    public String getLoginMessage() {
+        return loginMessage;
+    }
+
+    public void setLoginMessage(String loginMessage) {
+        this.loginMessage = loginMessage;
+    }
+
+    public String getLoginMessageEn() {
+        return loginMessageEn;
+    }
+
+    public void setLoginMessageEn(String loginMessageEn) {
+        this.loginMessageEn = loginMessageEn;
+    }
+
+    public String getWelcomeMessage() {
+        return welcomeMessage;
+    }
+
+    public void setWelcomeMessage(String welcomeMessage) {
+        this.welcomeMessage = welcomeMessage;
+    }
+
+    public String getWelcomeMessageEn() {
+        return welcomeMessageEn;
+    }
+
+    public void setWelcomeMessageEn(String welcomeMessageEn) {
+        this.welcomeMessageEn = welcomeMessageEn;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

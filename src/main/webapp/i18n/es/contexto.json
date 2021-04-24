@@ -4,7 +4,7 @@
       "home": {
         "title": "Contextos",
         "createLabel": "Crear nuevo Contexto",
-        "createOrEditLabel": "Crear o editar Contexto",
+        "createOrEditLabel": "Registro de un contexto",
         "notFound": "No Contextos found"
       },
       "created": "Un nuevo Contexto ha sido creado con el identificador {{ param }}",
@@ -16,9 +16,17 @@
       "detail": {
         "title": "Contexto"
       },
-      "nombre": "Nombre",
+      "nombre": "Nombre del contexto",
       "clave": "Clave",
-      "desc": "Descripción"
+      "desc": "Descripción de contexto",
+      "descEn": "Descripción del contexto en inglés",
+      "objetivo": "Objetivo de la organización",
+      "objetivoEn": "Objetivo de la organización en Inglés",
+      "organizacion": "Nombre de la Organización",
+      "loginMessage": "Mensaje que se muestra para solicitar credenciales",
+      "loginMessageEn": "Mensaje en inglés que se muestra para solicitar credenciales",
+      "welcomeMessage": "Mensaje de bienvenida que se muestra despues de iniciar sesión",
+      "welcomeMessageEn": "Mensaje de bienvenida en inglésque se muestra despues de iniciar sesión"
     }
   }
 }

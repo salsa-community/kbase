@@ -15,6 +15,21 @@ public class ContextoDTO implements Serializable {
 
     private String desc;
 
+    private String descEn;
+
+    private String objetivo;
+
+    private String objetivoEn;
+
+    private String organizacion;
+
+    private String loginMessage;
+
+    private String loginMessageEn;
+
+    private String welcomeMessage;
+    
+    private String welcomeMessageEn;
 
     public String getId() {
         return id;
@@ -46,6 +61,71 @@ public class ContextoDTO implements Serializable {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getDescEn() {
+        return descEn;
+    }
+
+    public void setDescEn(String descEn) {
+        this.descEn = descEn;
+    }
+
+    public String getObjetivo() {
+        return objetivo;
+    }
+
+    public void setObjetivo(String objetivo) {
+        this.objetivo = objetivo;
+    }
+
+    public String getObjetivoEn() {
+        return objetivoEn;
+    }
+
+    public void setObjetivoEn(String objetivoEn) {
+        this.objetivoEn = objetivoEn;
+    }
+
+    public String getOrganizacion() {
+        return organizacion;
+    }
+
+        
+    public String getLoginMessage() {
+        return loginMessage;
+    }
+
+    public void setLoginMessage(String loginMessage) {
+        this.loginMessage = loginMessage;
+    }
+
+    public String getLoginMessageEn() {
+        return loginMessageEn;
+    }
+
+    public void setLoginMessageEn(String loginMessageEn) {
+        this.loginMessageEn = loginMessageEn;
+    }
+
+    public String getWelcomeMessage() {
+        return welcomeMessage;
+    }
+
+    public void setWelcomeMessage(String welcomeMessage) {
+        this.welcomeMessage = welcomeMessage;
+    }
+
+    public String getWelcomeMessageEn() {
+        return welcomeMessageEn;
+    }
+
+    public void setWelcomeMessageEn(String welcomeMessageEn) {
+        this.welcomeMessageEn = welcomeMessageEn;
+    }
+
+    public void setOrganizacion(String organizacion) {
+        this.organizacion = organizacion;
     }
 
     @Override

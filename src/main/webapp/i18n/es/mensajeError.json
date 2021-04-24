@@ -3,8 +3,8 @@
     "mensajeError": {
       "home": {
         "title": "Lista de Código de Errores",
-        "createLabel": "Crear nuevo código de error",
-        "createOrEditLabel": "Crear / Editar código de Error",
+        "createLabel": "Crear nuevo flujo",
+        "createOrEditLabel": "Flujo de atención",
         "notFound": "No se ha encontrado ningún código de Error"
       },
       "created": "Un nuevo código de Error ha sido creado con el identificador {{ param }}",
@@ -26,7 +26,7 @@
       "links": "Links",
       "pasos": "Pasos",
       "contextos": "Contextos",
-      "tipo": "Tipo",
+      "tipo": "Tipo de flujo",
       "orden": "Orden"
     }
   }
