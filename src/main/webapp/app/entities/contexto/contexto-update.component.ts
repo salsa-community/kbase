@@ -34,10 +34,11 @@ export default class ContextoUpdate extends Vue {
   public isSaving = false;
   public color = 0;
 
-  public codeHighlightKey = 0;
+  public headcodeKey = 0;
+  public bodycodeKey = 1;
 
   get headcode(): string {
-    this.codeHighlightKey = this.codeHighlightKey + 1;
+    this.headcodeKey = this.headcodeKey + 1;
     return `
   <html>
     <head>
@@ -50,7 +51,7 @@ export default class ContextoUpdate extends Vue {
   }
 
   get bodycode(): string {
-    this.codeHighlightKey = this.codeHighlightKey + 1;
+    this.bodycodeKey = this.bodycodeKey + 1;
     return `
   <html>
     <body>

@@ -23,10 +23,14 @@ import { BModal } from 'bootstrap-vue';
 import { VBModal } from 'bootstrap-vue';
 import { BFormTextarea } from 'bootstrap-vue';
 import { BCard } from 'bootstrap-vue';
+import { BCardText } from 'bootstrap-vue';
 import { BCardGroup } from 'bootstrap-vue';
 import { BTabs } from 'bootstrap-vue';
 import { BTab } from 'bootstrap-vue';
 import { BFormSelect } from 'bootstrap-vue';
+import { SidebarPlugin } from 'bootstrap-vue';
+import { BImg } from 'bootstrap-vue';
+import { BSpinner } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
   vue.component('b-badge', BBadge);
@@ -53,9 +57,13 @@ export function initBootstrapVue(vue) {
   vue.component('b-nav-item-dropdown', BNavItemDropdown);
   vue.component('b-form-textarea', BFormTextarea);
   vue.component('b-card', BCard);
+  vue.component('b-card-text', BCardText);
   vue.component('b-card-group', BCardGroup);
   vue.component('b-tabs', BTabs);
   vue.component('b-tab', BTab);
   vue.component('b-form-select', BFormSelect);
+  vue.component('b-img', BImg);
+  vue.component('b-spinner', BSpinner);
+  vue.use(SidebarPlugin);
   vue.directive('b-modal', VBModal);
 }

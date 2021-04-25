@@ -5,6 +5,9 @@
                 <h2 id="kbaseApp.contexto.home.createOrEditLabel" v-text="$t('kbaseApp.contexto.home.createOrEditLabel')">Create or edit a Contexto</h2>
                 <b-tabs content-class="mt-4" fill pills small>
                     <b-tab title="Datos generales">
+                        <template #title>
+                            <b-spinner type="grow" small></b-spinner> I'm <i>custom</i> <strong>title</strong>
+                        </template>
                         <div class="form-group" v-if="contexto.id">
                             <label for="id" v-text="$t('global.field.id')">ID</label>
                             <input type="text" class="form-control" id="id" name="id"
@@ -90,13 +93,13 @@
                             <b-card-text>
                                 Utilice el siguiente código como referencia para instalar su chatbot <b>{{ contexto.clave }}</b>
                             </b-card-text>
-                        <code-highlight language="html" :key="codeHighlightKey">
+                        <code-highlight id="headcode-id" language="html" :key="headcodeKey">
                             {{headcode}}                        
                         </code-highlight>
 
                         En la sección de Body, agregue la siguiente configuración
 
-                        <code-highlight language="html" :key="codeHighlightKey">
+                        <code-highlight id="bodycode-id" language="html" :key="bodycodeKey">
                             {{bodycode}}                        
                         </code-highlight>
                         </b-card>

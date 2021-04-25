@@ -59,7 +59,7 @@
                 </tbody>
             </table>
         </div>
-        <b-modal ref="removeEntity" id="removeEntity" >
+        <b-modal header-text-variant="light" header-bg-variant="primary" ref="removeEntity" id="removeEntity" >
             <span slot="modal-title"><span id="kbaseApp.contexto.delete.question" v-text="$t('entity.delete.title')">Confirm delete operation</span></span>
             <div class="modal-body">
                 <p id="jhi-delete-contexto-heading" v-bind:title="$t('kbaseApp.contexto.delete.question')">Are you sure you want to delete this Contexto?</p>

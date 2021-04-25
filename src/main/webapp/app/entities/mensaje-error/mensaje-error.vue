@@ -74,14 +74,6 @@
             <td class="text-right">
               <div class="btn-group">
                 <router-link
-                  :to="{name: 'MensajeErrorView', params: {mensajeErrorId: mensajeError.id}}"
-                  tag="button"
-                  class="btn btn-info btn-sm details"
-                >
-                  <font-awesome-icon icon="eye"></font-awesome-icon>
-                  <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
-                </router-link>
-                <router-link
                   :to="{name: 'MensajeErrorEdit', params: {mensajeErrorId: mensajeError.id}}"
                   tag="button"
                   class="btn btn-primary btn-sm edit"
@@ -103,7 +95,7 @@
         </tbody>
       </table>
     </div>
-    <b-modal ref="removeEntity" id="removeEntity">
+    <b-modal header-text-variant="light" header-bg-variant="primary" ref="removeEntity" id="removeEntity">
       <span slot="modal-title">
         <span
           id="kbaseApp.mensajeError.delete.question"

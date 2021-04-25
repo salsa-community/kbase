@@ -201,7 +201,7 @@
                 </div>
             </form>
         </div>
-        <b-modal ref="addStep" id="addStep" >
+        <b-modal header-text-variant="light" header-bg-variant="primary" ref="addStep" id="addStep" >
             <span slot="modal-title"><span id="kbaseApp.mensajeError.delete.question">Agregar Paso</span></span>
             <div class="form-group">
                 <label class="form-control-label" for="mensaje-error-desc">Descripción</label>
@@ -252,7 +252,7 @@
                 <b-button :disabled="$v.newStep.desc.$invalid" variant="outline-primary" v-text="$t('entity.action.save')" v-on:click="addStep()"></b-button>
             </div>
         </b-modal>
-        <b-modal ref="editStep" id="editStep" >
+        <b-modal header-text-variant="light" header-bg-variant="primary" ref="editStep" id="editStep" >
             <span slot="modal-title"><span id="kbaseApp.mensajeError.delete.question">Editar Paso {{newStep.paso}}</span></span>
             <div class="form-group">
                 <label class="form-control-label" for="mensaje-error-desc">Descripción</label>
@@ -303,7 +303,7 @@
                 <b-button :disabled="$v.newStep.desc.$invalid" variant="outline-primary" v-text="$t('entity.action.save')" v-on:click="saveStep()"></b-button>
             </div>
         </b-modal>
-        <b-modal ref="removeEntity" id="removeEntity" >
+        <b-modal header-text-variant="light" header-bg-variant="primary" ref="removeEntity" id="removeEntity" >
             <span slot="modal-title"><span id="kbaseApp.mensajeError.delete.question" v-text="$t('entity.delete.title')">Confirm delete operation</span></span>
             <div class="modal-body">
                 <p id="jhi-delete-mensajeError-heading" v-bind:title="$t('kbaseApp.mensajeError.delete.question')">Are you sure you want to delete this Mensaje Error?</p>

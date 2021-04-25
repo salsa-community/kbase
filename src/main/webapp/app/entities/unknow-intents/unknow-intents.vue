@@ -15,7 +15,7 @@
             <span v-text="$t('kbaseApp.unknowIntents.home.notFound')">No unknowIntents found</span>
         </div>
         <div class="table-responsive" v-if="unknowIntents && unknowIntents.length > 0">
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                 <tr>
                     <th><span v-text="$t('kbaseApp.unknowIntents.word')">Word</span></th>
@@ -27,7 +27,12 @@
                 <tr v-for="unknowIntents in unknowIntents"
                     :key="unknowIntents.id">
                     <td>{{unknowIntents.word}}</td>
-                    <td>{{unknowIntents.lastModified}}</td>
+                    <td>     
+                        <i class="el-icon-time"></i>
+                        <span style="margin-left: 10px">
+                            <em>{{ unknowIntents.lastModified | timeElapsed}}</em>
+                        </span>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <router-link v-if="false" :to="{name: 'UnknowIntentsView', params: {unknowIntentsId: unknowIntents.id}}" tag="button" class="btn btn-info btn-sm details">
@@ -43,7 +48,6 @@
                                    class="btn btn-sm"
                                    v-b-modal.removeEntity>
                                 <font-awesome-icon icon="times"></font-awesome-icon>
-                                <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
                             </b-button>
                         </div>
                     </td>

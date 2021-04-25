@@ -8,7 +8,7 @@
           <router-view></router-view>
         </transition>
       </div>
-      <b-modal id="login-page" hide-footer lazy>
+      <b-modal header-text-variant="light" header-bg-variant="primary" id="login-page" hide-footer lazy>
         <span slot="modal-title" id="login-title" v-text="$t('login.title')">Sign in</span>
         <login-form></login-form>
       </b-modal>
@@ -20,7 +20,6 @@
 </script>
 
 <style scoped>
-
 .wrapper {
   width: 100%;
 }
@@ -35,8 +34,9 @@
   align-items: stretch !important;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;

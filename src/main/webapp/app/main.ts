@@ -72,9 +72,11 @@ router.beforeEach((to, from, next) => {
       sessionStorage.setItem('requested-url', to.fullPath);
       next('/forbidden');
     } else {
+      window.scrollTo(0, 0);
       next();
     }
   } else {
+    window.scrollTo(0, 0);
     // no authorities, so just proceed
     next();
   }

@@ -34,7 +34,12 @@
                         <el-tag effect="plain" size="mini" :type="resolveTagType(contacto.estado)">{{contacto.estado}}</el-tag>
                     </td>
                     <td>{{contacto.desc}}</td>
-                    <td>{{contacto.lastModified}}</td>
+                    <td>
+                        <i class="el-icon-time"></i>
+                        <span style="margin-left: 10px">
+                            <em>{{ contacto.lastModified | timeElapsed}}</em>
+                        </span>                        
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <router-link :to="{name: 'ContactoEdit', params: {contactoId: contacto.id}}"  tag="button" class="btn btn-primary btn-sm edit">
@@ -54,7 +59,7 @@
                 </tbody>
             </table>
         </div>
-        <b-modal ref="removeEntity" id="removeEntity" >
+        <b-modal header-text-variant="light" header-bg-variant="primary" ref="removeEntity" id="removeEntity" >
             <span slot="modal-title"><span id="kbaseApp.contacto.delete.question" v-text="$t('entity.delete.title')">Confirm delete operation</span></span>
             <div class="modal-body">
                 <p id="jhi-delete-contacto-heading" v-bind:title="$t('kbaseApp.contacto.delete.question')">Are you sure you want to delete this Contacto?</p>
