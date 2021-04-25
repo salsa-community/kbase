@@ -3,7 +3,6 @@
         <h2 id="page-heading">
             <span v-text="$t('kbaseApp.contexto.home.title')" id="contexto-heading">Contextos</span>
             <router-link :to="{name: 'ContextoCreate'}" tag="button" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-contexto">
-                <font-awesome-icon icon="plus"></font-awesome-icon>
                 <span  v-text="$t('kbaseApp.contexto.home.createLabel')">
                     Create a new Contexto
                 </span>
@@ -21,36 +20,34 @@
             <span v-text="$t('kbaseApp.contexto.home.notFound')">No contextos found</span>
         </div>
         <div class="table-responsive" v-if="contextos && contextos.length > 0">
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                 <tr>
-                    <th class="text-center"><span v-text="$t('kbaseApp.contexto.nombre')">Nombre</span> </th>
-                    <th class="text-center"><span v-text="$t('kbaseApp.contexto.clave')">Clave</span> </th>
-                    <th ><span v-text="$t('kbaseApp.contexto.desc')">Desc</span> </th>
-                    <th></th>
+                    <th class="text-left"><span v-text="$t('kbaseApp.contexto.nombre')">Nombre</span> </th>
+                    <th class="text-left"><span v-text="$t('kbaseApp.contexto.clave')">Clave</span> </th>
+                    <th class="text-left"><span v-text="$t('kbaseApp.contexto.desc')">Desc</span> </th>
+                    <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr v-for="contexto in contextos"
                     :key="contexto.id">
-                    <td class="text-center">{{contexto.nombre}}</td>
-                    <td class="text-center">{{contexto.clave}}</td>
-                    <td>{{contexto.desc}}</td>
-                    <td class="text-right">
+                    <td class="text-left">{{contexto.nombre}}</td>
+                    <td class="text-left">{{contexto.clave}}</td>
+                    <td class="text-left">{{contexto.desc}}</td>
+                    <td class="text-left">
                         <div class="btn-group">
                             <router-link v-if="false" :to="{name: 'ContextoView', params: {contextoId: contexto.id}}" tag="button" class="btn btn-info btn-sm details">
                                 <font-awesome-icon icon="eye"></font-awesome-icon>
                                 <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
                             </router-link>
-                            <router-link :to="{name: 'ContextoEdit', params: {contextoId: contexto.id}}"  tag="button" class="btn btn-primary btn-sm edit">
-                                <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
+                            <router-link :to="{name: 'ContextoEdit', params: {contextoId: contexto.id}}"  tag="button" class="btn btn-outline-primary btn-sm edit">
                                 <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
                             </router-link>
                             <b-button v-on:click="prepareRemove(contexto)"
-                                   variant="danger"
+                                   variant="outline-danger"
                                    class="btn btn-sm"
                                    v-b-modal.removeEntity>
-                                <font-awesome-icon icon="times"></font-awesome-icon>
                                 <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
                             </b-button>
                         </div>

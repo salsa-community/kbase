@@ -22,7 +22,6 @@
         id="jh-create-entity"
         class="btn btn-primary float-right jh-create-entity create-mensaje-error"
       >
-        <font-awesome-icon icon="plus"></font-awesome-icon>
         <span v-text="$t('kbaseApp.mensajeError.home.createLabel')">Create a new Mensaje Error</span>
       </router-link>
     </h2>
@@ -43,7 +42,7 @@
     <div class="table-responsive" v-if="mensajeErrors && mensajeErrors.length > 0">
       <table class="table table-hover">
         <thead>
-          <tr class="text-center">
+          <tr class="text-left">
             <th v-on:click="changeOrder('clave')">
               <span v-text="$t('kbaseApp.mensajeError.clave')">Clave</span>
               <font-awesome-icon icon="sort"></font-awesome-icon>
@@ -63,30 +62,28 @@
         </thead>
         <tbody>
           <tr v-for="mensajeError in mensajeErrors" :key="mensajeError.id">
-            <td class="text-center">{{mensajeError.clave}}</td>
-            <td class="text-center">{{mensajeError.tipo}}</td>
-            <td>
+            <td class="text-left">{{mensajeError.clave}}</td>
+            <td class="text-left">{{mensajeError.tipo}}</td>
+            <td class="text-left">
               <div class="p-1" v-for="(contexto, index) in mensajeError.contextos" :key="index">
                 <el-tag effect="plain" size="mini" :type="resolveTagType(index)">{{ contexto }}</el-tag>
               </div>
             </td>
-            <td>{{mensajeError.desc}}</td>
-            <td class="text-right">
+            <td class="text-left">{{mensajeError.desc}}</td>
+            <td class="text-left">
               <div class="btn-group">
                 <router-link
                   :to="{name: 'MensajeErrorEdit', params: {mensajeErrorId: mensajeError.id}}"
                   tag="button"
-                  class="btn btn-primary btn-sm edit"
+                  class="btn btn-outline-primary btn-sm edit"
                 >
-                  <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
                   <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
                 </router-link>
                 <b-button
                   v-on:click="prepareRemove(mensajeError)"
-                  variant="danger"
+                  variant="outline-danger"
                   class="btn btn-sm"
                 >
-                  <font-awesome-icon icon="times"></font-awesome-icon>
                   <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
                 </b-button>
               </div>

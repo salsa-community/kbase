@@ -42,6 +42,8 @@ import ArchivoService from '@/entities/archivo/archivo.service';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 import draggable from 'vuedraggable';
+import VueTour from 'vue-tour';
+import 'vue-tour/dist/vue-tour.css';
 
 Vue.config.productionTip = false;
 config.initVueApp(Vue);
@@ -53,7 +55,7 @@ Vue.use(Vue2Filters);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('jhi-item-count', JhiItemCountComponent);
 Vue.component('draggable', draggable);
-
+Vue.use(VueTour);
 const i18n = config.initI18N(Vue);
 const store = config.initVueXStore(Vue);
 

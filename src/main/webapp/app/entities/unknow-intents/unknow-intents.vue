@@ -20,7 +20,7 @@
                 <tr>
                     <th><span v-text="$t('kbaseApp.unknowIntents.word')">Word</span></th>
                     <th><span v-text="$t('kbaseApp.unknowIntents.lastModified')">Last Modified</span></th>
-                    <th></th>
+                    <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -33,23 +33,13 @@
                             <em>{{ unknowIntents.lastModified | timeElapsed}}</em>
                         </span>
                     </td>
-                    <td class="text-right">
-                        <div class="btn-group">
-                            <router-link v-if="false" :to="{name: 'UnknowIntentsView', params: {unknowIntentsId: unknowIntents.id}}" tag="button" class="btn btn-info btn-sm details">
-                                <font-awesome-icon icon="eye"></font-awesome-icon>
-                                <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
-                            </router-link>
-                            <router-link v-if="false" :to="{name: 'UnknowIntentsEdit', params: {unknowIntentsId: unknowIntents.id}}"  tag="button" class="btn btn-primary btn-sm edit">
-                                <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
-                                <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
-                            </router-link>
-                            <b-button v-on:click="prepareRemove(unknowIntents)"
-                                   variant="danger"
-                                   class="btn btn-sm"
-                                   v-b-modal.removeEntity>
-                                <font-awesome-icon icon="times"></font-awesome-icon>
-                            </b-button>
-                        </div>
+                    <td class="text-left">
+                        <b-button v-on:click="prepareRemove(unknowIntents)"
+                                variant="outline-danger"
+                                class="btn btn-sm"
+                                v-b-modal.removeEntity>
+                                <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
+                        </b-button>
                     </td>
                 </tr>
                 </tbody>

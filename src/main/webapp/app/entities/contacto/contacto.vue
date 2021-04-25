@@ -12,7 +12,7 @@
             <span v-text="$t('kbaseApp.contacto.home.notFound')">No contactos found</span>
         </div>
         <div class="table-responsive" v-if="contactos && contactos.length > 0">
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                 <tr>
                     <th v-on:click="changeOrder('context')"><span v-text="$t('kbaseApp.contacto.context')">Context</span> <font-awesome-icon icon="sort"></font-awesome-icon></th>
@@ -27,14 +27,14 @@
                 <tbody>
                 <tr v-for="contacto in contactos"
                     :key="contacto.id">
-                    <td>{{contacto.context}}</td>
-                    <td>{{contacto.correo}}</td>
-                    <td>{{contacto.rfc}}</td>
-                    <td >
+                    <td class="text-left">{{contacto.context}}</td>
+                    <td class="text-left">{{contacto.correo}}</td>
+                    <td class="text-left">{{contacto.rfc}}</td>
+                    <td class="text-left">
                         <el-tag effect="plain" size="mini" :type="resolveTagType(contacto.estado)">{{contacto.estado}}</el-tag>
                     </td>
-                    <td>{{contacto.desc}}</td>
-                    <td>
+                    <td class="text-left">{{contacto.desc}}</td>
+                    <td class="text-left">
                         <i class="el-icon-time"></i>
                         <span style="margin-left: 10px">
                             <em>{{ contacto.lastModified | timeElapsed}}</em>
@@ -42,15 +42,13 @@
                     </td>
                     <td class="text-right">
                         <div class="btn-group">
-                            <router-link :to="{name: 'ContactoEdit', params: {contactoId: contacto.id}}"  tag="button" class="btn btn-primary btn-sm edit">
-                                <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
+                            <router-link :to="{name: 'ContactoEdit', params: {contactoId: contacto.id}}"  tag="button" class="btn btn-outline-primary btn-sm edit">
                                 <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
                             </router-link>
                             <b-button v-on:click="prepareRemove(contacto)"
-                                   variant="danger"
+                                   variant="outline-danger"
                                    class="btn btn-sm"
                                    v-b-modal.removeEntity>
-                                <font-awesome-icon icon="times"></font-awesome-icon>
                                 <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
                             </b-button>
                         </div>

@@ -1,5 +1,25 @@
 <template>
   <div id="app" class="wrapper d-flex align-items-stretch">
+    <v-tour name="kbase-tour" :steps="tourSteps" :options="tourOptions">
+      <template slot-scope="tour">
+        <transition name="fade">
+          <v-step
+            v-if="tour.steps[tour.currentStep]"
+            :key="tour.currentStep"
+            :step="tour.steps[tour.currentStep]"
+            :previous-step="tour.previousStep"
+            :next-step="tour.nextStep"
+            :stop="tour.stop"
+            :skip="tour.skip"
+            :highlight="tour.highlight"
+            :is-first="tour.isFirst"
+            :is-last="tour.isLast"
+            :labels="tour.labels"
+          >
+          </v-step>
+        </transition>
+      </template>
+    </v-tour>
     <ribbon></ribbon>
     <side-bar></side-bar>
     <div class="container-fluid">

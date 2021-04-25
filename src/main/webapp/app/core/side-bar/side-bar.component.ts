@@ -3,6 +3,7 @@ import { VERSION } from '@/constants';
 import LoginService from '@/account/login.service';
 import AccountService from '@/account/account.service';
 import TranslationService from '@/locale/translation.service';
+import { Steps } from 'element-ui';
 
 @Component
 export default class SideBar extends Vue {
@@ -18,6 +19,10 @@ export default class SideBar extends Vue {
 
   created() {
     this.translationService().refreshTranslation(this.currentLanguage);
+  }
+
+  public initTour() {
+    this.$tours['kbase-tour'].start();
   }
 
   public subIsActive(input) {

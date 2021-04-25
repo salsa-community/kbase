@@ -41,30 +41,36 @@
               </router-link>
             </li>
 
-            <li v-if="authenticated">
+            <li v-if="authenticated" id="flujos">
               <router-link :to="'/entity/mensaje-error'">
                 <span class="fa fa-comments-o mr-3"></span> {{ $t('global.menu.entities.mensajeError') }}
               </router-link>
             </li>
-            <li v-if="authenticated">
+            <li v-if="authenticated" id="contextos">
               <router-link :to="'/entity/contexto'">
                 <span class="fa fa-tags mr-3"></span> {{ $t('global.menu.entities.contexto') }}
               </router-link>
             </li>
-            <li v-if="authenticated">
+            <li v-if="authenticated" id="intenciones">
               <router-link :to="'/entity/unknow-intents'">
                 <span class="fa fa-th-list mr-3"></span> {{ $t('global.menu.entities.unknowIntents') }}
               </router-link>
             </li>
-            <li v-if="authenticated">
+            <li v-if="authenticated" id="contactos">
               <router-link :to="'/entity/contacto'">
                 <span class="fa fa-envelope-open mr-3"></span> {{ $t('global.menu.entities.contacto') }}
               </router-link>
             </li>
-            <li v-if="authenticated">
+            <li v-if="authenticated" id="reportes">
               <router-link :to="'/entity/actividad'">
                 <span class="fa fa-area-chart mr-3"></span> {{ $t('global.menu.entities.actividad') }}
               </router-link>
+            </li>
+          </ul>
+
+          <ul v-if="authenticated" class="list-unstyled components mb-5">
+            <li>
+              <a v-on:click="initTour()" id="help"> <span class="fa fa-info-circle mr-3"></span> {{ $t('global.menu.ayuda') }} </a>
             </li>
           </ul>
 

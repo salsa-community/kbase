@@ -1,9 +1,31 @@
 <template>
     <div class="row justify-content-center">
         <div class="col-8">
+            <v-tour name="contexto-tour" :steps="tourSteps" :options="tourOptions">
+            <template slot-scope="tour">
+                <transition name="fade">
+                <v-step
+                    v-if="tour.steps[tour.currentStep]"
+                    :key="tour.currentStep"
+                    :step="tour.steps[tour.currentStep]"
+                    :previous-step="tour.previousStep"
+                    :next-step="tour.nextStep"
+                    :stop="tour.stop"
+                    :skip="tour.skip"
+                    :highlight="tour.highlight"
+                    :is-first="tour.isFirst"
+                    :is-last="tour.isLast"
+                    :labels="tour.labels"
+                >
+                </v-step>
+                </transition>
+            </template>
+            </v-tour>
             <form name="editForm" role="form" novalidate v-on:submit.prevent="save()" >
+                <a v-on:click="initTour()" id="help"> <span class="fa fa-info-circle mr-3"></span> {{ $t('global.menu.ayuda') }} </a>
                 <h2 id="kbaseApp.contexto.home.createOrEditLabel" v-text="$t('kbaseApp.contexto.home.createOrEditLabel')">Create or edit a Contexto</h2>
                 <b-tabs content-class="mt-4" fill pills small>
+                    <div id="hhhhhh">
                     <b-tab title="Datos generales">
                         <template #title>
                             <b-spinner type="grow" small></b-spinner> I'm <i>custom</i> <strong>title</strong>
@@ -47,6 +69,7 @@
 
                         </b-form-group>
                     </b-tab>
+                    </div>
                     <b-tab title="Datos de la organización">
                         <div class="form-group">
                             <label class="form-control-label" v-text="$t('kbaseApp.contexto.organizacion')" for="contexto-organizacion">organizacion</label>

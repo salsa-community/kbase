@@ -7,6 +7,7 @@ import { IContexto, Contexto } from '@/shared/model/contexto.model';
 import ContextoService from './contexto.service';
 
 import { highlight, languages } from 'prismjs/components/prism-core';
+import { CONTEXTO_STEPS, OPTIONS } from '@/tour';
 
 const validations: any = {
   contexto: {
@@ -36,6 +37,12 @@ export default class ContextoUpdate extends Vue {
 
   public headcodeKey = 0;
   public bodycodeKey = 1;
+  public tourSteps = CONTEXTO_STEPS;
+  public tourOptions = OPTIONS;
+
+  public initTour() {
+    this.$tours['contexto-tour'].start();
+  }
 
   get headcode(): string {
     this.headcodeKey = this.headcodeKey + 1;
