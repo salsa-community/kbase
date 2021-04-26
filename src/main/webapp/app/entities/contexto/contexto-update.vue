@@ -43,14 +43,18 @@
               </div>
               <div class="form-group">
                 <label class="form-control-label" v-text="$t('kbaseApp.contexto.nombre')" for="contexto-nombre">Nombre</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="nombre"
-                  id="contexto-nombre"
-                  :class="{ valid: !$v.contexto.nombre.$invalid, invalid: $v.contexto.nombre.$invalid }"
-                  v-model="$v.contexto.nombre.$model"
-                />
+                <b-form-input name="nombre" :state="!$v.contexto.nombre.$invalid" v-model.trim="$v.contexto.nombre.$model"></b-form-input>
+                <div v-if="$v.contexto.nombre.$invalid">
+                  <small class="form-text text-danger" v-if="!$v.contexto.nombre.required" v-text="$t('entity.validation.required')">
+                    This field is required.
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.nombre.minLength">
+                    {{ $t('entity.validation.minlength', { min: $v.contexto.nombre.$params.minLength.min }) }}
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.nombre.maxLength">
+                    {{ $t('entity.validation.maxlength', { max: $v.contexto.nombre.$params.maxLength.max }) }}
+                  </small>
+                </div>
               </div>
 
               <b-form-group
@@ -58,37 +62,57 @@
                 :label="$t('kbaseApp.contexto.clave')"
                 label-for="contexto-clave"
               >
-                <input
-                  type="text"
-                  class="form-control"
-                  name="clave"
+                <b-form-input
                   id="contexto-clave"
-                  :class="{ valid: !$v.contexto.clave.$invalid, invalid: $v.contexto.clave.$invalid }"
-                  v-model="$v.contexto.clave.$model"
-                />
+                  name="clave"
+                  :state="!$v.contexto.clave.$invalid"
+                  v-model.trim="$v.contexto.clave.$model"
+                ></b-form-input>
+
+                <div v-if="$v.contexto.clave.$invalid">
+                  <small class="form-text text-danger" v-if="!$v.contexto.clave.required" v-text="$t('entity.validation.required')">
+                    This field is required.
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.clave.minLength">
+                    {{ $t('entity.validation.minlength', { min: $v.contexto.clave.$params.minLength.min }) }}
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.clave.maxLength">
+                    {{ $t('entity.validation.maxlength', { max: $v.contexto.clave.$params.maxLength.max }) }}
+                  </small>
+                </div>
               </b-form-group>
 
               <div class="form-group">
                 <label class="form-control-label" v-text="$t('kbaseApp.contexto.desc')" for="contexto-desc">Desc</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  name="desc"
-                  id="contexto-desc"
-                  :class="{ valid: !$v.contexto.desc.$invalid, invalid: $v.contexto.desc.$invalid }"
-                  v-model="$v.contexto.desc.$model"
-                />
+                <b-form-input name="desc" :state="!$v.contexto.desc.$invalid" v-model.trim="$v.contexto.desc.$model"></b-form-input>
+
+                <div v-if="$v.contexto.desc.$invalid">
+                  <small class="form-text text-danger" v-if="!$v.contexto.desc.required" v-text="$t('entity.validation.required')">
+                    This field is required.
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.desc.minLength">
+                    {{ $t('entity.validation.minlength', { min: $v.contexto.desc.$params.minLength.min }) }}
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.desc.maxLength">
+                    {{ $t('entity.validation.maxlength', { max: $v.contexto.desc.$params.maxLength.max }) }}
+                  </small>
+                </div>
               </div>
 
               <b-form-group :label="$t('kbaseApp.contexto.descEn')" label-for="contexto-descEn">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="descEn"
-                  id="contexto-descEn"
-                  :class="{ valid: !$v.contexto.descEn.$invalid, invalid: $v.contexto.descEn.$invalid }"
-                  v-model="$v.contexto.descEn.$model"
-                />
+                <b-form-input name="descEn" :state="!$v.contexto.descEn.$invalid" v-model.trim="$v.contexto.descEn.$model"></b-form-input>
+
+                <div v-if="$v.contexto.descEn.$invalid">
+                  <small class="form-text text-danger" v-if="!$v.contexto.descEn.required" v-text="$t('entity.validation.required')">
+                    This field is required.
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.descEn.minLength">
+                    {{ $t('entity.validation.minlength', { min: $v.contexto.descEn.$params.minLength.min }) }}
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.descEn.maxLength">
+                    {{ $t('entity.validation.maxlength', { max: $v.contexto.descEn.$params.maxLength.max }) }}
+                  </small>
+                </div>
               </b-form-group>
             </b-tab>
             <b-tab>
@@ -99,36 +123,64 @@
                 <label class="form-control-label" v-text="$t('kbaseApp.contexto.organizacion')" for="contexto-organizacion"
                   >organizacion</label
                 >
-                <input
-                  type="text"
-                  class="form-control"
-                  name="desc"
-                  id="contexto-organizacion"
-                  :class="{ valid: !$v.contexto.organizacion.$invalid, invalid: $v.contexto.organizacion.$invalid }"
-                  v-model="$v.contexto.organizacion.$model"
-                />
+                <b-form-input
+                  name="organizacion"
+                  :state="!$v.contexto.organizacion.$invalid"
+                  v-model.trim="$v.contexto.organizacion.$model"
+                ></b-form-input>
+
+                <div v-if="$v.contexto.organizacion.$invalid">
+                  <small class="form-text text-danger" v-if="!$v.contexto.organizacion.required" v-text="$t('entity.validation.required')">
+                    This field is required.
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.organizacion.minLength">
+                    {{ $t('entity.validation.minlength', { min: $v.contexto.organizacion.$params.minLength.min }) }}
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.organizacion.maxLength">
+                    {{ $t('entity.validation.maxlength', { max: $v.contexto.organizacion.$params.maxLength.max }) }}
+                  </small>
+                </div>
               </div>
               <div class="form-group">
                 <label class="form-control-label" v-text="$t('kbaseApp.contexto.objetivo')" for="contexto-objetivo">objetivo</label>
-                <input
-                  type="text"
-                  class="form-control"
+                <b-form-input
                   name="objetivo"
-                  id="contexto-objetivo"
-                  :class="{ valid: !$v.contexto.objetivo.$invalid, invalid: $v.contexto.objetivo.$invalid }"
-                  v-model="$v.contexto.objetivo.$model"
-                />
+                  :state="!$v.contexto.objetivo.$invalid"
+                  v-model.trim="$v.contexto.objetivo.$model"
+                ></b-form-input>
+
+                <div v-if="$v.contexto.objetivo.$invalid">
+                  <small class="form-text text-danger" v-if="!$v.contexto.objetivo.required" v-text="$t('entity.validation.required')">
+                    This field is required.
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.objetivo.minLength">
+                    {{ $t('entity.validation.minlength', { min: $v.contexto.objetivo.$params.minLength.min }) }}
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.objetivo.maxLength">
+                    {{ $t('entity.validation.maxlength', { max: $v.contexto.objetivo.$params.maxLength.max }) }}
+                  </small>
+                </div>
               </div>
               <div class="form-group">
                 <label class="form-control-label" v-text="$t('kbaseApp.contexto.objetivoEn')" for="contexto-objetivoEn">objetivoEn</label>
-                <input
-                  type="text"
-                  class="form-control"
+
+                <b-form-input
                   name="objetivoEn"
-                  id="contexto-objetivoEn"
-                  :class="{ valid: !$v.contexto.objetivoEn.$invalid, invalid: $v.contexto.objetivoEn.$invalid }"
-                  v-model="$v.contexto.objetivoEn.$model"
-                />
+                  :state="!$v.contexto.objetivoEn.$invalid"
+                  v-model.trim="$v.contexto.objetivoEn.$model"
+                ></b-form-input>
+
+                <div v-if="$v.contexto.objetivoEn.$invalid">
+                  <small class="form-text text-danger" v-if="!$v.contexto.objetivoEn.required" v-text="$t('entity.validation.required')">
+                    This field is required.
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.objetivoEn.minLength">
+                    {{ $t('entity.validation.minlength', { min: $v.contexto.objetivoEn.$params.minLength.min }) }}
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.objetivoEn.maxLength">
+                    {{ $t('entity.validation.maxlength', { max: $v.contexto.objetivoEn.$params.maxLength.max }) }}
+                  </small>
+                </div>
               </div>
             </b-tab>
             <b-tab title="Mensajes del chatbot">
@@ -139,53 +191,101 @@
                 <label class="form-control-label" v-text="$t('kbaseApp.contexto.loginMessage')" for="contexto-loginMessage"
                   >loginMessage</label
                 >
-                <input
-                  type="text"
-                  class="form-control"
+                <b-form-input
                   name="loginMessage"
-                  id="contexto-loginMessage"
-                  :class="{ valid: !$v.contexto.loginMessage.$invalid, invalid: $v.contexto.loginMessage.$invalid }"
-                  v-model="$v.contexto.loginMessage.$model"
-                />
+                  :state="!$v.contexto.loginMessage.$invalid"
+                  v-model.trim="$v.contexto.loginMessage.$model"
+                ></b-form-input>
+
+                <div v-if="$v.contexto.loginMessage.$invalid">
+                  <small class="form-text text-danger" v-if="!$v.contexto.loginMessage.required" v-text="$t('entity.validation.required')">
+                    This field is required.
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.loginMessage.minLength">
+                    {{ $t('entity.validation.minlength', { min: $v.contexto.loginMessage.$params.minLength.min }) }}
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.loginMessage.maxLength">
+                    {{ $t('entity.validation.maxlength', { max: $v.contexto.loginMessage.$params.maxLength.max }) }}
+                  </small>
+                </div>
               </div>
               <div class="form-group">
                 <label class="form-control-label" v-text="$t('kbaseApp.contexto.loginMessageEn')" for="contexto-loginMessageEn"
                   >loginMessageEn</label
                 >
-                <input
-                  type="text"
-                  class="form-control"
+                <b-form-input
                   name="loginMessageEn"
-                  id="contexto-loginMessageEn"
-                  :class="{ valid: !$v.contexto.loginMessageEn.$invalid, invalid: $v.contexto.loginMessageEn.$invalid }"
-                  v-model="$v.contexto.loginMessageEn.$model"
-                />
+                  :state="!$v.contexto.loginMessageEn.$invalid"
+                  v-model.trim="$v.contexto.loginMessageEn.$model"
+                ></b-form-input>
+
+                <div v-if="$v.contexto.loginMessageEn.$invalid">
+                  <small
+                    class="form-text text-danger"
+                    v-if="!$v.contexto.loginMessageEn.required"
+                    v-text="$t('entity.validation.required')"
+                  >
+                    This field is required.
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.loginMessageEn.minLength">
+                    {{ $t('entity.validation.minlength', { min: $v.contexto.loginMessageEn.$params.minLength.min }) }}
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.loginMessageEn.maxLength">
+                    {{ $t('entity.validation.maxlength', { max: $v.contexto.loginMessageEn.$params.maxLength.max }) }}
+                  </small>
+                </div>
               </div>
               <div class="form-group">
                 <label class="form-control-label" v-text="$t('kbaseApp.contexto.welcomeMessage')" for="contexto-welcomeMessage"
                   >welcomeMessage</label
                 >
-                <input
-                  type="text"
-                  class="form-control"
+                <b-form-input
                   name="welcomeMessage"
-                  id="contexto-welcomeMessage"
-                  :class="{ valid: !$v.contexto.welcomeMessage.$invalid, invalid: $v.contexto.welcomeMessage.$invalid }"
-                  v-model="$v.contexto.welcomeMessage.$model"
-                />
+                  :state="!$v.contexto.welcomeMessage.$invalid"
+                  v-model.trim="$v.contexto.welcomeMessage.$model"
+                ></b-form-input>
+
+                <div v-if="$v.contexto.welcomeMessage.$invalid">
+                  <small
+                    class="form-text text-danger"
+                    v-if="!$v.contexto.welcomeMessage.required"
+                    v-text="$t('entity.validation.required')"
+                  >
+                    This field is required.
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.welcomeMessage.minLength">
+                    {{ $t('entity.validation.minlength', { min: $v.contexto.welcomeMessage.$params.minLength.min }) }}
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.welcomeMessage.maxLength">
+                    {{ $t('entity.validation.maxlength', { max: $v.contexto.welcomeMessage.$params.maxLength.max }) }}
+                  </small>
+                </div>
               </div>
               <div class="form-group">
                 <label class="form-control-label" v-text="$t('kbaseApp.contexto.welcomeMessageEn')" for="contexto-welcomeMessageEn"
                   >welcomeMessageEn</label
                 >
-                <input
-                  type="text"
-                  class="form-control"
+                <b-form-input
                   name="welcomeMessageEn"
-                  id="contexto-welcomeMessageEn"
-                  :class="{ valid: !$v.contexto.welcomeMessageEn.$invalid, invalid: $v.contexto.welcomeMessageEn.$invalid }"
-                  v-model="$v.contexto.welcomeMessageEn.$model"
-                />
+                  :state="!$v.contexto.welcomeMessageEn.$invalid"
+                  v-model.trim="$v.contexto.welcomeMessageEn.$model"
+                ></b-form-input>
+
+                <div v-if="$v.contexto.welcomeMessageEn.$invalid">
+                  <small
+                    class="form-text text-danger"
+                    v-if="!$v.contexto.welcomeMessageEn.required"
+                    v-text="$t('entity.validation.required')"
+                  >
+                    This field is required.
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.welcomeMessageEn.minLength">
+                    {{ $t('entity.validation.minlength', { min: $v.contexto.welcomeMessageEn.$params.minLength.min }) }}
+                  </small>
+                  <small class="form-text text-danger" v-if="!$v.contexto.welcomeMessageEn.maxLength">
+                    {{ $t('entity.validation.maxlength', { max: $v.contexto.welcomeMessageEn.$params.maxLength.max }) }}
+                  </small>
+                </div>
               </div>
             </b-tab>
             <b-tab title="Código fuente">

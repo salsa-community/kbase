@@ -6,22 +6,65 @@ import AlertService from '@/shared/alert/alert.service';
 import { IContexto, Contexto } from '@/shared/model/contexto.model';
 import ContextoService from './contexto.service';
 
-import { highlight, languages } from 'prismjs/components/prism-core';
 import { CONTEXTO_STEPS, OPTIONS } from '@/tour';
 
 const validations: any = {
   contexto: {
-    nombre: {},
-    clave: {},
-    desc: {},
-    descEn: {},
-    objetivo: {},
-    objetivoEn: {},
-    organizacion: {},
-    loginMessage: {},
-    loginMessageEn: {},
-    welcomeMessage: {},
-    welcomeMessageEn: {}
+    nombre: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(50)
+    },
+    clave: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(20)
+    },
+    desc: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(150)
+    },
+    descEn: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(150)
+    },
+    objetivo: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(150)
+    },
+    objetivoEn: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(150)
+    },
+    organizacion: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(50)
+    },
+    loginMessage: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(150)
+    },
+    loginMessageEn: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(150)
+    },
+    welcomeMessage: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(150)
+    },
+    welcomeMessageEn: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(150)
+    }
   }
 };
 

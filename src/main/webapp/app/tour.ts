@@ -117,6 +117,18 @@ export const CONTEXTO_STEPS = [
       })
   },
   {
+    target: '#save-entity',
+    content: `El botón de guardar, se habilitará hasta que se llenen todos los campos obligatorios en las cuatro secciones`,
+    params: {
+      enableScrolling: false
+    },
+    before: type =>
+      new Promise((resolve, reject) => {
+        document.getElementById('datos-generales-id').click();
+        resolve('next');
+      })
+  },
+  {
     target: '#datos-organizacion-id',
     content: `En esta sección se registran los datos de tu organización o negocio. Los datos que registres aquí se utilizarán en los diálogos de bienvenida de tu bot`,
     params: {
