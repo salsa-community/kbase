@@ -15,7 +15,7 @@
       },
       "detail": {
         "title": "Mensaje Error",
-        "codigoPlaceHolder": "Código de Error",
+        "codigoPlaceHolder": "Clave",
         "descripcionPlaceHolder": "Descripción"
       },
       "clave": "Key",

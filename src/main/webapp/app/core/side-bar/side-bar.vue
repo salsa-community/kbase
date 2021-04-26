@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="sidebar" :class="{ active: collapse }">
+    <div id="sidebar" :class="{ active: !authenticated }">
       <!-- 
       <div class="custom-menu">
         <button v-b-toggle.sidebarupper @click="toggleSidebar" type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -21,7 +21,7 @@
         no-close-on-esc
         no-close-on-route-change
         no-close-on-backdrop
-        visible
+        :visible="authenticated"
         width="270px"
         shadow
       >

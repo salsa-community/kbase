@@ -15,7 +15,7 @@
       },
       "detail": {
         "title": "Código de Error",
-        "codigoPlaceHolder": "CFI...",
+        "codigoPlaceHolder": "Clave",
         "descripcionPlaceHolder": "Descripción del código de error"
       },
       "clave": "Código",

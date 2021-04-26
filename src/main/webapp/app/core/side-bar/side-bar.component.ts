@@ -15,7 +15,7 @@ export default class SideBar extends Vue {
   public version = VERSION ? 'v' + VERSION : '';
   private currentLanguage = this.$store.getters.currentLanguage;
   private languages: any = this.$store.getters.languages;
-  public collapse = false;
+  public collapse = true;
 
   created() {
     this.translationService().refreshTranslation(this.currentLanguage);

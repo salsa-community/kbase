@@ -129,6 +129,7 @@
       "maxbytes": "Este campo no puede tener más de {{max}} bytes.",
       "pattern": "Este campo debe seguir el patrón {{pattern}}.",
       "number": "Este campo debe ser un número.",
+      "anyerror": "Podrás guardar hasta que todos los campos esten llenos",
       "datetimelocal": "Este campo debe ser una fecha y hora."
     }
   },

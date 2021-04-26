@@ -31,6 +31,7 @@ import { BFormSelect } from 'bootstrap-vue';
 import { SidebarPlugin } from 'bootstrap-vue';
 import { BImg } from 'bootstrap-vue';
 import { BSpinner } from 'bootstrap-vue';
+import { BOverlay } from 'bootstrap-vue';
 
 import { BIcon } from 'bootstrap-vue';
 import { BootstrapVueIcons } from 'bootstrap-vue';
@@ -69,6 +70,7 @@ export function initBootstrapVue(vue) {
   vue.component('b-img', BImg);
   vue.component('b-spinner', BSpinner);
   vue.component('b-icon', BIcon);
+  vue.component('b-overlay', BOverlay);
   vue.use(SidebarPlugin);
   vue.directive('b-modal', VBModal);
 }

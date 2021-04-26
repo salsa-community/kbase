@@ -319,6 +319,9 @@
             <button type="submit" id="save-entity" :disabled="$v.contexto.$invalid || isSaving" class="btn btn-primary">
               <span v-text="$t('entity.action.save')">Save</span>
             </button>
+            <div v-if="$v.contexto.$invalid">
+              <small class="form-text text-danger" v-text="$t('entity.validation.anyerror')"> This field is required. </small>
+            </div>
           </div>
         </b-card>
       </form>
