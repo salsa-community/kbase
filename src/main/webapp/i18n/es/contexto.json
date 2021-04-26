@@ -5,7 +5,7 @@
         "title": "Contextos",
         "createLabel": "Crear nuevo Contexto",
         "createOrEditLabel": "Registro de un contexto",
-        "notFound": "No Contextos found"
+        "notFound": "Aún no tienes contextos registrados"
       },
       "created": "Un nuevo Contexto ha sido creado con el identificador {{ param }}",
       "updated": "Un Contexto ha sido actualizado con el identificador {{ param }}",

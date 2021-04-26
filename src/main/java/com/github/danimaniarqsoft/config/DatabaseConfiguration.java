@@ -61,6 +61,7 @@ public class DatabaseConfiguration {
         // package to scan for migrations
         mongobee.setChangeLogsScanPackage("com.github.danimaniarqsoft.config.dbmigrations");
         mongobee.setEnabled(true);
+        mongobee.setSpringEnvironment(enviroment);
         return mongobee;
     }
 }

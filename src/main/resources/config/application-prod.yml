@@ -34,7 +34,7 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017
-      database: kbase
+      database: chatbot
   mail:
     host: localhost
     port: 25

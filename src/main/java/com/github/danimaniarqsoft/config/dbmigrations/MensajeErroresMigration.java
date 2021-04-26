@@ -10,11 +10,13 @@ import com.github.danimaniarqsoft.domain.Usuario;
 import com.github.mongobee.changeset.ChangeLog;
 import com.github.mongobee.changeset.ChangeSet;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 /**
  * Creates the initial database setup.
  */
+@Profile("vtiger")
 @ChangeLog(order = "002")
 public class MensajeErroresMigration {
 
@@ -27,8 +29,8 @@ public class MensajeErroresMigration {
     @ChangeSet(order = "02", author = "arquitectura", id = "02-addDefaultUsuario")
     public void addDefaultUsuario(MongoTemplate mongoTemplate)
             throws JsonParseException, JsonMappingException, MalformedURLException, IOException {
-        mongoTemplate.save(new Usuario().nombre("ITZIA MARIA DEL CARMEN").primerApellido("SANCHEZ")
-                .segundoApellido("MENDEZ").rfc("SAMI860101RH10"));
+        mongoTemplate.save(new Usuario().nombre("Prueba").primerApellido("Primer apellido")
+                .segundoApellido("Segundo apellido").rfc("SAMI860101RH10"));
     }
 
     @ChangeSet(order = "03", author = "arquitectura", id = "03-addAtebUsuario")

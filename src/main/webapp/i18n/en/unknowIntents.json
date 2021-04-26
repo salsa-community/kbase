@@ -5,7 +5,7 @@
         "title": "Intenciones no atendidas",
         "createLabel": "Create a new Unknow Intents",
         "createOrEditLabel": "Create or edit a Unknow Intents",
-        "notFound": "No Unknow Intents found"
+        "notFound": "No se encontraron intenciones no atendidas"
       },
       "created": "A new Unknow Intents is created with identifier {{ param }}",
       "updated": "A Unknow Intents is updated with identifier {{ param }}",

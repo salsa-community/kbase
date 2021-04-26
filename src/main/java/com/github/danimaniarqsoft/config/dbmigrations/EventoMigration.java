@@ -10,11 +10,13 @@ import com.github.danimaniarqsoft.domain.Evento;
 import com.github.mongobee.changeset.ChangeLog;
 import com.github.mongobee.changeset.ChangeSet;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 /**
  * Creates default events.
  */
+@Profile("vtiger")
 @ChangeLog(order = "006")
 public class EventoMigration {
 

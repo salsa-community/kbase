@@ -5,7 +5,7 @@
         "title": "Solicitudes de contacto",
         "createLabel": "Create a new Contacto",
         "createOrEditLabel": "Create or edit a Contacto",
-        "notFound": "No Contactos found"
+        "notFound": "No se encontraron solicitudes de contacto"
       },
       "created": "A new Contacto is created with identifier {{ param }}",
       "updated": "A Contacto is updated with identifier {{ param }}",

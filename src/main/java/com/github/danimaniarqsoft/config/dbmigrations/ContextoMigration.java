@@ -9,11 +9,13 @@ import com.github.danimaniarqsoft.domain.MensajeError;
 import com.github.mongobee.changeset.ChangeLog;
 import com.github.mongobee.changeset.ChangeSet;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 /**
  * Creates the initial database setup.
  */
+@Profile("vtiger")
 @ChangeLog(order = "005")
 public class ContextoMigration {
 
