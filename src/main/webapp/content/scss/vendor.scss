@@ -6,6 +6,7 @@ eg $input-color: red;
 ****************************/
 // Override Boostrap variables
 // Import Bootstrap source files from node_modules
+$enable-gradients: true;
 $primary: #494ca2 !default;
 @import '~bootswatch/dist/pulse/variables';
 @import '~bootstrap/scss/bootstrap';
