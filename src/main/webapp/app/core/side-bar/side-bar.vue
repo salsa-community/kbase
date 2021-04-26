@@ -36,33 +36,33 @@
               <router-link :to="'/'"> <span class="fa fa-home mr-3"></span> {{ $t('global.menu.home') }} </router-link>
             </li>
             <li v-if="authenticated" id="password">
-              <router-link :to="'/account/password'">
+              <router-link id="password-router-id" :to="'/account/password'">
                 <span class="fa fa-address-card mr-3"></span> {{ $t('global.menu.account.password') }}
               </router-link>
             </li>
 
             <li v-if="authenticated" id="flujos">
-              <router-link :to="'/entity/mensaje-error'">
+              <router-link id="flujos-router-id" :to="'/entity/mensaje-error'">
                 <span class="fa fa-comments-o mr-3"></span> {{ $t('global.menu.entities.mensajeError') }}
               </router-link>
             </li>
             <li v-if="authenticated" id="contextos">
-              <router-link :to="'/entity/contexto'">
+              <router-link id="contextos-router-id" :to="'/entity/contexto'">
                 <span class="fa fa-tags mr-3"></span> {{ $t('global.menu.entities.contexto') }}
               </router-link>
             </li>
             <li v-if="authenticated" id="intenciones">
-              <router-link :to="'/entity/unknow-intents'">
+              <router-link id="intenciones-router-id" :to="'/entity/unknow-intents'">
                 <span class="fa fa-th-list mr-3"></span> {{ $t('global.menu.entities.unknowIntents') }}
               </router-link>
             </li>
             <li v-if="authenticated" id="contactos">
-              <router-link :to="'/entity/contacto'">
+              <router-link id="contactos-router-id" :to="'/entity/contacto'">
                 <span class="fa fa-envelope-open mr-3"></span> {{ $t('global.menu.entities.contacto') }}
               </router-link>
             </li>
             <li v-if="authenticated" id="reportes">
-              <router-link :to="'/entity/actividad'">
+              <router-link id="reportes-router-id" :to="'/entity/actividad'">
                 <span class="fa fa-area-chart mr-3"></span> {{ $t('global.menu.entities.actividad') }}
               </router-link>
             </li>

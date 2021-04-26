@@ -32,7 +32,11 @@ import { SidebarPlugin } from 'bootstrap-vue';
 import { BImg } from 'bootstrap-vue';
 import { BSpinner } from 'bootstrap-vue';
 
+import { BIcon } from 'bootstrap-vue';
+import { BootstrapVueIcons } from 'bootstrap-vue';
+
 export function initBootstrapVue(vue) {
+  vue.use(BootstrapVueIcons);
   vue.component('b-badge', BBadge);
   vue.component('b-dropdown', BDropdown);
   vue.component('b-dropdown-item', BDropdownItem);
@@ -64,6 +68,7 @@ export function initBootstrapVue(vue) {
   vue.component('b-form-select', BFormSelect);
   vue.component('b-img', BImg);
   vue.component('b-spinner', BSpinner);
+  vue.component('b-icon', BIcon);
   vue.use(SidebarPlugin);
   vue.directive('b-modal', VBModal);
 }

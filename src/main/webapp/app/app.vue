@@ -16,6 +16,23 @@
             :is-last="tour.isLast"
             :labels="tour.labels"
           >
+            <template v-if="tour.isFirst">
+              <div slot="actions">
+                <button @click="tour.skip" class="v-step__button v-step__button-skip">Quitar tutorial</button>
+                <button @click="tour.nextStep" class="v-step__button v-step__button-next">Siguiente</button>
+              </div>
+            </template>
+            <template v-else-if="tour.isLast">
+              <div slot="actions">
+                <button @click="tour.stop" class="v-step__button v-step__button-stop">Terminar</button>
+              </div>
+            </template>
+            <template v-else>
+              <div slot="actions">
+                <button @click="tour.skip" class="v-step__button v-step__button-skip">Quitar tutorial</button>
+                <button @click="tour.nextStep" class="v-step__button v-step__button-next">Siguiente</button>
+              </div>
+            </template>
           </v-step>
         </transition>
       </template>
