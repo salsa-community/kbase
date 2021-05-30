@@ -1,6 +1,7 @@
 package com.github.danimaniarqsoft.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -19,6 +20,7 @@ public class Contexto implements Serializable {
     @Field("nombre")
     private String nombre;
 
+    @Indexed
     @Field("clave")
     private String clave;
 
