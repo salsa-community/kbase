@@ -10,6 +10,7 @@ export interface IMensajeError {
   instruccion?: IInstruccion;
   links?: ILink[];
   contextos?: string[];
+  hears?: string[];
   orden?: number;
   tipo?: string;
 }
@@ -25,8 +26,10 @@ export class MensajeError implements IMensajeError {
     public links?: ILink[],
     public contextos?: string[],
     public orden?: number,
-    public tipo?: string
+    public tipo?: string,
+    public hears?: string[]
   ) {
     this.contextos = [];
+    this.hears = [];
   }
 }

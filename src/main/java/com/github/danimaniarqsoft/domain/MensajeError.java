@@ -33,6 +33,9 @@ public class MensajeError implements Serializable {
     @Field("descEn")
     private String descEn;
 
+    @Field("hears")
+    private List<String> hears = new ArrayList<>();
+
     @Field("instrucciones")
     private Instruccion instruccion;
 
@@ -150,6 +153,29 @@ public class MensajeError implements Serializable {
         this.tipo = tipo;
     }
     
+        public List<String> getHears() {
+        return hears;
+    }
+
+    public MensajeError hears(List<String> hears) {
+        this.hears = hears;
+        return this;
+    }
+
+    public MensajeError addLinks(String hear) {
+        this.hears.add(hear);
+        return this;
+    }
+
+    public MensajeError removeLinks(String hear) {
+        this.hears.remove(hear);
+        return this;
+    }
+
+    public void setHears(List<String> hears) {
+        this.hears = hears;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and
     // setters here, do not remove
 
