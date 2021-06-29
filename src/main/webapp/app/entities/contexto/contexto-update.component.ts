@@ -1,9 +1,11 @@
 import { Component, Vue, Inject } from 'vue-property-decorator';
 
-import { numeric, required, minLength, maxLength } from 'vuelidate/lib/validators';
+import { required, minLength, maxLength } from 'vuelidate/lib/validators';
 
 import AlertService from '@/shared/alert/alert.service';
 import { IContexto, Contexto } from '@/shared/model/contexto.model';
+import { IMensaje, Mensaje } from '@/shared/model/mensaje.model';
+
 import ContextoService from './contexto.service';
 
 import { CONTEXTO_STEPS, OPTIONS } from '@/tour';
@@ -30,40 +32,22 @@ const validations: any = {
       minLength: minLength(4),
       maxLength: maxLength(150)
     },
-    objetivo: {
-      required,
-      minLength: minLength(4),
-      maxLength: maxLength(150)
-    },
-    objetivoEn: {
-      required,
-      minLength: minLength(4),
-      maxLength: maxLength(150)
-    },
     organizacion: {
       required,
       minLength: minLength(4),
       maxLength: maxLength(50)
-    },
-    loginMessage: {
+    }
+  },
+  newStep: {
+    desc: {
       required,
       minLength: minLength(4),
-      maxLength: maxLength(150)
+      maxLength: maxLength(500)
     },
-    loginMessageEn: {
+    descEn: {
       required,
       minLength: minLength(4),
-      maxLength: maxLength(150)
-    },
-    welcomeMessage: {
-      required,
-      minLength: minLength(4),
-      maxLength: maxLength(150)
-    },
-    welcomeMessageEn: {
-      required,
-      minLength: minLength(4),
-      maxLength: maxLength(150)
+      maxLength: maxLength(500)
     }
   }
 };
@@ -75,8 +59,16 @@ export default class ContextoUpdate extends Vue {
   @Inject('alertService') private alertService: () => AlertService;
   @Inject('contextoService') private contextoService: () => ContextoService;
   public contexto: IContexto = new Contexto();
+  public newStep = new Mensaje();
+  public stepId = null;
   public isSaving = false;
   public color = 0;
+  public dragOptions = {
+    animation: 200,
+    group: 'description',
+    disabled: false,
+    ghostClass: 'ghost'
+  };
 
   public headcodeKey = 0;
   public bodycodeKey = 1;
@@ -126,6 +118,68 @@ export default class ContextoUpdate extends Vue {
         vm.retrieveContexto(to.params.contextoId);
       }
     });
+  }
+
+  public saveStep(): void {
+    const step = new Mensaje();
+    step.orden = this.newStep.orden;
+    step.desc = this.newStep.desc;
+    step.descEn = this.newStep.descEn;
+    this.contexto.mensajes.splice(this.contexto.mensajes.indexOf(this.stepId), 1, step);
+    this.closeEditStepDialog();
+  }
+
+  public addStep(): void {
+    const step = new Mensaje();
+    step.orden = Infinity;
+    step.desc = this.newStep.desc;
+    step.descEn = this.newStep.descEn;
+    this.contexto.mensajes.push(step);
+    this.orderSteps();
+    this.closeEditStepDialog();
+    this.closeAddStepDialog();
+  }
+
+  public removeStep(step: IMensaje): void {
+    console.log(step);
+    this.stepId = step;
+    this.contexto.mensajes.splice(this.contexto.mensajes.indexOf(this.stepId), 1);
+    this.orderSteps();
+    this.closeDialog();
+  }
+
+  public orderSteps(): void {
+    let count = 1;
+    this.contexto.mensajes.forEach(paso => {
+      paso.orden = count++;
+    });
+  }
+
+  public closeDialog(): void {
+    (<any>this.$refs.removeEntity).hide();
+  }
+
+  public closeEditStepDialog(): void {
+    (<any>this.$refs.editStep).hide();
+  }
+
+  public closeAddStepDialog(): void {
+    (<any>this.$refs.addStep).hide();
+  }
+
+  public prepareToSave(step: any): void {
+    this.stepId = step;
+    this.newStep.orden = step.orden;
+    this.newStep.desc = step.desc;
+    this.newStep.descEn = step.descEn;
+    (<any>this.$refs.editStep).show();
+  }
+
+  public prepareToAddStep() {
+    this.newStep.orden = -1;
+    this.newStep.desc = '';
+    this.newStep.descEn = '';
+    (<any>this.$refs.addStep).show();
   }
 
   public save(): void {

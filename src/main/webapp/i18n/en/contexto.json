@@ -26,7 +26,10 @@
       "loginMessage": "Mensaje que se muestra para solicitar credenciales",
       "loginMessageEn": "Mensaje en inglés que se muestra para solicitar credenciales",
       "welcomeMessage": "Mensaje de bienvenida que se muestra despues de iniciar sesión",
-      "welcomeMessageEn": "Mensaje de bienvenida en inglés que se muestra despues de iniciar sesión"
+      "welcomeMessageEn": "Mensaje de bienvenida en inglés que se muestra despues de iniciar sesión",
+      "mensajes": {
+        "title": "Mensajes de bienvenida"
+      }
     }
   }
 }

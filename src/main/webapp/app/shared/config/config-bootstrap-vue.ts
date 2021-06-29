@@ -32,12 +32,14 @@ import { SidebarPlugin } from 'bootstrap-vue';
 import { BImg } from 'bootstrap-vue';
 import { BSpinner } from 'bootstrap-vue';
 import { BOverlay } from 'bootstrap-vue';
+import { BAvatar } from 'bootstrap-vue';
 
 import { BIcon } from 'bootstrap-vue';
 import { BootstrapVueIcons } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
   vue.use(BootstrapVueIcons);
+  vue.component('b-avatar', BAvatar);
   vue.component('b-badge', BBadge);
   vue.component('b-dropdown', BDropdown);
   vue.component('b-dropdown-item', BDropdownItem);

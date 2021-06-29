@@ -8,9 +8,14 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Contexto} and its DTO {@link ContextoDTO}.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {MensajeMapper.class})
 public interface ContextoMapper extends EntityMapper<ContextoDTO, Contexto> {
 
+    @Mapping(source = "mensajes", target = "mensajes")
+    Contexto toEntity(ContextoDTO dto);
+    
+    @Mapping(source = "mensajes", target = "mensajes")
+    ContextoDTO toDto(Contexto entity);
 
 
     default Contexto fromId(String id) {
@@ -21,4 +26,5 @@ public interface ContextoMapper extends EntityMapper<ContextoDTO, Contexto> {
         contexto.setId(id);
         return contexto;
     }
+
 }

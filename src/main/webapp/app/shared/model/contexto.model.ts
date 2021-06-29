@@ -1,16 +1,13 @@
+import { IMensaje } from '@/shared/model/mensaje.model';
+
 export interface IContexto {
   id?: string;
   nombre?: string;
   clave?: string;
   desc?: string;
   descEn?: string;
-  objetivo?: string;
-  objetivoEn?: string;
   organizacion?: string;
-  loginMessage?: string;
-  loginMessageEn?: string;
-  welcomeMessage?: string;
-  welcomeMessageEn?: string;
+  mensajes?: IMensaje[];
 }
 
 export class Contexto implements IContexto {
@@ -20,12 +17,9 @@ export class Contexto implements IContexto {
     public clave?: string,
     public desc?: string,
     public descEn?: string,
-    public objetivo?: string,
-    public objetivoEn?: string,
     public organizacion?: string,
-    public loginMessage?: string,
-    public loginMessageEn?: string,
-    public welcomeMessage?: string,
-    public welcomeMessageEn?: string
-  ) {}
+    public mensajes?: IMensaje[]
+  ) {
+    this.mensajes = [];
+  }
 }

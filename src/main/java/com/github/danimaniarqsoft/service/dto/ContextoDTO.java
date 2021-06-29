@@ -1,6 +1,10 @@
 package com.github.danimaniarqsoft.service.dto;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import com.github.danimaniarqsoft.domain.Mensaje;
 
 /**
  * A DTO for the {@link com.github.danimaniarqsoft.domain.Contexto} entity.
@@ -17,20 +21,33 @@ public class ContextoDTO implements Serializable {
 
     private String descEn;
 
-    private String objetivo;
-
-    private String objetivoEn;
-
     private String organizacion;
 
-    private String loginMessage;
+    private List<MensajeDTO> mensajes = new ArrayList<>();
 
-    private String loginMessageEn;
+    public List<MensajeDTO> getMensajes() {
+        return mensajes;
+    }
 
-    private String welcomeMessage;
+    public ContextoDTO mensajes(List<MensajeDTO> mensajes) {
+        this.mensajes = mensajes;
+        return this;
+    }
+
+    public ContextoDTO addMensajes(MensajeDTO mensaje) {
+        this.mensajes.add(mensaje);
+        return this;
+    }
+
+    public ContextoDTO removeMensaje(MensajeDTO mensaje) {
+        this.mensajes.remove(mensaje);
+         return this;
+    }
+
+    public void setMensajes(List<MensajeDTO> mensajes) {
+        this.mensajes = mensajes;
+    }
     
-    private String welcomeMessageEn;
-
     public String getId() {
         return id;
     }
@@ -71,57 +88,8 @@ public class ContextoDTO implements Serializable {
         this.descEn = descEn;
     }
 
-    public String getObjetivo() {
-        return objetivo;
-    }
-
-    public void setObjetivo(String objetivo) {
-        this.objetivo = objetivo;
-    }
-
-    public String getObjetivoEn() {
-        return objetivoEn;
-    }
-
-    public void setObjetivoEn(String objetivoEn) {
-        this.objetivoEn = objetivoEn;
-    }
-
     public String getOrganizacion() {
         return organizacion;
-    }
-
-        
-    public String getLoginMessage() {
-        return loginMessage;
-    }
-
-    public void setLoginMessage(String loginMessage) {
-        this.loginMessage = loginMessage;
-    }
-
-    public String getLoginMessageEn() {
-        return loginMessageEn;
-    }
-
-    public void setLoginMessageEn(String loginMessageEn) {
-        this.loginMessageEn = loginMessageEn;
-    }
-
-    public String getWelcomeMessage() {
-        return welcomeMessage;
-    }
-
-    public void setWelcomeMessage(String welcomeMessage) {
-        this.welcomeMessage = welcomeMessage;
-    }
-
-    public String getWelcomeMessageEn() {
-        return welcomeMessageEn;
-    }
-
-    public void setWelcomeMessageEn(String welcomeMessageEn) {
-        this.welcomeMessageEn = welcomeMessageEn;
     }
 
     public void setOrganizacion(String organizacion) {

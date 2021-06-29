@@ -114,11 +114,6 @@
                   </small>
                 </div>
               </b-form-group>
-            </b-tab>
-            <b-tab>
-              <template #title>
-                <div id="datos-organizacion-id">Datos de la organización</div>
-              </template>
               <div class="form-group">
                 <label class="form-control-label" v-text="$t('kbaseApp.contexto.organizacion')" for="contexto-organizacion"
                   >organizacion</label
@@ -141,150 +136,50 @@
                   </small>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="form-control-label" v-text="$t('kbaseApp.contexto.objetivo')" for="contexto-objetivo">objetivo</label>
-                <b-form-input
-                  name="objetivo"
-                  :state="!$v.contexto.objetivo.$invalid"
-                  v-model.trim="$v.contexto.objetivo.$model"
-                ></b-form-input>
-
-                <div v-if="$v.contexto.objetivo.$invalid">
-                  <small class="form-text text-danger" v-if="!$v.contexto.objetivo.required" v-text="$t('entity.validation.required')">
-                    This field is required.
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.objetivo.minLength">
-                    {{ $t('entity.validation.minlength', { min: $v.contexto.objetivo.$params.minLength.min }) }}
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.objetivo.maxLength">
-                    {{ $t('entity.validation.maxlength', { max: $v.contexto.objetivo.$params.maxLength.max }) }}
-                  </small>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-control-label" v-text="$t('kbaseApp.contexto.objetivoEn')" for="contexto-objetivoEn">objetivoEn</label>
-
-                <b-form-input
-                  name="objetivoEn"
-                  :state="!$v.contexto.objetivoEn.$invalid"
-                  v-model.trim="$v.contexto.objetivoEn.$model"
-                ></b-form-input>
-
-                <div v-if="$v.contexto.objetivoEn.$invalid">
-                  <small class="form-text text-danger" v-if="!$v.contexto.objetivoEn.required" v-text="$t('entity.validation.required')">
-                    This field is required.
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.objetivoEn.minLength">
-                    {{ $t('entity.validation.minlength', { min: $v.contexto.objetivoEn.$params.minLength.min }) }}
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.objetivoEn.maxLength">
-                    {{ $t('entity.validation.maxlength', { max: $v.contexto.objetivoEn.$params.maxLength.max }) }}
-                  </small>
-                </div>
-              </div>
             </b-tab>
-            <b-tab title="Mensajes del chatbot">
+            <b-tab title="Mensajes de inicio chatbot">
               <template #title>
                 <div id="datos-chatbot-id">Mensajes del chatbot</div>
               </template>
               <div class="form-group">
-                <label class="form-control-label" v-text="$t('kbaseApp.contexto.loginMessage')" for="contexto-loginMessage"
-                  >loginMessage</label
-                >
-                <b-form-input
-                  name="loginMessage"
-                  :state="!$v.contexto.loginMessage.$invalid"
-                  v-model.trim="$v.contexto.loginMessage.$model"
-                ></b-form-input>
-
-                <div v-if="$v.contexto.loginMessage.$invalid">
-                  <small class="form-text text-danger" v-if="!$v.contexto.loginMessage.required" v-text="$t('entity.validation.required')">
-                    This field is required.
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.loginMessage.minLength">
-                    {{ $t('entity.validation.minlength', { min: $v.contexto.loginMessage.$params.minLength.min }) }}
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.loginMessage.maxLength">
-                    {{ $t('entity.validation.maxlength', { max: $v.contexto.loginMessage.$params.maxLength.max }) }}
-                  </small>
-                </div>
+                <label class="form-control-label" v-text="$t('kbaseApp.contexto.mensajes.title')" for="mensaje-error-pasos">Mensajes</label>
               </div>
-              <div class="form-group">
-                <label class="form-control-label" v-text="$t('kbaseApp.contexto.loginMessageEn')" for="contexto-loginMessageEn"
-                  >loginMessageEn</label
+              <div class="container">
+                <draggable
+                  class="container"
+                  v-if="contexto.mensajes"
+                  v-model.trim="contexto.mensajes"
+                  @change="orderSteps"
+                  @start="drag = true"
+                  @end="drag = false"
+                  v-bind="dragOptions"
                 >
-                <b-form-input
-                  name="loginMessageEn"
-                  :state="!$v.contexto.loginMessageEn.$invalid"
-                  v-model.trim="$v.contexto.loginMessageEn.$model"
-                ></b-form-input>
-
-                <div v-if="$v.contexto.loginMessageEn.$invalid">
-                  <small
-                    class="form-text text-danger"
-                    v-if="!$v.contexto.loginMessageEn.required"
-                    v-text="$t('entity.validation.required')"
-                  >
-                    This field is required.
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.loginMessageEn.minLength">
-                    {{ $t('entity.validation.minlength', { min: $v.contexto.loginMessageEn.$params.minLength.min }) }}
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.loginMessageEn.maxLength">
-                    {{ $t('entity.validation.maxlength', { max: $v.contexto.loginMessageEn.$params.maxLength.max }) }}
-                  </small>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-control-label" v-text="$t('kbaseApp.contexto.welcomeMessage')" for="contexto-welcomeMessage"
-                  >welcomeMessage</label
-                >
-                <b-form-input
-                  name="welcomeMessage"
-                  :state="!$v.contexto.welcomeMessage.$invalid"
-                  v-model.trim="$v.contexto.welcomeMessage.$model"
-                ></b-form-input>
-
-                <div v-if="$v.contexto.welcomeMessage.$invalid">
-                  <small
-                    class="form-text text-danger"
-                    v-if="!$v.contexto.welcomeMessage.required"
-                    v-text="$t('entity.validation.required')"
-                  >
-                    This field is required.
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.welcomeMessage.minLength">
-                    {{ $t('entity.validation.minlength', { min: $v.contexto.welcomeMessage.$params.minLength.min }) }}
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.welcomeMessage.maxLength">
-                    {{ $t('entity.validation.maxlength', { max: $v.contexto.welcomeMessage.$params.maxLength.max }) }}
-                  </small>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-control-label" v-text="$t('kbaseApp.contexto.welcomeMessageEn')" for="contexto-welcomeMessageEn"
-                  >welcomeMessageEn</label
-                >
-                <b-form-input
-                  name="welcomeMessageEn"
-                  :state="!$v.contexto.welcomeMessageEn.$invalid"
-                  v-model.trim="$v.contexto.welcomeMessageEn.$model"
-                ></b-form-input>
-
-                <div v-if="$v.contexto.welcomeMessageEn.$invalid">
-                  <small
-                    class="form-text text-danger"
-                    v-if="!$v.contexto.welcomeMessageEn.required"
-                    v-text="$t('entity.validation.required')"
-                  >
-                    This field is required.
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.welcomeMessageEn.minLength">
-                    {{ $t('entity.validation.minlength', { min: $v.contexto.welcomeMessageEn.$params.minLength.min }) }}
-                  </small>
-                  <small class="form-text text-danger" v-if="!$v.contexto.welcomeMessageEn.maxLength">
-                    {{ $t('entity.validation.maxlength', { max: $v.contexto.welcomeMessageEn.$params.maxLength.max }) }}
-                  </small>
+                  <transition-group type="transition" name="flip-list">
+                    <div class="row pb-1" v-for="step in contexto.mensajes" :key="step.orden">
+                      <div class="draggable col mr-1 step-row text-center"></div>
+                      <div class="mensaje col-sm-9 step-row">
+                        <b-form-textarea name="step" plaintext rows="2" no-resize v-model.trim="step.desc"> </b-form-textarea>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="btn-group">
+                          <el-button v-on:click="prepareToSave(step)" type="primary" icon="el-icon-edit" circle></el-button>
+                          <el-popconfirm
+                            v-on:confirm="removeStep(step)"
+                            confirmButtonText="Aceptar"
+                            cancelButtonText="Cancelar"
+                            icon="el-icon-warning"
+                            iconColor="red"
+                            title="¿Estás seguro de eliminar este mensaje?"
+                          >
+                            <el-button slot="reference" type="danger" icon="el-icon-delete" circle></el-button>
+                          </el-popconfirm>
+                        </div>
+                      </div>
+                    </div>
+                  </transition-group>
+                </draggable>
+                <div>
+                  <b-button block v-on:click="prepareToAddStep()" class="btn btn-sm" variant="outline-info">Agregar Mensaje </b-button>
                 </div>
               </div>
             </b-tab>
@@ -326,7 +221,165 @@
         </b-card>
       </form>
     </div>
+    <b-modal header-text-variant="light" header-bg-variant="primary" ref="addStep" id="addStep">
+      <span slot="modal-title"><span id="kbaseApp.mensajeError.delete.question">Agregar Mensaje</span></span>
+      <b-alert show variant="primary">
+        <table>
+          <tr>
+            <th><b>$ORGANIZACION</b></th>
+            <th>{{ contexto.organizacion }}</th>
+          </tr>
+          <tr>
+            <th><b>$CONTEXTO</b></th>
+            <th>{{ contexto.nombre }}</th>
+          </tr>
+        </table>
+      </b-alert>
+      <div class="form-group">
+        <label class="form-control-label" for="mensaje-error-desc">Descripción</label>
+        <b-form-textarea
+          :state="!$v.newStep.desc.$invalid"
+          name="desc"
+          rows="5"
+          class="form-control"
+          id="mensaje-error-desc"
+          v-model="newStep.desc"
+        >
+        </b-form-textarea>
+        <div v-if="$v.newStep.desc.$invalid">
+          <small class="form-text text-danger" v-if="!$v.newStep.desc.required" v-text="$t('entity.validation.required')">
+            This field is required.
+          </small>
+          <small class="form-text text-danger" v-if="!$v.newStep.desc.minLength">
+            {{ $t('entity.validation.minlength', { min: '4' }) }}
+          </small>
+          <small class="form-text text-danger" v-if="!$v.newStep.desc.maxLength">
+            {{ $t('entity.validation.maxlength', { max: '500' }) }}
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-control-label" for="mensaje-error-descEn">Descripción en Inglés</label>
+        <b-form-textarea
+          :state="!$v.newStep.descEn.$invalid"
+          name="descEn"
+          rows="5"
+          class="form-control"
+          id="mensaje-error-descEn"
+          v-model="newStep.descEn"
+        >
+        </b-form-textarea>
+        <div v-if="$v.newStep.descEn.$invalid">
+          <small class="form-text text-danger" v-if="!$v.newStep.descEn.required" v-text="$t('entity.validation.required')">
+            This field is required.
+          </small>
+          <small class="form-text text-danger" v-if="!$v.newStep.descEn.minLength">
+            {{ $t('entity.validation.minlength', { min: '4' }) }}
+          </small>
+          <small class="form-text text-danger" v-if="!$v.newStep.descEn.maxLength">
+            {{ $t('entity.validation.maxlength', { max: '500' }) }}
+          </small>
+        </div>
+      </div>
+      <div slot="modal-footer">
+        <b-button variant="outline-dark" v-text="$t('entity.action.cancel')" v-on:click="closeAddStepDialog()"></b-button>
+        <b-button
+          :disabled="$v.newStep.desc.$invalid"
+          variant="outline-primary"
+          v-text="$t('entity.action.save')"
+          v-on:click="addStep()"
+        ></b-button>
+      </div>
+    </b-modal>
+    <b-modal header-text-variant="light" header-bg-variant="primary" ref="editStep" id="editStep">
+      <span slot="modal-title"
+        ><span id="kbaseApp.contexto.mensajes.question">Editar mensaje {{ newStep.paso }}</span></span
+      >
+      <div class="form-group">
+        <label class="form-control-label" for="mensaje-error-desc">Descripción</label>
+        <b-form-textarea
+          :state="!$v.newStep.desc.$invalid"
+          name="desc"
+          rows="5"
+          class="form-control"
+          id="mensaje-error-desc"
+          v-model="newStep.desc"
+        >
+        </b-form-textarea>
+        <div v-if="$v.newStep.desc.$invalid">
+          <small class="form-text text-danger" v-if="!$v.newStep.desc.required" v-text="$t('entity.validation.required')">
+            This field is required.
+          </small>
+          <small class="form-text text-danger" v-if="!$v.newStep.desc.minLength">
+            {{ $t('entity.validation.minlength', { min: '4' }) }}
+          </small>
+          <small class="form-text text-danger" v-if="!$v.newStep.desc.maxLength">
+            {{ $t('entity.validation.maxlength', { max: '500' }) }}
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-control-label" for="mensaje-error-descEn">Descripción en Inglés</label>
+        <b-form-textarea
+          :state="!$v.newStep.descEn.$invalid"
+          name="descEn"
+          rows="5"
+          class="form-control"
+          id="mensaje-error-descEn"
+          v-model="newStep.descEn"
+        >
+        </b-form-textarea>
+        <div v-if="$v.newStep.descEn.$invalid">
+          <small class="form-text text-danger" v-if="!$v.newStep.descEn.required" v-text="$t('entity.validation.required')">
+            This field is required.
+          </small>
+          <small class="form-text text-danger" v-if="!$v.newStep.descEn.minLength">
+            {{ $t('entity.validation.minlength', { min: '4' }) }}
+          </small>
+          <small class="form-text text-danger" v-if="!$v.newStep.descEn.maxLength">
+            {{ $t('entity.validation.maxlength', { max: '500' }) }}
+          </small>
+        </div>
+      </div>
+      <div slot="modal-footer">
+        <b-button variant="outline-danger" v-text="$t('entity.action.cancel')" v-on:click="closeEditStepDialog()"></b-button>
+        <b-button
+          :disabled="$v.newStep.desc.$invalid"
+          variant="outline-primary"
+          v-text="$t('entity.action.save')"
+          v-on:click="saveStep()"
+        ></b-button>
+      </div>
+    </b-modal>
+    <b-modal header-text-variant="light" header-bg-variant="primary" ref="removeEntity" id="removeEntity">
+      <span slot="modal-title"
+        ><span id="kbaseApp.mensajeError.delete.question" v-text="$t('entity.delete.title')">Confirm delete operation</span></span
+      >
+      <div class="modal-body">
+        <p id="jhi-delete-mensajeError-heading" v-bind:title="$t('kbaseApp.mensajeError.delete.question')">
+          Are you sure you want to delete this Mensaje Error?
+        </p>
+      </div>
+      <div slot="modal-footer">
+        <b-button variant="outline-dark" v-text="$t('entity.action.cancel')" v-on:click="closeDialog()">Danger</b-button>
+        <b-button variant="outline-danger" v-text="$t('entity.action.delete')" v-on:click="removeStep()">Danger</b-button>
+      </div>
+    </b-modal>
   </div>
 </template>
 <script lang="ts" src="./contexto-update.component.ts">
 </script>
+
+<style scoped>
+.mensaje:before {
+  font-family: FontAwesome;
+  content: '\f00a';
+  position: absolute;
+  top: 11px;
+  left: -30px;
+  transition: all 300ms ease;
+}
+
+.draggable:hover ~ .mensaje {
+}
+</style>

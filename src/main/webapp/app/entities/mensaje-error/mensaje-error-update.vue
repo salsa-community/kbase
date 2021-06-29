@@ -168,7 +168,7 @@
                                     <div class="btn-group">
                                         <el-button v-on:click="prepareToSave(step)" type="primary" icon="el-icon-edit" circle></el-button>
                                         <el-popconfirm
-                                            v-on:onConfirm="removeStep(step)"
+                                            v-on:confirm="removeStep(step)"
                                             confirmButtonText='Aceptar'
                                             cancelButtonText='Cancelar'
                                             icon="el-icon-warning"
