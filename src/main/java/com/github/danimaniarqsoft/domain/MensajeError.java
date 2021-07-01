@@ -52,8 +52,20 @@ public class MensajeError implements Serializable {
     @Field("tipo")
     private String tipo;
 
+    @Field("mensajes")
+    private List<Mensaje> mensajes = new ArrayList<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not
     // remove
+
+    public List<Mensaje> getMensajes() {
+        return mensajes;
+    }
+
+    public void setMensajes(List<Mensaje> mensajes) {
+        this.mensajes = mensajes;
+    }
+
     public String getId() {
         return id;
     }

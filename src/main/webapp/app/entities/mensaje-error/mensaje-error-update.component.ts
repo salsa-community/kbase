@@ -16,6 +16,7 @@ import { IPaso, Paso } from '@/shared/model/paso.model';
 import AlertService from '@/shared/alert/alert.service';
 import { IMensajeError, MensajeError } from '@/shared/model/mensaje-error.model';
 import MensajeErrorService from './mensaje-error.service';
+import Mensajes from '@/core/mensajes/mensajes.vue';
 
 const validations: any = {
   mensajeError: {
@@ -25,31 +26,10 @@ const validations: any = {
       maxLength: maxLength(50),
       isUnique
     },
-    desc: {
-      required,
-      minLength: minLength(4),
-      maxLength: maxLength(500)
-    },
-    descEn: {
-      required,
-      minLength: minLength(4),
-      maxLength: maxLength(500)
-    },
     tipo: {
       required
     },
-    instruccion: {
-      desc: {
-        required,
-        minLength: minLength(4),
-        maxLength: maxLength(500)
-      },
-      descEn: {
-        required,
-        minLength: minLength(4),
-        maxLength: maxLength(500)
-      }
-    }
+    instruccion: {}
   },
   newStep: {
     desc: {
@@ -66,7 +46,10 @@ const validations: any = {
 };
 
 @Component({
-  validations
+  validations,
+  components: {
+    mensajes: Mensajes
+  }
 })
 export default class MensajeErrorUpdate extends Vue {
   @Inject('alertService') private alertService: () => AlertService;
