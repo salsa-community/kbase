@@ -158,6 +158,7 @@
                     <div class="row pb-1" v-for="step in contexto.mensajes" :key="step.orden">
                       <div class="draggable col mr-1 step-row text-center"></div>
                       <div class="mensaje col-sm-9 step-row">
+                        {{ step.orden }}
                         <b-form-textarea name="step" plaintext rows="2" no-resize v-model.trim="step.desc"> </b-form-textarea>
                       </div>
                       <div class="col-sm-2">
@@ -281,6 +282,19 @@
           </small>
         </div>
       </div>
+      <div class="form-group">
+        <label for="tags-basic">Registrar ayudas</label>
+        <b-form-tags
+          input-id="tags-basic"
+          placeholder="Agregar ayudas"
+          v-model="newStep.replies"
+          remove-on-delete
+          tag-pills
+          add-button-text="agregar"
+          size="lg"
+          tag-variant="primary"
+        ></b-form-tags>
+      </div>
       <div slot="modal-footer">
         <b-button variant="outline-dark" v-text="$t('entity.action.cancel')" v-on:click="closeAddStepDialog()"></b-button>
         <b-button
@@ -340,6 +354,19 @@
             {{ $t('entity.validation.maxlength', { max: '500' }) }}
           </small>
         </div>
+      </div>
+      <div class="form-group" v-if="showReplies">
+        <label for="tags-basic">Registrar ayudas</label>
+        <b-form-tags
+          input-id="tags-basic"
+          placeholder="Agregar ayudas"
+          v-model="newStep.replies"
+          remove-on-delete
+          tag-pills
+          add-button-text="agregar"
+          size="lg"
+          tag-variant="primary"
+        ></b-form-tags>
       </div>
       <div slot="modal-footer">
         <b-button variant="outline-danger" v-text="$t('entity.action.cancel')" v-on:click="closeEditStepDialog()"></b-button>

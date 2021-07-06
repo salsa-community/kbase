@@ -1,5 +1,7 @@
 package com.github.danimaniarqsoft.service.dto;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -22,6 +24,16 @@ public class MensajeDTO implements Serializable {
     private String desc;
 
     private String descEn;
+
+    private List<String> replies = new ArrayList<>();
+
+    public List<String> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<String> replies) {
+        this.replies = replies;
+    }
 
     public String getId() {
         return id;

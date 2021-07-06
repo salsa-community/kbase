@@ -70,6 +70,7 @@ export default class ContextoUpdate extends Vue {
     ghostClass: 'ghost'
   };
 
+  public showReplies = false;
   public headcodeKey = 0;
   public bodycodeKey = 1;
   public tourSteps = CONTEXTO_STEPS;
@@ -125,6 +126,7 @@ export default class ContextoUpdate extends Vue {
     step.orden = this.newStep.orden;
     step.desc = this.newStep.desc;
     step.descEn = this.newStep.descEn;
+    step.replies = this.newStep.replies;
     this.contexto.mensajes.splice(this.contexto.mensajes.indexOf(this.stepId), 1, step);
     this.closeEditStepDialog();
   }
@@ -134,6 +136,7 @@ export default class ContextoUpdate extends Vue {
     step.orden = Infinity;
     step.desc = this.newStep.desc;
     step.descEn = this.newStep.descEn;
+    step.replies = this.newStep.replies;
     this.contexto.mensajes.push(step);
     this.orderSteps();
     this.closeEditStepDialog();
@@ -156,14 +159,17 @@ export default class ContextoUpdate extends Vue {
   }
 
   public closeDialog(): void {
+    this.showReplies = false;
     (<any>this.$refs.removeEntity).hide();
   }
 
   public closeEditStepDialog(): void {
+    this.showReplies = false;
     (<any>this.$refs.editStep).hide();
   }
 
   public closeAddStepDialog(): void {
+    this.showReplies = false;
     (<any>this.$refs.addStep).hide();
   }
 
@@ -172,6 +178,10 @@ export default class ContextoUpdate extends Vue {
     this.newStep.orden = step.orden;
     this.newStep.desc = step.desc;
     this.newStep.descEn = step.descEn;
+    this.newStep.replies = step.replies;
+    if (step.orden == this.contexto.mensajes.length) {
+      this.showReplies = true;
+    }
     (<any>this.$refs.editStep).show();
   }
 
@@ -179,6 +189,15 @@ export default class ContextoUpdate extends Vue {
     this.newStep.orden = -1;
     this.newStep.desc = '';
     this.newStep.descEn = '';
+    this.newStep.replies = [];
+    if (this.contexto.mensajes && this.contexto.mensajes.length > 0) {
+      let newReplies = [];
+      let tempMensaje = this.contexto.mensajes[this.contexto.mensajes.length - 1];
+      for (let index = 0; index < tempMensaje.replies.length; index++) {
+        newReplies.push(tempMensaje.replies[index]);
+      }
+      this.newStep.replies = newReplies;
+    }
     (<any>this.$refs.addStep).show();
   }
 

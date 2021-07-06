@@ -2,6 +2,8 @@ package com.github.danimaniarqsoft.domain;
 
 import org.springframework.data.mongodb.core.mapping.Field;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Mensaje.
@@ -18,6 +20,17 @@ public class Mensaje implements Serializable {
 
     @Field("descEn")
     private String descEn;
+
+    @Field("replies")
+    private List<String> replies = new ArrayList<>();
+
+    public List<String> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<String> replies) {
+        this.replies = replies;
+    }
 
     public Integer getOrden() {
         return orden;
