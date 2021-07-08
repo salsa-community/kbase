@@ -5,7 +5,7 @@
         class="container"
         v-if="mensajes"
         v-model="mensajes"
-        @change="orderSteps"
+        @change="manageChange"
         @start="drag = true"
         @end="drag = false"
         v-bind="dragOptions"

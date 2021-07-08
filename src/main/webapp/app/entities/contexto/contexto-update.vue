@@ -158,7 +158,6 @@
                     <div class="row pb-1" v-for="step in contexto.mensajes" :key="step.orden">
                       <div class="draggable col mr-1 step-row text-center"></div>
                       <div class="mensaje col-sm-9 step-row">
-                        {{ step.orden }}
                         <b-form-textarea name="step" plaintext rows="2" no-resize v-model.trim="step.desc"> </b-form-textarea>
                       </div>
                       <div class="col-sm-2">

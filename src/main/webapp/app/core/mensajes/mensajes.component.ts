@@ -3,8 +3,8 @@ import { IMensaje, Mensaje } from '@/shared/model/mensaje.model';
 
 @Component
 export default class Mensajes extends Vue {
-  @PropSync('value', { required: true, type: Array })
-  public mensajes!: Array<IMensaje>;
+  @Prop({ required: true, type: Array })
+  public value!: Array<IMensaje>;
 
   public dragOptions = {
     animation: 200,
@@ -13,21 +13,34 @@ export default class Mensajes extends Vue {
     ghostClass: 'ghost'
   };
 
+  get mensajes(): Array<IMensaje> {
+    console.log('values');
+
+    return this.value;
+  }
+  set mensajes(newValue: Array<IMensaje>) {
+    this.$emit('input', newValue);
+  }
+
+  public manageChange(moved): void {
+    this.orderSteps();
+  }
+
   public orderSteps(): void {
     let count = 1;
-    this.mensajes.forEach(paso => {
+    this.value.forEach(paso => {
       paso.orden = count++;
     });
   }
   public add() {
     let mensaje = new Mensaje();
-    mensaje.orden = this.mensajes.length - 1;
-    this.mensajes.push(mensaje);
+    mensaje.orden = this.value.length - 1;
+    this.value.push(mensaje);
     this.orderSteps();
   }
 
   public remove(step: IMensaje): void {
-    this.mensajes.splice(this.mensajes.indexOf(step), 1);
+    this.value.splice(this.value.indexOf(step), 1);
     this.orderSteps();
   }
 }
