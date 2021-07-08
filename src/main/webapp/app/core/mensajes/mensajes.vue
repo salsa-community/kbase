@@ -14,7 +14,16 @@
           <div class="row pb-1" v-for="step in mensajes" :key="step.orden">
             <div class="draggable col mr-1 step-row text-center"></div>
             <div class="mensaje col-sm-9 step-row">
-              <b-form-textarea name="step" rows="2" no-resize v-model="step.desc"> </b-form-textarea>
+              <b-tabs pills small vertical>
+                <b-tab title="Español">
+                  <b-form-textarea placeholder="Ingresa el texto en español" name="step" rows="2" no-resize v-model="step.desc">
+                  </b-form-textarea>
+                </b-tab>
+                <b-tab title="Inglés">
+                  <b-form-textarea name="step" placeholder="Ingresa el texto en inglés" rows="2" no-resize v-model="step.descEn">
+                  </b-form-textarea>
+                </b-tab>
+              </b-tabs>
             </div>
             <div class="col-sm-2">
               <div class="btn-group">

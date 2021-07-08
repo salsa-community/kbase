@@ -19,7 +19,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="tags-basic">Registrar disparadores <a target="_blank" href="https://regex101.com/">(ver validador)</a></label>
+            <label for="tags-basic">Registrar disparadores </label>
             <b-form-tags
               input-id="tags-basic"
               placeholder="Agregar disparadores..."
