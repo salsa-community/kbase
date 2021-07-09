@@ -26,6 +26,9 @@ const validations: any = {
       maxLength: maxLength(50),
       isUnique
     },
+    desc: {
+      required
+    },
     tipo: {
       required
     },

@@ -55,6 +55,27 @@
           </div>
 
           <div class="form-group">
+            <label class="form-control-label" v-text="$t('kbaseApp.mensajeError.desc')" for="mensaje-error-desc">Descripción</label>
+            <b-form-input
+              name="desc"
+              id="mensaje-error-desc"
+              :state="!$v.mensajeError.desc.$invalid"
+              :placeholder="$t('kbaseApp.mensajeError.detail.descripcionPlaceHolder')"
+              v-model="mensajeError.desc"
+            ></b-form-input>
+            <div v-if="$v.mensajeError.desc.$invalid">
+              <small class="form-text text-danger" v-if="!$v.mensajeError.clave.required" v-text="$t('entity.validation.required')">
+                This field is required.
+              </small>
+              <small class="form-text text-danger" v-if="!$v.mensajeError.clave.minLength">
+                {{ $t('entity.validation.minlength', { min: '4' }) }}
+              </small>
+              <small class="form-text text-danger" v-if="!$v.mensajeError.clave.maxLength">
+                {{ $t('entity.validation.maxlength', { max: '50' }) }}
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
             <label class="form-control-label" for="mensaje-error-clave">Mensajes</label>
             <mensajes v-model="mensajeError.mensajes"></mensajes>
           </div>

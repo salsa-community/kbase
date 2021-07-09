@@ -26,7 +26,6 @@ public class MensajeError implements Serializable {
     @Indexed
     private String clave;
 
-    @NotNull
     @Field("desc")
     private String desc;
 

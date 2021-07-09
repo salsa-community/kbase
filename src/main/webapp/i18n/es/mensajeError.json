@@ -16,9 +16,9 @@
       "detail": {
         "title": "Código de Error",
         "codigoPlaceHolder": "Clave",
-        "descripcionPlaceHolder": "Descripción del código de error"
+        "descripcionPlaceHolder": "Descripción de la intención"
       },
-      "clave": "Código",
+      "clave": "Intención",
       "desc": "Descripción",
       "descEn": "Descripción en inglés",
       "instruccion": "Instrucciones",
