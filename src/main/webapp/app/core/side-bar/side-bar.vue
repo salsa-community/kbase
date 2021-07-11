@@ -40,15 +40,14 @@
                 <span class="fa fa-address-card mr-3"></span> {{ $t('global.menu.account.password') }}
               </router-link>
             </li>
-
-            <li v-if="authenticated" id="flujos">
-              <router-link id="flujos-router-id" :to="'/entity/mensaje-error'">
-                <span class="fa fa-comments-o mr-3"></span> {{ $t('global.menu.entities.mensajeError') }}
-              </router-link>
-            </li>
             <li v-if="authenticated" id="contextos">
               <router-link id="contextos-router-id" :to="'/entity/contexto'">
                 <span class="fa fa-tags mr-3"></span> {{ $t('global.menu.entities.contexto') }}
+              </router-link>
+            </li>
+            <li v-if="authenticated" id="flujos">
+              <router-link id="flujos-router-id" :to="'/entity/mensaje-error'">
+                <span class="fa fa-comments-o mr-3"></span> {{ $t('global.menu.entities.mensajeError') }}
               </router-link>
             </li>
             <li v-if="authenticated" id="intenciones">

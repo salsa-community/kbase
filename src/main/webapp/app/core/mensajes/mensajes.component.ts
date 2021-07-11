@@ -14,8 +14,6 @@ export default class Mensajes extends Vue {
   };
 
   get mensajes(): Array<IMensaje> {
-    console.log('values');
-
     return this.value;
   }
   set mensajes(newValue: Array<IMensaje>) {
