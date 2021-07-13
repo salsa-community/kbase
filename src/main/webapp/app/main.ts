@@ -39,6 +39,7 @@ import ContactoService from '@/entities/contacto/contacto.service';
 import EventoService from '@/entities/evento/evento.service';
 import ActividadService from '@/entities/actividad/actividad.service';
 import ArchivoService from '@/entities/archivo/archivo.service';
+import Variables from '@/core/variables/variables.vue';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 import draggable from 'vuedraggable';
@@ -55,6 +56,7 @@ Vue.use(Vue2Filters);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('jhi-item-count', JhiItemCountComponent);
 Vue.component('draggable', draggable);
+Vue.component('variables', Variables);
 Vue.use(VueTour);
 const i18n = config.initI18N(Vue);
 const store = config.initVueXStore(Vue);

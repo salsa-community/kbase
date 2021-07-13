@@ -75,6 +75,7 @@
               </small>
             </div>
           </div>
+          <variables :elements="['USUARIO']"></variables>
           <div class="form-group">
             <label class="form-control-label" for="mensaje-error-clave">Mensajes</label>
             <mensajes v-model="mensajeError.mensajes"></mensajes>
@@ -143,6 +144,7 @@
     </div>
     <b-modal header-text-variant="light" header-bg-variant="primary" ref="addStep" id="addStep">
       <span slot="modal-title"><span id="kbaseApp.mensajeError.delete.question">Agregar Paso</span></span>
+      <variables :elements="['USUARIO']"></variables>
       <div class="form-group">
         <label class="form-control-label" for="mensaje-error-desc">Descripción</label>
         <b-form-textarea
@@ -203,6 +205,7 @@
       <span slot="modal-title"
         ><span id="kbaseApp.mensajeError.delete.question">Editar Paso {{ newStep.paso }}</span></span
       >
+      <variables :elements="['USUARIO']"></variables>
       <div class="form-group">
         <label class="form-control-label" for="mensaje-error-desc">Descripción</label>
         <b-form-textarea

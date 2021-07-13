@@ -223,18 +223,8 @@
     </div>
     <b-modal header-text-variant="light" header-bg-variant="primary" ref="addStep" id="addStep">
       <span slot="modal-title"><span id="kbaseApp.mensajeError.delete.question">Agregar Mensaje</span></span>
-      <b-alert show variant="primary">
-        <table>
-          <tr>
-            <th><b>$ORGANIZACION</b></th>
-            <th>{{ contexto.organizacion }}</th>
-          </tr>
-          <tr>
-            <th><b>$CONTEXTO</b></th>
-            <th>{{ contexto.nombre }}</th>
-          </tr>
-        </table>
-      </b-alert>
+
+      <variables :elements="['CONTEXTO', 'ORGANIZACION', 'USUARIO']"></variables>
       <div class="form-group">
         <label class="form-control-label" for="mensaje-error-desc">Descripción</label>
         <b-form-textarea
@@ -308,6 +298,7 @@
       <span slot="modal-title"
         ><span id="kbaseApp.contexto.mensajes.question">Editar mensaje {{ newStep.paso }}</span></span
       >
+      <variables :elements="['CONTEXTO', 'ORGANIZACION', 'USUARIO']"></variables>
       <div class="form-group">
         <label class="form-control-label" for="mensaje-error-desc">Descripción</label>
         <b-form-textarea
