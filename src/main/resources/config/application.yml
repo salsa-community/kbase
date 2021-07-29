@@ -140,3 +140,7 @@ jhipster:
 # ===================================================================
 
 # application:
+api:
+  client:
+    host:
+      baseurl: http://localhost:3000

@@ -1,18 +1,20 @@
 package com.github.danimaniarqsoft.service.impl;
 
-import com.github.danimaniarqsoft.service.MensajeErrorService;
+import java.util.Optional;
+
 import com.github.danimaniarqsoft.domain.MensajeError;
 import com.github.danimaniarqsoft.repository.MensajeErrorRepository;
+import com.github.danimaniarqsoft.service.BotClient;
+import com.github.danimaniarqsoft.service.MensajeErrorService;
 import com.github.danimaniarqsoft.service.dto.MensajeErrorDTO;
 import com.github.danimaniarqsoft.service.mapper.MensajeErrorMapper;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 /**
  * Service Implementation for managing {@link MensajeError}.
@@ -25,6 +27,9 @@ public class MensajeErrorServiceImpl implements MensajeErrorService {
     private final MensajeErrorRepository mensajeErrorRepository;
 
     private final MensajeErrorMapper mensajeErrorMapper;
+
+    @Autowired
+    private BotClient botClient;
 
     public MensajeErrorServiceImpl(MensajeErrorRepository mensajeErrorRepository, MensajeErrorMapper mensajeErrorMapper) {
         this.mensajeErrorRepository = mensajeErrorRepository;
@@ -39,6 +44,7 @@ public class MensajeErrorServiceImpl implements MensajeErrorService {
      */
     @Override
     public MensajeErrorDTO save(MensajeError mensajeErrorDTO) {
+        botClient.cleanCache();
         log.debug("Request to save MensajeError : {}", mensajeErrorDTO);
         mensajeErrorDTO.setClave(mensajeErrorDTO.getClave().toUpperCase());
         mensajeErrorDTO = mensajeErrorRepository.save(mensajeErrorDTO);
