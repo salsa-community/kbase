@@ -5,7 +5,7 @@
 
     <groupId>com.github.danimaniarqsoft</groupId>
     <artifactId>kbase</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>2.4.0</version>
     <packaging>jar</packaging>
     <name>Kbase</name>
 
@@ -556,7 +556,7 @@
                             <image>adoptopenjdk:11-jre-hotspot</image>
                         </from>
                         <to>
-                            <image>conacyt/kbase:2.3.0</image>
+                            <image>conacyt/kbase:${project.version}</image>
                         </to>
                         <container>
                             <entrypoint>

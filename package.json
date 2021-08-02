@@ -135,7 +135,8 @@
     "test-ci": "npm run lint && npm run jest:update",
     "test:watch": "npm run jest -- --watch",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "publish": "./publish-docker-image.sh"
   },
   "jestSonar": {
     "reportPath": "target/test-results/jest",
