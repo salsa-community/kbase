@@ -33,8 +33,7 @@ spring:
       enabled: false
   data:
     mongodb:
-      uri: mongodb://localhost:27017
-      database: chatbot
+      uri: mongodb://localhost:27017/chatbot
   mail:
     host: localhost
     port: 25
