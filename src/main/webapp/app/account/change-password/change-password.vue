@@ -136,5 +136,4 @@
   </div>
 </template>
 
-<script lang="ts" src="./change-password.component.ts">
-</script>
+<script lang="ts" src="./change-password.component.ts"></script>

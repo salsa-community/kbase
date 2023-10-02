@@ -2,8 +2,11 @@
   <b-overlay :show="!imgLoaded">
     <div class="row">
       <div class="col-md">
-        <div v-if="authenticated">
-          <img src="content/images/knowledgebase.gif" alt="ciencia-loader" @load="onImgLoad" width="100%" />
+        <div v-if="authenticated" class="text-center">
+          <img src="content/images/kbase-security.png" alt="ciencia-loader" @load="onImgLoad" width="25%" />
+          <div class="col-md text-center mt-4">
+            <b-button size="lg" :to="'/admin/user-management'" variant="outline-primary">Gestión de usuarios</b-button>
+          </div>
         </div>
         <div v-if="!authenticated" class="text-center">
           <img src="content/images/kbase-logo.png" alt="ciencia-loader" @load="onImgLoad" style="max-width: 800px; width: 100%" />
@@ -16,5 +19,4 @@
   </b-overlay>
 </template>
 
-<script lang="ts" src="./home.component.ts">
-</script>
+<script lang="ts" src="./home.component.ts"></script>

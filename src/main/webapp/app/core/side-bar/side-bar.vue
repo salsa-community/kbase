@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="sidebar" :class="{ active: !authenticated }">
-      <!-- 
+      <!--
       <div class="custom-menu">
         <button v-b-toggle.sidebarupper @click="toggleSidebar" type="button" id="sidebarCollapse" class="btn btn-primary">
           <i class="fa fa-bars"></i>
@@ -41,34 +41,40 @@
               </router-link>
             </li>
 
-            <li v-if="authenticated" id="flujos">
+            <li v-if="authenticated" id="user-manager">
+              <router-link id="user-manager-router-id" :to="'/admin/user-management'">
+                <span class="fa fa-user mr-3"></span> {{ $t('global.menu.admin.userManagement') }}
+              </router-link>
+            </li>
+
+            <li v-if="false" id="flujos">
               <router-link id="flujos-router-id" :to="'/entity/mensaje-error'">
                 <span class="fa fa-comments-o mr-3"></span> {{ $t('global.menu.entities.mensajeError') }}
               </router-link>
             </li>
-            <li v-if="authenticated" id="contextos">
+            <li v-if="false" id="contextos">
               <router-link id="contextos-router-id" :to="'/entity/contexto'">
                 <span class="fa fa-tags mr-3"></span> {{ $t('global.menu.entities.contexto') }}
               </router-link>
             </li>
-            <li v-if="authenticated" id="intenciones">
+            <li v-if="false" id="intenciones">
               <router-link id="intenciones-router-id" :to="'/entity/unknow-intents'">
                 <span class="fa fa-th-list mr-3"></span> {{ $t('global.menu.entities.unknowIntents') }}
               </router-link>
             </li>
-            <li v-if="authenticated" id="contactos">
+            <li v-if="false" id="contactos">
               <router-link id="contactos-router-id" :to="'/entity/contacto'">
                 <span class="fa fa-envelope-open mr-3"></span> {{ $t('global.menu.entities.contacto') }}
               </router-link>
             </li>
-            <li v-if="authenticated" id="reportes">
+            <li v-if="false" id="reportes">
               <router-link id="reportes-router-id" :to="'/entity/actividad'">
                 <span class="fa fa-area-chart mr-3"></span> {{ $t('global.menu.entities.actividad') }}
               </router-link>
             </li>
           </ul>
 
-          <ul v-if="authenticated" class="list-unstyled components mb-5">
+          <ul v-if="false" class="list-unstyled components mb-5">
             <li>
               <a v-on:click="initTour()" id="help"> <span class="fa fa-info-circle mr-3"></span> {{ $t('global.menu.ayuda') }} </a>
             </li>
@@ -91,8 +97,7 @@
   </div>
 </template>
 
-<script lang="ts" src="./side-bar.component.ts">
-</script>
+<script lang="ts" src="./side-bar.component.ts"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

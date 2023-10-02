@@ -44,6 +44,8 @@ export default class JhiUserManagementEdit extends Vue {
   public isSaving = false;
   public authorities: any[] = [];
   public languages: any = this.$store.getters.languages;
+  public showErrors = false;
+  public errorMessage = '';
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -57,7 +59,7 @@ export default class JhiUserManagementEdit extends Vue {
   public constructor() {
     super();
     this.userAccount = new User();
-    this.userAccount.authorities = [];
+    this.userAccount.authorities = ['ROLE_USER'];
   }
 
   public initAuthorities() {
@@ -88,13 +90,23 @@ export default class JhiUserManagementEdit extends Vue {
         .then(res => {
           this.returnToList();
           this.alertService().showAlert(this.getMessageFromHeader(res), 'info');
+        })
+        .catch(error => {
+          this.isSaving = false;
         });
     } else {
+      this.userAccount.langKey = 'es';
       this.userManagementService()
         .create(this.userAccount)
         .then(res => {
           this.returnToList();
           this.alertService().showAlert(this.getMessageFromHeader(res), 'success');
+        })
+        .catch(error => {
+          this.isSaving = false;
+          this.showErrors = true;
+          this.errorMessage = this.$t(error.response.data.message).toString();
+          console.log(JSON.stringify(error.response, null, 2));
         });
     }
   }
