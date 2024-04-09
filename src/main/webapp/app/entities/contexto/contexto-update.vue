@@ -298,7 +298,7 @@
                 :sub-title="`Configuración del contexto: << ` + contexto.clave + ` >>`"
               >
                 <b-card-text>
-                  Utilice el siguiente código como referencia para instalar su chatbot <b>{{ contexto.clave }}</b>
+                En la sección de Header utilice el siguiente código como referencia para instalar su chatbot <b>{{ contexto.clave }}</b>
                 </b-card-text>
                 <code-highlight id="headcode-id" language="html" :key="headcodeKey">
                   {{ headcode }}
