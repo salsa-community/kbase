@@ -24,7 +24,7 @@
     "jslint": "^0.12.1",
     "swagger-ui": "2.2.10",
     "tiptap": "^1.29.1",
-    "vue": "^2.6.12",
+    "vue": "2.6.12",
     "vue-class-component": "7.0.2",
     "vue-code-highlight": "^0.7.6",
     "vue-codemirror": "^4.0.6",
