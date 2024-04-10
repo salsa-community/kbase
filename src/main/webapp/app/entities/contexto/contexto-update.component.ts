@@ -72,7 +72,7 @@ export default class ContextoUpdate extends Vue {
 
   public showReplies = false;
   public headcodeKey = 0;
-  public bodycodeKey = 1;
+  public bodycodeKey = 100;
   public tourSteps = CONTEXTO_STEPS;
   public tourOptions = OPTIONS;
 

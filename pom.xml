@@ -57,7 +57,7 @@
         <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
         <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
         <maven-checkstyle.version>3.1.0</maven-checkstyle.version>
-        <checkstyle.version>8.24</checkstyle.version>
+        <checkstyle.version>8.29</checkstyle.version>
         <spring-nohttp-checkstyle.version>0.0.3.RELEASE</spring-nohttp-checkstyle.version>
         <frontend-maven-plugin.version>1.8.0</frontend-maven-plugin.version>
         <git-commit-id-plugin.version>3.0.1</git-commit-id-plugin.version>
@@ -226,7 +226,7 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.15</version>
+            <version>3.17</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -556,7 +556,7 @@
                             <image>adoptopenjdk:11-jre-hotspot</image>
                         </from>
                         <to>
-                            <image>conacyt/kbase:${project.version}</image>
+                            <image>danimaniarqsoft/kbase:latest</image>
                         </to>
                         <container>
                             <entrypoint>

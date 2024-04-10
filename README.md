@@ -4,8 +4,10 @@
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
 
-1. [Node.js][]: We use Node to run a development web server and build the project.
-   Depending on your system, you can install Node either from source or as a pre-packaged bundle.
+1. [Node.js v12 and NPM v6 with nvm](https://github.com/nvm-sh/nvm): We use Node to run a development web server and build the project.
+   Depending on your system, you can install Node either from source or as a pre-packaged bundle. We recommend to use NVM in order to manage multiple
+   versions of node and npm
+2. [Java 8](https://openjdk.org/install/): We use Java for main programming language
 
 After installing Node, you should be able to run the following command to install development tools.
 You will only need to run this command when dependencies change in [package.json](package.json).
@@ -180,14 +182,14 @@ Documentation for production:
 
 `npm run docs:build`
 
-### Create docker
+### Create docker image
 
 ```bash
 ./mvnw -Pprod -DskipTests verify jib:dockerBuild
 ```
 
 ```bash
-docker login --username=i2cmx
-docker tag 3bb870e7a6d4 i2cmx/kbase:latest
-docker push i2cmx/kbase:latest
+docker login --username=danimaniarqsoft
+docker tag 3bb870e7a6d4 danimaniarqsoft/kbase:latest
+docker push danimaniarqsoft/kbase:latest
 ```
