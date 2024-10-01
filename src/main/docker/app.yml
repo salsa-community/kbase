@@ -1,7 +1,7 @@
 version: '2'
 services:
   bot-app:
-    image: i2cmx/atebot:${BOT_TAG}
+    image: i2cmx/bot:${BOT_TAG}
     environment:
       - MONGO_URI=mongodb://bot-mongodb:27017
       - MONGO_KB_URI=mongodb://bot-mongodb:27017/chatbot
